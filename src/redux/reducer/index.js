@@ -35,6 +35,7 @@ const initialState = {
   recuperoLaContraseña: false,
   nftPorName: [],
   market: [],
+  reviewComplete:false
 };
 
 export default function reducer(state = initialState, action) {
@@ -55,6 +56,12 @@ export default function reducer(state = initialState, action) {
         passwordUpdate: action.payload,
         recoverPassword: false,
       };
+      
+    case "POST_REVIEW":
+      return{
+        ...state,
+        reviewComplete:true
+      }  
 
     case "NEW_PASSWORD":
       return {
