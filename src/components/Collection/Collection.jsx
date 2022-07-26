@@ -5,6 +5,7 @@ import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 import Card from "../Card/Card";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import NotFound from "../NotFound/NotFound";
 import styles from "./Collection.module.css";
 
 export default function Collection() {
@@ -23,15 +24,19 @@ export default function Collection() {
         Go Back
       </button>
       <div className={styles.containerPadre}>
-        {NFTTokenIds.results?.map((e, index) => (
-          <Card
-            token_address={e.token_address}
-            id={e._id}
-            key={index}
-            name={e.name}
-            image={e.image}
-          />
-        ))}
+        {!fetchSuccess ? (
+          <NotFound />
+        ) : (
+          NFTTokenIds.results?.map((e, index) => (
+            <Card
+              token_address={e.token_address}
+              id={e._id}
+              key={index}
+              name={e.name}
+              image={e.image}
+            />
+          ))
+        )}
       </div>
       <Footer />
     </div>

@@ -56,7 +56,7 @@
   background-color: white;
 }
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 600px) {
   .inputDiv {
     width: 400px;
   }

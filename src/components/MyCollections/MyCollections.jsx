@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import styles from "./MyCollections.module.css";
 import { useNFTBalance } from "../../hooks/useNFTBalance";
@@ -14,6 +14,8 @@ export default function MyCollections() {
   const dispatch = useDispatch();
   const { NFTBalance, fetchSuccess } = useNFTBalance();
 
+  // useEffect(() => {}, [NFTBalance]);
+
   console.log(NFTBalance);
 
   const pushMarket = (e) => {
@@ -27,7 +29,7 @@ export default function MyCollections() {
         Go Back
       </button>
       <div className={styles.allInclusive}>
-        <div className={styles.tt}>My Collections!</div>
+        <div className={styles.tt}>MY COLLECTIONS</div>
         <div className={styles.gallery}>
           {NFTBalance.results?.map((e) => (
             //   <Card key={e._id} name={e.name} image={e.image} />
