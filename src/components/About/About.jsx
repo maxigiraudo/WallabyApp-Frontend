@@ -31,7 +31,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={matiball} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Matías Ballestá</h3>
@@ -58,7 +58,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={matisch} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Matías Schmidt</h3>
@@ -85,7 +85,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={cristian} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Cristian Lair</h3>
@@ -112,7 +112,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={joni} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Jonathan Caliva</h3>
@@ -141,7 +141,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={sol} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Sol Olmos</h3>
@@ -168,7 +168,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={ivan} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Ivan Koch</h3>
@@ -195,7 +195,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={maxi} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Maximiliano Giraudo</h3>
@@ -222,7 +222,7 @@ export default function About() {
                 <div className={styles.card}>
                   <div className={styles.imageTitulo}>
                     <img className={styles.imagen} src={flor} alt="img" />
-                    <p>Full Stack Developer</p>
+                    <p className={styles.fullstack}>Full Stack Developer</p>
                   </div>
                   <div className={styles.letras}>
                     <h3>Florencia Aguirre</h3>

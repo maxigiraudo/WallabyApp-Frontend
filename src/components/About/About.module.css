@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 500px) {
   .dosColumnas {
     display: flex;
     flex-direction: column;
@@ -116,6 +116,23 @@
     margin-right: 0;
   }
   .card {
-    width: 450px;
+    width: 90%;
+  }
+  .imagenLogo {
+    margin-left: 5px;
+    height: 30px;
+  }
+  .imagenLogog {
+    height: 30px;
+  }
+  .fullstack {
+    font-size: 10px;
+  }
+  .letras {
+    font-size: 10px;
+    text-align: center;
+  }
+  .imagen {
+    height: 50px;
   }
 }
