@@ -9,13 +9,32 @@ export function orderByPrice(payload) {
   };
 }
 
+export function review({email,rating}){
+  console.log("ESTE ES EL MAIL", email)
+  console.log("ESTE ES EL RATING", rating)
+  const body={
+    email : email,
+    rating: rating
+  }
+
+  console.log("ESTE ES EL BODY", body)
+  return async function(dispatch){
+    let json= await axios.post(`https://henry-proyecto-nft.herokuapp.com/${email}/reviews`, body)
+    console.log("ESTO HAY EN JSON",json)
+    return dispatch({
+      type: "POST_REVIEW",
+      payload:json.data
+    })
+  }
+}
+
 export function getNft() {
   return async function (dispatch) {
     let json = await axios.get(
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT",
       payload: json.data,
@@ -28,7 +47,7 @@ export function getNftDelHome() {
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT_HOME",
       payload: json.data,
@@ -49,8 +68,8 @@ export function getNftAll(cursor) {
 }
 // export function getNftAll2() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca2",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL2",
@@ -60,8 +79,8 @@ export function getNftAll(cursor) {
 // }
 // export function getNftAll3() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca3",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL3",
@@ -653,7 +672,7 @@ export function updatePassword(todo) {
       body
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "PUT_UPDATE_PASSWORD",
       payload: json.data,

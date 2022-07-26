@@ -6,6 +6,10 @@
   justify-content: center;
   margin: 10px;
 }
+
+.hizoReview{
+  color: #d04bff;
+}
 .botonR {
   color: #d04bff;
   background-color: black;

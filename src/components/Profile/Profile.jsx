@@ -14,6 +14,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import Star from '../Star/Star'
 
 export default function Profile() {
   //console.log(props)
@@ -61,6 +62,10 @@ export default function Profile() {
   console.log(profile);
   console.log(profileGoogle);
 
+  const [estaPorPuntuar, setEstaPorPuntuar] = useState(false)
+
+  const reviewTrue = useSelector((state)=> state.reviewComplete)
+
   const [newPass, setNewPass] = useState("");
 
   // const profiles = useSelector((state) => state.profile);
@@ -73,6 +78,10 @@ export default function Profile() {
 
   function cambioC() {
     dispatch(recoverPassword());
+  }
+
+  function porPuntuar(){
+    setEstaPorPuntuar(true)
   }
 
   function handleInput(e) {
@@ -99,6 +108,8 @@ export default function Profile() {
       timer: 1500,
     });
   }
+
+  console.log("ESTA POR PUNTUAR", estaPorPuntuar)
 
   console.log(newPass);
 
@@ -188,6 +199,11 @@ export default function Profile() {
                   Go to my collection!
                 </button>
               </Link>
+              <button  onClick={()=>porPuntuar()}>DEJANOS TU PUNTUACION DE LA PAGINA:</button>
+              {estaPorPuntuar === true && (reviewTrue ===false && profile[0].reviews.length === 0)  ?(
+              <Star/> ) : estaPorPuntuar === true && (reviewTrue ===true || profile[0].reviews.length > 0) ? ( 
+                 <p className={styles.hizoReview} >USTED REGISTRO UNA PUNTUACION, MUCHAS GRACIAS</p>) : null
+              }
             </div>
           </div>
         </div>
