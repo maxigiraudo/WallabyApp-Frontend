@@ -6,6 +6,7 @@ import Card from "../Card/Card";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Collection.module.css";
+import NotFound from "../NotFound/NotFound"
 
 export default function Collection() {
   const { address } = useParams();
@@ -23,7 +24,7 @@ export default function Collection() {
         Go Back
       </button>
       <div className={styles.containerPadre}>
-        {NFTTokenIds.results?.map((e, index) => (
+        {fetchSuccess === false ? <NotFound/> : NFTTokenIds.results?.map((e, index) => (
           <Card
             token_address={e.token_address}
             id={e._id}
