@@ -90,7 +90,7 @@ export default function Profile() {
     dispatch(updatePassword({ password: newPass, email: userrr.email }));
     JSON.parse(localStorage.getItem("profiles"));
     localStorage.removeItem("profiles");
-    window.location.href = "https://wallaby-neon.vercel.app/home";
+    window.location.href = "https://wallabyapp.vercel.app/home";
     Swal.fire({
       position: "center",
       icon: "success",
