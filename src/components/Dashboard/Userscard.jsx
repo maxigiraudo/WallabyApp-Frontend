@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Dashboard/Dashboard.module.css";
+
 import styles from "./Usercard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
