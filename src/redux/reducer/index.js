@@ -388,6 +388,16 @@ export default function reducer(state = initialState, action) {
         // usersDashboard: [...state.usersDashboard],
         // userDashboard: [...state.userDashboard],
       };
+      // case "SUSPEND_OR_UNSUSPEND_ACCOUNT":
+      //   return {
+      //     ...state,
+      //     stateforsuspendedaccounts???: action.payload,
+         
+      //   };
+
+
+
+
 
     case "PUBLISH_MARKET":
       return {
