@@ -1,0 +1,42 @@
+.div{
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #16161a;
+    border-bottom: 2px solid #cf4bffd0;
+}
+
+
+.payment{
+    width:350px;
+    height:650px;
+    color: white;
+    border-radius: 15px;
+
+}
+
+.botonR {
+    color: #d04bff;
+    background-color: black;
+    padding: 5px 10px 5px 10px;
+    list-style: none;
+    display: inline-block;
+    margin: 30px 30px;
+    border-radius: 8px;
+    border: 3px solid #d04bff;
+    border-style: groove;
+    box-shadow: inset 5px 5px 10px #6c63ff, inset -5px -5px 10px #d04bff;
+  }
+  
+  .botonR:hover {
+    background-color: #d04bff;
+    color: black;
+    cursor: pointer;
+  }

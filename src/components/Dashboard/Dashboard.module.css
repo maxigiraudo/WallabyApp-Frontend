@@ -1,0 +1,70 @@
+
+.adminContainer{
+    align-items: center;
+    justify-content: center;
+    min-height: 40rem;
+}
+
+
+.arriba{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #d04bff;
+}
+
+.iconAdmin{
+    font-size: 40px;
+    margin: 40px 30px;
+}
+
+.iconAdmin1, .iconAdmin2, .iconAdmin3, .iconAdmin4{
+    font-size: 40px;
+    padding-bottom: 2%;
+    color: white;
+
+
+}
+
+
+.featuresCont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 6%;
+    margin-bottom: 8%;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.featuresBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5%;
+    background: -webkit-linear-gradient(#d04bff, #6c63ff);
+    border: 2px solid #d04bff;
+    border-radius: 20px;
+    width: 22rem;
+    height: 8rem;
+    transition: .3s;
+    z-index: 3;
+    margin: 3%;
+}
+
+.featuresBox:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.titleAdmin{
+    color: white;
+    font-size: 30px;
+}
+
+.titleAdmin:hover {
+    letter-spacing: 1px;
+}

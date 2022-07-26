@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.home {
+  margin-left: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #16161a;
+  border-bottom: 2px solid #cf4bffd0;
+}
+.container a {
+  text-decoration: none;
+}
+.buttonW {
+  background-color: #16161a;
+  border: none;
+}
+.buttonW:hover {
+  cursor: pointer;
+}
+
+.home li {
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  list-style: none;
+  margin-left: 35px;
+}
+.logo {
+  width: 150px;
+  padding: 10px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d04bff;
+}
+
+.navBar a {
+  color: #d04bff;
+  text-decoration: none;
+}
+
+.navBar ul li {
+  padding: 5px 10px 5px 10px;
+  list-style: none;
+  display: inline-block;
+  margin: 10px 30px;
+  border-radius: 10px;
+  border: 3px solid #d04bff;
+  border-style: groove;
+  box-shadow: inset 5px 5px 10px #6c63ff, inset -5px -5px 10px #d04bff;
+}
+
+.navBar ul li:hover {
+  background-color: #d04bff;
+  color: black;
+  cursor: pointer;
+}
+
+.wallet {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.padreDrop {
+  display: flex;
+}
+.dropdown {
+  margin-top: 12px;
+}
+.wallet:hover {
+  color: #9f9bf3;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  align-items: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  width: 100px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

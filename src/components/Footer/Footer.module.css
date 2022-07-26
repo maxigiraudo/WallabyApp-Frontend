@@ -1,0 +1,120 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  background-color: #16161a;
+}
+.logo {
+  margin: 10px;
+  object-fit: contain;
+  height: 50px;
+}
+.footersocialmedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-social-media__icon {
+  margin: 0px 4px;
+  width: 25px;
+  height: 25px;
+}
+
+.footerinfo {
+  display: flex;
+  justify-content: center;
+}
+
+.footerinfoleft {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 30%;
+}
+.footerinfocenter {
+  font-size: 15px;
+  display: flex;
+  margin-bottom: 10px;
+  width: 35%;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+}
+.hola {
+  list-style: none;
+  width: 65%;
+}
+.u {
+  text-align: center;
+  margin-left: 75px;
+  margin-right: 20px;
+}
+
+.chau {
+  list-style: none;
+  width: 35%;
+}
+.enlace {
+  text-decoration: none;
+  color: black;
+  margin-bottom: 2px;
+}
+
+.footerinfo__name,
+.footerinfo__email,
+.footerinfo__number {
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+}
+
+.footerinfo__name,
+.footerinfo__returns {
+  text-align: start;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+}
+
+.footerinfo__email,
+.footerinfo__terms {
+  text-align: center;
+}
+
+.footerinfo__number,
+.footerinfo__contact {
+  text-align: end;
+}
+
+.footerdate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footerseperator {
+  flex-grow: 1;
+  border: none;
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+
+.footername {
+  display: flex;
+  justify-content: center;
+}
+
+.footerbottom__name {
+  text-transform: uppercase;
+  font-family: RobotoBold;
+  font-size: 20px;
+  margin: 0px 20px;
+}

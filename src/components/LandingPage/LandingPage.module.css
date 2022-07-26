@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.contenedorLanding {
+  align-items: center;
+  display: flex;
+  background-color: #000000;
+  flex-direction: column;
+  min-height: 80rem;
+  
+}
+
+.Landingtop {
+  display: flex;
+  padding: 6% 0 10% 0;
+}
+
+
+
+
+.Landingcubo{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cubo{
+  width: 55%;
+}
+
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.logoLanding {
+  width: 90%;
+}
+
+.textLanding {
+  color: #d04bff;
+  padding: 2% 0;
+  letter-spacing: 1px;
+  margin-top: 2%;
+  display: block;
+  white-space: nowrap;
+  border-right: 3px solid;
+  width: 33ch;
+  animation: typing 5s infinite alternate steps(50),
+    blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+  font-weight: lighter;
+  font-size: larger;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.botonLanding {
+  border-radius: 10px;
+  font-weight: bolder;
+  background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  padding: 10px;
+  width: 17rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px 5px #cf4bff65;
+  border: none;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+  letter-spacing: 1px;
+}
+
+.botonesLanding {
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.botonLanding:hover {
+  transform: scale(1.1);
+  letter-spacing: 1.5px;
+}
+
+.Landingbottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  background: linear-gradient(#cf4bff5e 0%, #6b63ff88 100%);
+  padding: 5% 5% 0 5%;
+  color: white;
+  box-shadow: 0 50px 50px 40px #6b63ff88;
+}
+
+.parrafoLanding {
+  padding: 2% 20%;
+  font-size: larger;
+  text-align: center;
+}
+
+.gruposLanding {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4%;
+}
+
+.columnaLanding {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  text-align: center;
+}
+
+.iconoLanding {
+  font-size: 2.3rem;
+}
+
+.parrafoLanding {
+  padding: 0 15%;
+  font-size: larger;
+}
+
+.chatbotLanding {
+  position: fixed;
+  width: 275px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.426);
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+}
+
+.cajaBoton {
+  background-color: black;
+  position: fixed;
+  width: 150px;
+  bottom: 22px;
+  right: 20px;
+  z-index: 51;
+  border: solid rgba(0, 0, 0, 0.505) 3px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.426);
+  border-radius: 18px;
+  padding: 0.5%;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: larger;
+  user-select: none;
+  transition: .4s;
+  display: flex;
+  justify-content: center;
+
+}
+
+.cajaBoton:hover {
+  background-color: rgba(0, 0, 0, 0.883);
+  color: #cf4bff;
+  letter-spacing: 1px;
+
+}
+
+.cajaActivada {
+  transition: .4s;
+  background-color: rgba(0, 0, 0, 0.945);
+  padding: 0.1%;
+  color: white;
+  font-size: medium;
+  position: fixed;
+  width: 275px;
+  bottom: 0px;
+  border-radius: 5px;
+  right: 18px;
+  z-index: 51;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+}
+
+.cajaActivada:hover {
+  color: #cf4bff;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.icon{
+  padding-top: 5px;
+  padding-left: 10px;
+  display: flex;
+  
+}

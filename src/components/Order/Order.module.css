@@ -1,0 +1,28 @@
+.orderContenedor{
+   display: flex;
+   align-items: center;
+   justify-content: left;
+}
+
+.orderBotones{
+    display: flex;
+
+}
+
+.orderBoton, .orderBoton1 {
+    border-radius: 8px;
+    background: linear-gradient(90deg, #cf4bffc5 0%, #6C63FF 100%);
+    padding: 5px;
+    width: 6rem;
+    font-family: inherit;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.orderBoton{
+    margin-left: 320px;
+}
+
+.orderBoton1{
+    margin-left: 580px;
+}

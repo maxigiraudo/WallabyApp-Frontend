@@ -1,0 +1,21 @@
+.list {
+    padding: 0;
+    cursor: pointer;
+}
+  
+.item {
+    text-align: left;
+    font-size: 0.9rem;
+    list-style: none;
+}
+  
+.url {
+    text-decoration: none;
+    margin: 6px;
+    display: block;
+    color: #1d1d1d;
+    background-color: #f1f1f1ca;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px rgba(150, 149, 149, 0.925);
+}

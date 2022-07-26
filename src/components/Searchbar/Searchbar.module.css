@@ -1,0 +1,57 @@
+.formSearch {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.inputDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #d04bff;
+  border-style: groove;
+  border-radius: 10px;
+  background-color: #16161a;
+  color: #d04bff;
+  width: 500px;
+}
+.lupa {
+  font-size: 22px;
+}
+
+.input {
+  padding: 10px;
+  border-style: none;
+  background-color: #16161a;
+  color: #d04bff;
+  width: 1000px;
+}
+.input:focus {
+  outline: none;
+}
+
+.boton {
+  color: black;
+  margin-left: 10px;
+  font-weight: bolder;
+  background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  padding: 5px;
+  width: 17.5rem;
+  cursor: pointer;
+  border: none;
+  font-family: "Bebas Neue", cursive;
+  font-size: 22px;
+  letter-spacing: 1px;
+  border-radius: 0px 8px 8px 0px;
+}
+.boton:hover {
+  background: #16161a;
+  border-color: #d04bff;
+  color: #d04bff;
+}
+
+.btn {
+  color: white;
+  background-color: white;
+}

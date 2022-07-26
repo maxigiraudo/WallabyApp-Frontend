@@ -1,0 +1,53 @@
+.iconProfile {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.iconProfile:hover {
+  color: #6c63ff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: -50px;
+  background-color: #16161a;
+  color: #cf4bff;
+  min-width: 120px;
+  box-shadow: 0px 5px 10px 5px #cf4bffa8;
+  border-radius: 6px;
+  padding: 13px 16px;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownItem {
+  font-size: larger;
+  padding: 3px;
+}
+
+.dropdownItem:hover {
+  letter-spacing: 1px;
+}
+
+.botonSingOut {
+  border: none;
+  background-color: #16161a;
+  color: #cf4bff;
+  font-size: large;
+  cursor: pointer;
+  font-family: inherit;
+}
+.botonSingOut:hover {
+  letter-spacing: 1px;
+}

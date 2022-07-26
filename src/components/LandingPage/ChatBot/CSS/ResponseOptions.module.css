@@ -1,0 +1,18 @@
+.learning {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 8px 0;
+    padding: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #1d1d1d;
+    background-color: #cf4bff41;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px rgba(150, 149, 149, 0.925);
+    border: none;
+
+}
+
+
+

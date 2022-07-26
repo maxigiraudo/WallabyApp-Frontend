@@ -1,0 +1,184 @@
+.nameC {
+  background: -webkit-linear-gradient(white, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  height: 50%;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.veri {
+  font-size: 20px;
+  height: 50px;
+  margin-top: 12px;
+  margin-left: 5px;
+  color: rgb(29, 203, 209);
+}
+
+.imageC {
+  /* margin-left: 31%; */
+  border-radius: 10px;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-bottom: 0px;
+  transition: 0.5s;
+}
+.imageC:hover {
+  transform: scale(1.2);
+}
+.divIm {
+  border: 5px solid rgb(68, 68, 68);
+  margin-left: 20px;
+  margin-top: -10px;
+  border-radius: 10px;
+  padding: 0;
+}
+.containerC {
+  width: 80px;
+  height: 200px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  border: 1px solid white;
+}
+.flex {
+  display: flex;
+  margin-top: 20px;
+}
+.tres {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/vF8johTucYy6yycIOJTM94LH-wcDQIPTn9-eKLMbxajrm7GZfJJWqxdX6uX59pA4n4n0QNEn3bh1RXcAFLeLzJmq79aZmIXVoazmVw=h400");
+  background-size: cover;
+}
+.cuatro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/cDyVq8y6l5hqd37ahZ_k4awkXZQMiaKCaD7DntxJEJyClkSD44KVK_gYi_r3TmpjI6SxE3XdjY59LfHeBgMkN6qHWfGRSzHsx8loGg=h400");
+  background-size: cover;
+}
+.cinco {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/SH_itazaX0a0muJDUWbR2ogADL79c-CzRXoN0TT1ePdUv5KDOXHnHi_2n7_II0LX_3Fy6hVFXjz-tnEs-bJ93O4iI7gufKSHrpk6s34=h400");
+  background-size: 120%;
+}
+.seis {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/X4Q2rHfwRSUHRw9HLkKfG3J-8NjjhUTXV3sJ1CVvCtg-ycL-hHroQMiEUP9pqRNJvV7mjH2euA1jDxKvS1mhgQI-ZUljlhI-owP2GA=h400");
+  background-size: cover;
+}
+.siete {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/BC4yvlQw8js3h7kyRl-bru-0ig7tmJK9kEkklTcXHU52TdIKR04ZVanoBCPjxrYe2oLuaR5i71FlZOSKisFRU_PW5se71OHDIa0asLc=h128-w128");
+  background-size: cover;
+}
+.ocho {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/6PSdAp9ON7HKStiogFT87q44GhIyMGiGPSHDvZxY0gtJwWNXH-WKDgcUEg_16udVZl1GJvIF0eu7aq1Xir6Q1i2DMz0fIYoJlQz26A=h400");
+  background-size: cover;
+}
+.nueve {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/syMpZ0m9kyhQJno5x89SjDiFLQPUmB-gK0HlCaSdnAP9VvHmdndfZ00J4Qs2oXWgvjFh9C2M40ZFYsFcO1TnsnGzhkSRzODJ94ZP2A=h400");
+  background-size: cover;
+}
+.diez {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://lh3.googleusercontent.com/13g3FRwKuCmawyeH_rN5VwYbQZ8KrWdN8IZf4_uKJ3IeLjligIY7ZZ_HR7b48RKUJuUfevFTMzxFJcBWdn51TyZVoAXNPqh1TCIprw=h400");
+  background-size: cover;
+}
+.once {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d04bff;
+  margin-left: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  background-image: url("https://openseauserdata.com/files/84ed587d7f083bd349a87b2e742e4f5b.png");
+  background-size: cover;
+}
+.container23 {
+  margin-top: 75%;
+  width: 100%;
+  display: flex;
+  background-color: rgb(68, 68, 68);
+}
+.hola {
+  display: flex;
+  height: 500px;
+}
+.carousel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* .modal{
+      position: fixed,
+      z-index: 999,
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background-color: black
+    } */

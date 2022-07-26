@@ -1,0 +1,177 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,600;0,900;1,200;1,600&family=Merriweather+Sans:wght@300;700&family=Oswald:wght@300&family=Rubik:wght@400;500;700&display=swap");
+
+.containergeneral {
+  background-color: rgb(10, 10, 10);
+  font-family: "Oswald", sans-serif;
+}
+.cartoneta {
+  border-radius: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 92%;
+  margin-left: 50px;
+}
+body {
+  background-color: rgb(10, 10, 10);
+}
+.footer {
+  margin-top: 50px;
+}
+.carousel {
+  width: 50%;
+  margin-left: 55px;
+}
+
+.h1deload {
+  color: #d04bff;
+  text-align: center;
+}
+
+.nameC {
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  text-align: center;
+  font-size: 20px;
+}
+.imageC {
+  /* margin-left: 31%; */
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  margin-top: 2px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.containerC {
+  width: 80px;
+  height: 200px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  border: none;
+}
+.tres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container2 {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  margin-top: 100px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(41, 41, 50, 1) 100%
+  );
+  box-shadow: 2px 2px 62px 19px rgba(44, 2, 79, 0.75) inset;
+  border-bottom: 3px solid #d04bff;
+  border-top: 3px solid #d04bff;
+}
+.containerNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+}
+.searchBar {
+  margin-left: 430px;
+}
+.text {
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  width: 40%;
+  text-align: center;
+}
+.linkCard {
+  text-decoration: none;
+}
+
+.cardHome {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.colectionHome {
+  width: fit-content;
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.colectionPadre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .cardHome {
+  columns: 4 320px;
+  column-gap: 0.5em;
+  margin: 10px;
+} */
+
+.option {
+  margin-top: 10px;
+  border: 1px solid white;
+  text-align: center;
+  width: 50%;
+  /* margin-left: 25%; */
+  border-radius: 15px;
+}
+.option:hover {
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.navDos {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.carrito {
+  background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  border-radius: 5px;
+  color: black;
+  width: fit-content;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-left: 200px;
+  font-family: inherit;
+  text-align: center;
+  border: 3px solid #d04bff;
+  margin-top: 9px;
+}
+.carrito:hover {
+  background: #16161a;
+  color: #cf4bffc5;
+}
+
+.noResult {
+  margin: 200px;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+}
