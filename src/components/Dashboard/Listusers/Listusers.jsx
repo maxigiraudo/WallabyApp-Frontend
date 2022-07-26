@@ -15,11 +15,16 @@ import styles from "../Listusers/Listusers.module.css";
 export default function Listusers() {
   const users = useSelector((state) => state.usersDashboard);
   const user = useSelector((state) => state.userDashboard);
-
+  const userrr = JSON.parse(localStorage.getItem("profiles"));
+  const newUser = JSON.parse(userrr);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(usersDashboard());
+    dispatch(usersDashboard({
+      email: newUser.email,
+      password: newUser.password,
+    }));
+    console.log(newUser)
   }, [dispatch]);
 
   return (

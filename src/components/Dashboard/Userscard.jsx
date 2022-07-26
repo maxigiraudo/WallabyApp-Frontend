@@ -2,7 +2,11 @@ import React from "react";
 import styles from "../Dashboard/Dashboard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { updateAdminToUser, usersDashboard } from "../../redux/actions";
+import {
+  suspendAccount,
+  updateAdminToUser,
+  usersDashboard,
+} from "../../redux/actions";
 import { BiTargetLock } from "react-icons/bi";
 import { updateUserToAdmin } from "../../redux/actions";
 
@@ -11,9 +15,10 @@ import { updateUserToAdmin } from "../../redux/actions";
 //{email: "ikp123456722890@gmail.com", password: "Ivann@n"}
 
 export default function Usercard({ name, email }) {
-  const users = useSelector((state) => state.usersDashboard);
-  const user = useSelector((state) => state.userDashboard);
-
+  //localstoragegetitem="profile" para chupar la data del usuario
+  const userrr = JSON.parse(localStorage.getItem("profiles"));
+  const newUser = JSON.parse(userrr);
+  console.log("DATA A ROBARRR", userrr);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -25,26 +30,32 @@ export default function Usercard({ name, email }) {
 
   function HandleUserValueChange(e) {
     e.preventDefault();
-    if (e.target.value === "default") {
-      console.log("HAAHAHA!");
+    if (e.target.value === "Suspend" || e.target.value === "Unsuspend") {
+      dispatch(
+        suspendAccount({
+          userEmail: email,
+          email: newUser.email,
+          password: newUser.password,
+        })
+      );
     }
     if (e.target.value === "Admin") {
       dispatch(
         updateUserToAdmin({
           userEmail: email,
-          email: "miaumiau@gmail.com",
-          password: "Miau1234",
+          email: newUser.email,
+          password: newUser.password,
         })
       );
     }
     if (e.target.value === "User") {
-        dispatch(
-            updateAdminToUser({
-              userEmail: email,
-              email: "miaumiau@gmail.com",
-              password: "Miau1234",
-            })
-          );
+      dispatch(
+        updateAdminToUser({
+          userEmail: email,
+          email: newUser.email,
+          password: newUser.password,
+        })
+      );
     }
   }
 
@@ -59,6 +70,8 @@ export default function Usercard({ name, email }) {
           </option>
           <option value="User">User</option>
           <option value="Admin">Admin</option>
+          <option value="Suspend">Suspend</option>
+          <option value="Unsuspend">Unsuspend</option>
         </select>
       </div>
       <br></br>
