@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { usersDashboard } from "../../../redux/actions/index";
 
-import Usercard from "../Userscard.jsx";
+import Usercard from "./Userscard.jsx";
 import NavBar from "../../Navbar/Navbar.jsx";
 import Footer from "../../Footer/Footer.jsx";
 import styles from "../Listusers/Listusers.module.css";
+
 
 //const [ usersDashboard, setusersDashboard] = useState([])
 //const [ userDashboard, setuserDashboard] = useState()
@@ -25,10 +26,13 @@ export default function Listusers() {
   return (
     <div>
       <NavBar />
-
+      <div className={styles.title}>
+        <h1> Users List</h1>
+      </div>
+  
       <div className={styles.container}>
         {users.map((e, index) => (
-          <Usercard name={e.nombre} email={e.email} />
+          <Usercard name={e.nombre} email={e.email} key={index}/>
         ))}
       </div>
 

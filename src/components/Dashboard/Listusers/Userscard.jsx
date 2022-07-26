@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "./Usercard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { updateAdminToUser, usersDashboard } from "../../redux/actions";
+import { updateAdminToUser, usersDashboard, updateUserToAdmin} from "../../../redux/actions/index.js";
 import { BiTargetLock } from "react-icons/bi";
-import { updateUserToAdmin } from "../../redux/actions";
+
 
 //const [ usersDashboard, setusersDashboard] = useState([])
 //const [ userDashboard, setuserDashboard] = useState()
@@ -49,19 +49,21 @@ export default function Usercard({ name, email }) {
   }
 
   return (
-    <div>
-      <h1 className={styles.container}> Name: {name} </h1>
-      <h1 className={styles.container}> Email: {email} </h1>
+    <div className={styles.general}>
+      <div className={styles.hijo}>
+        <p className={styles.container}> Name: {name} </p>
+        <p className={styles.container}> Email: {email} </p>
+      </div>
+
       <div>
-        <select onChange={(e) => HandleUserValueChange(e)}>
-          <option defaultValue="miau?" value="default" hidden>
-            miau?
+        <select className={styles.user} onChange={(e) => HandleUserValueChange(e)}>
+          <option defaultValue="Status" value="default" hidden>
+            Status
           </option>
           <option value="User">User</option>
           <option value="Admin">Admin</option>
         </select>
       </div>
-      <br></br>
     </div>
   );
 }
