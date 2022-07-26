@@ -101,11 +101,17 @@
   width: 100px;
   top: 100%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -50px;
   position: absolute;
   z-index: 1;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+@media all and (max-width: 575px) {
+  .buttonW {
+    display: none;
+  }
 }
