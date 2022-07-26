@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 600px) {
   .dosColumnas {
     display: flex;
     flex-direction: column;

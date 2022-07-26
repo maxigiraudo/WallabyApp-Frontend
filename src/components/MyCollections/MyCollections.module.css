@@ -1,7 +1,11 @@
 .tt {
-  color: white;
-
+  color: black;
+  font-weight: bolder;
+  margin-bottom: 20px;
   font-size: 30px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  padding: 10px;
+  border-radius: 10px;
 }
 .botonR {
   color: #d04bff;
@@ -75,7 +79,8 @@
   padding: 10px;
   margin: 0;
   transform: translate(-50%, -50%);
-  background: none;
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
   border: none;
   color: white;
   cursor: pointer;
