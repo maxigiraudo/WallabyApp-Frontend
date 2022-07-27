@@ -110,7 +110,7 @@
   visibility: visible;
 }
 
-@media all and (max-width: 410px) {
+@media all and (max-width: 500px) {
   .buttonW {
     display: none;
   }

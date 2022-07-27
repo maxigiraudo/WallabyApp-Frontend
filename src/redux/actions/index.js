@@ -9,36 +9,40 @@ export function orderByPrice(payload) {
   };
 }
 
-export function review({email,rating,username}){
-  console.log("ESTE ES EL MAIL", email)
-  console.log("ESTE ES EL RATING", rating)
-  console.log("NOMBRE:",username)
-  const body={
-    email : email,
+export function review({ email, rating, username }) {
+  console.log("ESTE ES EL MAIL", email);
+  console.log("ESTE ES EL RATING", rating);
+  console.log("NOMBRE:", username);
+  const body = {
+    email: email,
     rating: rating,
-    username:username
-  }
-  console.log("ESTE ES EL BODY", body)
-  return async function(dispatch){
-    let json= await axios.post(`https://henry-proyecto-nft.herokuapp.com/${email}/reviews`, body)
-    console.log("ESTO HAY EN JSON",json)
+    username: username,
+  };
+  console.log("ESTE ES EL BODY", body);
+  return async function (dispatch) {
+    let json = await axios.post(
+      `https://henry-proyecto-nft.herokuapp.com/${email}/reviews`,
+      body
+    );
+    console.log("ESTO HAY EN JSON", json);
     return dispatch({
       type: "POST_REVIEW",
-      payload:json.data
-    })
-  }
+      payload: json.data,
+    });
+  };
 }
 
-export function getReview(){
-  return async function(dispatch){
-    let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/reviews")
-    console.log("ESTA ES MI DATA",json.data)
+export function getReview() {
+  return async function (dispatch) {
+    let json = await axios.get(
+      "https://henry-proyecto-nft.herokuapp.com/reviews"
+    );
+    console.log("ESTA ES MI DATA", json.data);
     return dispatch({
-      type:"GET_REVIEWS",
-      payload:json.data
-    }      
-    )
-  }
+      type: "GET_REVIEWS",
+      payload: json.data,
+    });
+  };
 }
 
 export function getNft() {
@@ -511,8 +515,8 @@ export const register = (body) => async (dispatch) => {
       timer: 1500,
     });
   } catch (err) {
-    const errorString = String(err).slice(0, 10);
-    if (errorString === "AxiosError") {
+    const errorString = String(err).slice(0, 5);
+    if (errorString === "Error") {
       console.log("VAMOOOOOOOOOOOOO");
       body = newbody;
       console.log("nuevo bodyyy", body);
@@ -535,6 +539,7 @@ export const register = (body) => async (dispatch) => {
 
       const profileGoogle = data;
       if (profileGoogle) {
+        console.log(profileGoogle);
         localStorage.setItem("profileGoogle", JSON.stringify(profileGoogle));
       }
       console.log("LOGUEADO TITANN", data);
@@ -675,7 +680,6 @@ export const updateAdminToUser = (dataa) => async (dispatch) => {
   }
 };
 
-
 export const suspendAccount = (dataa) => async (dispatch) => {
   //reemplazar el body con "dataa" que viene por el params para funcionamiento total
   const userEmail = dataa.userEmail;
@@ -693,22 +697,6 @@ export const suspendAccount = (dataa) => async (dispatch) => {
     console.log(error);
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export function updatePassword(todo) {
   const email = todo.email;
