@@ -13,11 +13,12 @@ import styles from "./Profile.module.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
-import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill, BsNodePlusFill } from "react-icons/bs";
 import Star from "../Star/Star";
 import { NavLink } from "react-router-dom";
 
 export default function Profile() {
+
   //console.log(props)
   const [shown, setShown] = React.useState(false);
   const dispatch = useDispatch();
@@ -36,14 +37,15 @@ export default function Profile() {
   console.log("ESTE ES EL USEE GOOGLE", userrrGoogle);
   const newUsuario = JSON.parse(userrr);
   console.log("ESTE ES EL USER COMUN", newUsuario);
-
+  
+  
   useEffect(() => {
     dispatch(getProfile(newUsuario));
-  }, []);
+  }, [dispatch,newUsuario]);
 
   useEffect(() => {
     dispatch(getProfileGoogle(userrrGoogle));
-  }, []);
+  }, [dispatch]);
 
   function validationForm(value) {
     let errors = {};
@@ -228,7 +230,7 @@ export default function Profile() {
                     <li>Admin</li>
                   </NavLink>
               ):
-              <div className={styles.white}>USER COMUN</div>
+              null
               }
                  
             </div>
