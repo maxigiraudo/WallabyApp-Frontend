@@ -16,3 +16,12 @@
     background-color: black;
     margin-top: 1%;
 }
+
+.list{
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 1%;
+    font-size: 25px;
+}
