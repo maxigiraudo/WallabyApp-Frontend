@@ -511,8 +511,8 @@ export const register = (body) => async (dispatch) => {
       timer: 1500,
     });
   } catch (err) {
-    const errorString = String(err).slice(0, 10);
-    if (errorString === "AxiosError") {
+    const errorString = String(err).slice(0, 5);
+    if (errorString === "Error") {
       console.log("VAMOOOOOOOOOOOOO");
       body = newbody;
       console.log("nuevo bodyyy", body);

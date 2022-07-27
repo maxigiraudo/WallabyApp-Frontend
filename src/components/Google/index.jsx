@@ -22,10 +22,10 @@ const GoogleBtn = () => {
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId:
-          "316483334585-pute8sjjkgj3mkom5ohlkijkdugiecoo.apps.googleusercontent.com",
         // clientId:
-        //   "446175834469-vo2cgbsrab6a8444kd213loj477hd85g.apps.googleusercontent.com",
+        //   "316483334585-pute8sjjkgj3mkom5ohlkijkdugiecoo.apps.googleusercontent.com",
+        clientId:
+          "446175834469-vo2cgbsrab6a8444kd213loj477hd85g.apps.googleusercontent.com",
         scope: "email",
       });
     }
@@ -67,8 +67,8 @@ const GoogleBtn = () => {
       <GoogleLogin
         // className={styles.google}
 
-        clientId="316483334585-pute8sjjkgj3mkom5ohlkijkdugiecoo.apps.googleusercontent.com"
-        // clientId="446175834469-vo2cgbsrab6a8444kd213loj477hd85g.apps.googleusercontent.com"
+        // clientId="316483334585-pute8sjjkgj3mkom5ohlkijkdugiecoo.apps.googleusercontent.com"
+        clientId="446175834469-vo2cgbsrab6a8444kd213loj477hd85g.apps.googleusercontent.com"
         buttonText="Acceder con Google"
         // onclick={()=> onclick()}
         onSuccess={(data) => {
