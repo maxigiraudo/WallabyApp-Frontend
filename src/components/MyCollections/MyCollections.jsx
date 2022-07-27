@@ -33,7 +33,7 @@ export default function MyCollections() {
         nftContract: nft.token_address,
         tokenId: nft._id,
         price: String(p),
-        gasLimit: 50000,
+        
       },
     };
 
