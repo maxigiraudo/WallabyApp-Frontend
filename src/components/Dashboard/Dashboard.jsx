@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   return (
-       
         <div className={styles.adminContainer}>
              <Navbar/>
             
@@ -53,8 +52,9 @@ export default function Dashboard() {
                     </div> */}
 
                 </div>
-                <Footer/>
+
             </div>
+            <Footer/>
         </div>
     )
 }

@@ -49,3 +49,12 @@
   .Li{
     background-color: black;
   }
+
+@media all and (max-width: 500px) {
+  .container{
+    padding: 4%;
+  }
+  .list{
+    font-size: 1.2rem;
+}
+}
