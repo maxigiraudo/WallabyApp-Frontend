@@ -669,7 +669,7 @@ export const suspendAccount = (dataa) => async (dispatch) => {
   const body = { email: dataa.email, password: dataa.password };
   try {
     const { data } = await axios.put(
-      `http://localhost:4000/admin/user/${userEmail}/status`,
+      `https://henry-proyecto-nft.herokuapp.com/admin/user/${userEmail}/status`,
       body
     );
     return dispatch({
