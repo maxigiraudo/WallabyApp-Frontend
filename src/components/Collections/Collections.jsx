@@ -4,13 +4,11 @@ import { MdVerified } from "react-icons/md";
 import style from "./Collections.module.css";
 import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 import { getNameNft } from "../../redux/actions";
-import Collection from "../Collection/Collection";
 import { Link } from "react-router-dom";
 
 export default function Collections({ image, name, address }) {
   console.log("AAAAAAAAAAADREEEEEEEEEEEEEEEEES", address);
   //   const newAddress = address.map((e) => {})
-
 
 
   const dispatch = useDispatch();
