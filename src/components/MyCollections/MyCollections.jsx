@@ -50,6 +50,7 @@ export default function MyCollections() {
     setNftToSell(nft);
     setVisibility(true);
     setInput(nft);
+    console.log(nft);
   };
 
   console.log(NFTBalance);
@@ -79,7 +80,22 @@ export default function MyCollections() {
               >
                 Publish on the market
               </button>
-              {input ? <input className={styles.input} type="text" /> : null}
+              {input.name === e.name ? (
+                <div>
+                  <input
+                    placeholder="Price ETH"
+                    className={styles.input}
+                    type="text"
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                  <input
+                    onClick={() => list(nftToSell, price)}
+                    value="List"
+                    className={styles.inputt}
+                    type="submit"
+                  />
+                </div>
+              ) : null}
               <img className={styles.img} src={e.image} alt="img" />
             </div>
           ))}
