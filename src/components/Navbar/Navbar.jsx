@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Logo from "./logo.png";
-
+import { BsCartCheck } from "react-icons/bs";
 import Dropdown from "../Dropdown/Dropdown.jsx";
 
 import DropDownWallet from "../DropwdownWallet/DropDownWallet.jsx";
@@ -42,11 +42,9 @@ export default function Navbar() {
       </NavLink>
       <nav className={styles.navBar}>
         <ul>
-
           {newUser || userrrGoogle ? (
             newUser.email && newUser.email === "usuarioadmin@gmail.com" ? (
               <div className={styles.padreDrop}>
-
                 <div>
                   <NavLink to="/Dashboard">
                     <li>Admin</li>
@@ -93,6 +91,14 @@ export default function Navbar() {
             </div>
           )}
         </ul>
+        <div>
+          <div className={styles.tooltip}>
+            <NavLink to="/cart">
+              <BsCartCheck className={styles.wallet} />
+              <span className={styles.tooltiptext}>View Cart</span>
+            </NavLink>
+          </div>
+        </div>
         <div>
           <DropdownNft className={styles.wallet}></DropdownNft>
         </div>

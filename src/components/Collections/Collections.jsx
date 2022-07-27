@@ -4,25 +4,18 @@ import { MdVerified } from "react-icons/md";
 import style from "./Collections.module.css";
 import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 import { getNameNft } from "../../redux/actions";
-import Collection from "../Collection/Collection";
 import { Link } from "react-router-dom";
 
 export default function Collections({ image, name, address }) {
   console.log("AAAAAAAAAAADREEEEEEEEEEEEEEEEES", address);
   //   const newAddress = address.map((e) => {})
 
-  const { NFTTokenIds, fetchSuccess } = useNFTTokenIds(
-    "0x61097cc82C503Ff2d95ce11eDD93e0f0CAB30c59"
-  );
 
   const dispatch = useDispatch();
 
   //   function buscarNftColeccion(e) {
   //     dispatch(getNameNft(e));
   //   }
-
-  console.log("ESTA ES LA COLECCION ", NFTTokenIds);
-  console.log(fetchSuccess);
 
   return (
     <div className={style.carousel}>

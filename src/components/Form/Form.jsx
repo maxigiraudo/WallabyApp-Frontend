@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import Moralis from "moralis";
 import Web3 from "web3";
-import { contractABI, nft_contract_address } from "../../contract";
+import { contractABI, nft_contract_address } from "../../contracts/contract";
 import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
@@ -47,8 +47,8 @@ export default function Form() {
     else if (value.name.length < 4) {
       errors.name = "It must contain at least 4 characters";
     }
-    if (value.description.length < 20) {
-      errors.description = "It must contain at least 20 characters";
+    if (value.description.length < 5) {
+      errors.description = "It must contain at least 5 characters";
     }
 
     console.log(value);
