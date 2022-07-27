@@ -148,8 +148,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
       </div>
       <div className={style.container2}>
         <h1 className={style.text}>
-          Search the categories that you like the most and find the NFT that you
-          are looking.
+        Select the category you like the most and enjoy the Wallaby experience.
         </h1>
         <div className={style.carousel}>
           <Slider {...settings}>
