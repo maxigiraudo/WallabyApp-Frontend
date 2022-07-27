@@ -36,20 +36,28 @@ const initialState = {
   nftPorName: [],
   market: [],
   reviewComplete:false,
-  allReviews:[]
+  allReviews:[],
+  notFoundName: false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "GET_NAME_NFT":
       const sinC = action.payload;
+      let notFound = action.payload;
+      if(notFound.length <= 1){
+        notFound = true;
+      }else{
+        notFound = false;
+      }
       const sinCurs = sinC.filter((e) => e.name);
       return {
         ...state,
         nftPorName: sinCurs,
         cards: [],
         allCards: [],
-        collection:[]
+        collection:[],
+        notFoundName: notFound
       };
     case "PUT_UPDATE_PASSWORD":
       return {

@@ -45,15 +45,14 @@ import CollectionSpo from "../Collections/CollectionSpo/CollectionSpo";
 export default function Home({ agregarCarrito, agregarFavorito }) {
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
+  const notFound = useSelector((state) => state.notFoundName)
 
   const nftName = useSelector((state) => state.nftPorName);
-  const [loading, setLoading] = useState(true);
 
   console.log("CURSOR DEL HOME", cursori);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (allCard.length === 0 && nftName.length === 0) dispatch(getNft()).then(() => setLoading(false));
-    return () => setLoading(false);
+    if (allCard.length === 0) dispatch(getNft())
   }, [dispatch, cursori]);
 
   const collections = useSelector((state) => state.collection);
@@ -245,11 +244,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
                 </div>
               </div>
             </div>
-            {loading ? (
-              <Loading />
-            ) : currentNft.length === 0 && nftName.length === 0 ? (
-              <NotFound />
-            ) : null}
+            {notFound === true ? <NotFound/> : currentNft.length === 0 && nftName.length === 0 ? ( <Loading/> ) : currentNft.length || nftName.length ?
             <InfiniteScroll
               className={style.cardHome}
               dataLength={currentNft.length} //This is important field to render the next data
@@ -269,14 +264,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
                   token_address={e.token_address}
                   collection={e.collection}
                 />
-              ))}
-            </InfiniteScroll>
-            <InfiniteScroll
-              className={style.cardHome}
-              dataLength={currentNft.length} //This is important field to render the next data
-              next={() => setCurrentPage((prevPage) => prevPage + 1)}
-              hasMore={hasMore}
-            >
+              ))} 
               {nftName?.map((e, index) => (
                 <Card
                   agregarFavorito={agregarFavorito}
@@ -289,9 +277,10 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
                   created={e.created}
                   token_address={e.token_address}
                   collection={e.collection}
-                />
+                /> 
               ))}
-            </InfiniteScroll>
+              </InfiniteScroll> : null }
+              
           </div>
         )}
       </div>
