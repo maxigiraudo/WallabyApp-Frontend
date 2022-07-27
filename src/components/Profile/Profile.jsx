@@ -15,6 +15,7 @@ import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Star from "../Star/Star";
+import { NavLink } from "react-router-dom";
 
 export default function Profile() {
   //console.log(props)
@@ -67,6 +68,12 @@ export default function Profile() {
   const reviewTrue = useSelector((state) => state.reviewComplete);
 
   const [newPass, setNewPass] = useState("");
+
+  const esAdmin = useSelector((state)=> state.esAdministrador)
+
+  
+
+  
 
   // const profiles = useSelector((state) => state.profile);
   //console.log(profile)
@@ -215,6 +222,15 @@ export default function Profile() {
                   You already rated the app, thank you!
                 </p>
               ) : null}
+              {esAdmin === true?
+              (
+                <NavLink to="/Dashboard">
+                    <li>Admin</li>
+                  </NavLink>
+              ):
+              <div className={styles.white}>USER COMUN</div>
+              }
+                 
             </div>
           </div>
         </div>
