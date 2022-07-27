@@ -37,7 +37,9 @@ const initialState = {
   market: [],
   reviewComplete:false,
   allReviews:[],
-  notFoundName: false
+  notFoundName: false,
+  userGoogleTrue:false,
+  userComunTrue:false
 };
 
 export default function reducer(state = initialState, action) {
@@ -312,6 +314,7 @@ export default function reducer(state = initialState, action) {
         userIsAuthenticated: true,
         error: false,
         userData: profile,
+        userComunTrue:true
       };
     case "LOGIN_DATA":
       return {
@@ -375,6 +378,7 @@ export default function reducer(state = initialState, action) {
         userInfo: profileGoogle,
         loading: false,
         error: false,
+        userGoogleTrue:true
       };
     }
     case "REGISTER_USER_ERROR": {
