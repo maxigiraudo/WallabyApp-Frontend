@@ -68,29 +68,28 @@ export default function LandingPage() {
         <h2 className={styles.Title}> What is WALLAby? </h2>
         <p className={styles.parrafoLanding}>
           {" "}
-          The platform not only allows you to buy or sell NTF, you can also
-          create and obtain your own token through a guided process for those
-          who are not specialists in the field.
+          Wallaby is a platform that will allow you to see real nfts in the market, 
+          you can also sell your own nfts with real contracts and select the ones you like the most.
         </p>
         <div className={styles.gruposLanding}>
           
           <div className={styles.columnaLanding}>
             <IoWalletOutline className={styles.iconoLanding}/>
             <h3>Set up your wallet</h3>
-            <p>Once you’ve set up your wallet of choice, connect it to OpenSea by clicking the wallet icon in the top right corner.</p>
+            <p>You will have the possibility to load your metamask wallet with a credit card in the currency of your choice..</p>
           </div>
           <div className={styles.columnaLanding}>
             <IoImageOutline className={styles.iconoLanding}/>
             <h3>Add your NFTs</h3>
-            <p>Upload your work (image, video, or 3D art), add a title and description, and customize your NFTs with properties, stats, and unlockable content.</p>
+            <p>You will be able to create your own NFT by selecting an image, description and then publish it on the marketplace..</p>
           </div>
           <div className={styles.columnaLanding}>
             <IoPricetagsOutline className={styles.iconoLanding}/>
             <h3>List them for sale</h3>
-            <p>You choose how you want to sell your NFTs, and we help you sell them!</p>
+            <p>You will chose how you want to sell your NFTs, and we help you sell them!</p>
           </div>
         </div>
-        <h1>PODES DEJARNOS TU PUNTAJE DE LA PAGINA:</h1>
+        <h1>YOU CAN LEAVE US YOUR SCORE OF THE PAGE:</h1>
         <div className={styles.conatinerReview}>
         {allreview.map((e)=>(
           <div className={styles.review} >
