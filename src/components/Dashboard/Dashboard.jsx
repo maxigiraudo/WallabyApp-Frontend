@@ -26,7 +26,7 @@ export default function Dashboard() {
                     <div className={styles.featuresBox}>
                         <MdSupervisedUserCircle className={styles.iconAdmin1} />
                         <Link className={styles.title} to='/Dashboard/Listusers'>
-                            <h5 className={styles.titleAdmin}>List of users</h5>
+                            <h5 className={styles.titleAdmin}>Users List</h5>
                         </Link>
                     </div>
 
