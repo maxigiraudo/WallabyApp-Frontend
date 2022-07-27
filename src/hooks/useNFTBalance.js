@@ -18,7 +18,7 @@ export const useNFTBalance = () => {
     function fetchData() {
       Web3Api.account
         .getNFTs({
-            chain : "rinkeby"
+            chain : "mumbai"
         })
         .then((data) => {
             const NFTs = data.result;

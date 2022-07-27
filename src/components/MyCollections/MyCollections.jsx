@@ -24,6 +24,7 @@ export default function MyCollections() {
 
   async function list(nft, currentPrice) {
     const p = currentPrice * ("1e" + 18);
+    
     const ops = {
       contractAddress: marketAddress,
       functionName: listItemFunction,
@@ -32,6 +33,7 @@ export default function MyCollections() {
         nftContract: nft.token_address,
         tokenId: nft._id,
         price: String(p),
+        
       },
     };
 

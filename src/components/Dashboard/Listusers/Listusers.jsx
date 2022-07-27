@@ -30,10 +30,13 @@ export default function Listusers() {
   return (
     <div>
       <NavBar />
+      <div className={styles.list}>
+        <h1> Users List </h1>
+      </div>
 
       <div className={styles.container}>
         {users.map((e, index) => (
-          <Usercard name={e.nombre} email={e.email} />
+          <Usercard name={e.nombre} email={e.email} key={index}/>
         ))}
       </div>
 

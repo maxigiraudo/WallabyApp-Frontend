@@ -87,7 +87,7 @@ export default function Form() {
 
       const contract = new web3.eth.Contract(contractABI, nft_contract_address);
       const response = await contract.methods
-        .mint(metadataurl)
+        .createToken(metadataurl)
         .send({ from: user.get("ethAddress") });
       const tokenId = response.events.Transfer.returnValues.tokenId;
 
