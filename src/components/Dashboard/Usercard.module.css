@@ -26,5 +26,13 @@
     border-radius: 8px;
     color: white;
     width: 90px;
+    cursor: pointer;
+
+}
+
+.opcion{
+    background-color: #cf4bffbe;
+    font-weight: bold;
+    color: black;
 
 }

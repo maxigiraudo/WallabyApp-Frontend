@@ -68,13 +68,13 @@ export default function Usercard({ name, email }) {
       </div>
       <div>
       <select className={styles.user} onChange={(e) => HandleUserValueChange(e)}>
-          <option defaultValue="Status" value="default" hidden>
+          <option className={styles.opcion} defaultValue="Status" value="default" hidden>
             Status
           </option>
-          <option value="User">User</option>
-          <option value="Admin">Admin</option>
-          <option value="Suspend">Suspend</option>
-          <option value="Unsuspend">Unsuspend</option>
+          <option className={styles.opcion} value="User">User</option>
+          <option className={styles.opcion} value="Admin">Admin</option>
+          <option className={styles.opcion} value="Suspend">Suspend</option>
+          <option className={styles.opcion} value="Unsuspend">Unsuspend</option>
         </select>
       </div>
     </div>
