@@ -99,14 +99,16 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
                       }
                       className={styles.heart}
                     >
-                      Add to Favorite {AiFillHeart()}{" "}
+                      <p className={styles.addto}>Add to Favorite</p>
+                      {AiFillHeart()}{" "}
                     </button>
                   ) : (
                     <button
                       onClick={() => favorito()}
                       className={styles.heartFeo}
                     >
-                      Add to Favorite {AiFillHeart()}{" "}
+                      <p className={styles.addto}>Add to Favorite</p>
+                      {AiFillHeart()}{" "}
                     </button>
                   )}
                 </div>

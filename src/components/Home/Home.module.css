@@ -176,7 +176,7 @@ body {
   color: tomato;
 }
 
-@media all and (max-width: 410px) {
+@media all and (max-width: 500px) {
   .container2 {
     display: flex;
     flex-direction: column;

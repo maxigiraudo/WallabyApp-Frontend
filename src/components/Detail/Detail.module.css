@@ -207,3 +207,33 @@ a {
   opacity: 50%;
   background: none;
 }
+.addto {
+  font-size: 28px;
+}
+
+@media all and (max-width: 500px) {
+  .imagen {
+    height: 140px;
+    margin-right: 25px;
+  }
+  .description {
+    width: 100px;
+  }
+  .abajo {
+    margin-top: 20px;
+  }
+  .addto {
+    display: none;
+  }
+  .name {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .des {
+    font-size: 11px;
+  }
+  .padre {
+    padding: 30px;
+    margin: 10px 20px 50px 20px;
+  }
+}
