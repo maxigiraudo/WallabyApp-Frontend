@@ -1,4 +1,6 @@
+
 import React, {useState} from "react";
+
 import Navbar from "../Navbar/Navbar";
 import {useMoralis} from 'react-moralis'
 import styles from "./MyCollections.module.css";
@@ -52,7 +54,6 @@ export default function MyCollections() {
   }
 
 
-  
 
   const handleSellClick = (nft) => {
     setNftToSell(nft);
@@ -79,7 +80,7 @@ export default function MyCollections() {
         Go Back
       </button>
       <div className={styles.allInclusive}>
-        <div className={styles.tt}>My Collections!</div>
+        <div className={styles.tt}>MY COLLECTIONS</div>
         <div className={styles.gallery}>
           {NFTBalance.results?.map((e) => (
             //   <Card key={e._id} name={e.name} image={e.image} />

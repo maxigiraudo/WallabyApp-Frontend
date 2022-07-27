@@ -35,6 +35,7 @@ const initialState = {
   recuperoLaContraseña: false,
   nftPorName: [],
   market: [],
+  reviewComplete:false
 };
 
 export default function reducer(state = initialState, action) {
@@ -55,6 +56,12 @@ export default function reducer(state = initialState, action) {
         passwordUpdate: action.payload,
         recoverPassword: false,
       };
+      
+    case "POST_REVIEW":
+      return{
+        ...state,
+        reviewComplete:true
+      }  
 
     case "NEW_PASSWORD":
       return {
@@ -388,6 +395,16 @@ export default function reducer(state = initialState, action) {
         // usersDashboard: [...state.usersDashboard],
         // userDashboard: [...state.userDashboard],
       };
+      // case "SUSPEND_OR_UNSUSPEND_ACCOUNT":
+      //   return {
+      //     ...state,
+      //     stateforsuspendedaccounts???: action.payload,
+         
+      //   };
+
+
+
+
 
     case "PUBLISH_MARKET":
       return {

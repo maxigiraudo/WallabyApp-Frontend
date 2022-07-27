@@ -47,8 +47,8 @@ export default function Form() {
     else if (value.name.length < 4) {
       errors.name = "It must contain at least 4 characters";
     }
-    if (value.description.length < 20) {
-      errors.description = "It must contain at least 20 characters";
+    if (value.description.length < 5) {
+      errors.description = "It must contain at least 5 characters";
     }
 
     console.log(value);

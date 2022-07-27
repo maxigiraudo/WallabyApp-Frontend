@@ -1,32 +1,23 @@
 import React from "react";
-import style from "./Card.module.css";
-import { BsFillCartCheckFill, BsFillHeartFill } from "react-icons/bs";
+import style from "./CardMarket.module.css";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
 
-export default function Card({
+export default function CardMarket({
   id,
   price,
   name,
   image,
   token_address,
+  agregarCarrito,
   agregarFavorito,
 }) {
-  let dispatch = useDispatch();
-  // let [cont, setContador] = useState(1);
-
   const navigate = useNavigate();
 
-  let onClick = () => {
-    Swal.fire({
-      icon: "error",
-      title: "Not available for sale at Wallaby.",
-      text: "To buy NFT check the market.",
-      showConfirmButton: true,
-    });
-    navigate("/market");
+  let onClick = (e) => {
+    agregarCarrito(e);
   };
   let onClickF = (e) => {
     agregarFavorito(e);
@@ -39,7 +30,6 @@ export default function Card({
     navigate("/login");
   };
 
-  // const logged = useSelector((state) => state.userIsAuthenticated);
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
 
