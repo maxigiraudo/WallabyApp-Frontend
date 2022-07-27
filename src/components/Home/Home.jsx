@@ -52,7 +52,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
   console.log("CURSOR DEL HOME", cursori);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (allCard.length === 0) dispatch(getNft())
+    if (allCard.length === 0 && nftName.length === 0) dispatch(getNft())
   }, [dispatch, cursori]);
 
   const collections = useSelector((state) => state.collection);

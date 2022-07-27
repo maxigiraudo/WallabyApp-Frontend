@@ -47,21 +47,6 @@ export default function Navbar() {
       <nav className={styles.navBar}>
         <ul>
           {userrrGoogle === null && newUser ? (
-             newUser.email  === "usuarioadmin@gmail.com" ? (
-              <div className={styles.padreDrop}>
-                <div>
-                  <NavLink to="/Dashboard">
-                    <li>Admin</li>
-                  </NavLink>
-                  <NavLink to="/market">
-                    <li>Market</li>
-                  </NavLink>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
-                </div>
-              </div>
-            ) : (
               <div className={styles.padreDrop}>
                 <div>
                   <div>
@@ -78,23 +63,9 @@ export default function Navbar() {
                 </div>
               </div>
             )
-          ) : null }
+           : null }
           {newUser === null && userrrGoogle? (
-             userrrGoogle.email  === "usuarioadmin@gmail.com" ? (
-              <div className={styles.padreDrop}>
-                <div>
-                  <NavLink to="/Dashboard">
-                    <li>Admin</li>
-                  </NavLink>
-                  <NavLink to="/market">
-                    <li>Market</li>
-                  </NavLink>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
-                </div>
-              </div>
-            ) : (
+            
               <div className={styles.padreDrop}>
                 <div>
                   <div>
@@ -110,7 +81,7 @@ export default function Navbar() {
                   <Dropdown className={styles.wallet}></Dropdown>
                 </div>
               </div>
-            )
+            
           ) : null}
           {newUser === null && userrrGoogle === null? (
             (
