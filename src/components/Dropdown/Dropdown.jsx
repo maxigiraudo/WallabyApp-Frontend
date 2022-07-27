@@ -29,7 +29,7 @@ export default function Dropdown() {
         }
 
         dispatch(singoutOk());
-        window.location.href = "https://wallaby-neon.vercel.app/home";
+        window.location.href = "https://wallabyapp.vercel.app/home";
       }
     });
   };

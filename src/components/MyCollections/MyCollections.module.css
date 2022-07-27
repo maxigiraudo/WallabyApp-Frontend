@@ -1,7 +1,11 @@
 .tt {
-  color: white;
-
+  color: black;
+  font-weight: bolder;
+  margin-bottom: 20px;
   font-size: 30px;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  padding: 10px;
+  border-radius: 10px;
 }
 .botonR {
   color: #d04bff;
@@ -69,18 +73,31 @@
 
 .botoncito {
   position: absolute;
+  top: 10%;
+  left: 50%;
+  z-index: 1;
+  padding: 10px;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+.input {
+  position: absolute;
   top: 90%;
   left: 50%;
   z-index: 1;
   padding: 10px;
   margin: 0;
   transform: translate(-50%, -50%);
-  background: none;
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 10px;
   border: none;
   color: white;
   cursor: pointer;
 }
-
 /* .card {
   display: flex;
   flex-direction: column;
@@ -88,3 +105,11 @@
   justify-content: center;
   margin: 20px;
 } */
+
+.ventanitaModal {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

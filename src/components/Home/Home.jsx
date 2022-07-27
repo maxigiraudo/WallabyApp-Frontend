@@ -52,7 +52,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
   console.log("CURSOR DEL HOME", cursori);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (allCard.length === 0) dispatch(getNft()).then(() => setLoading(false));
+    if (allCard.length === 0 && nftName.length === 0) dispatch(getNft()).then(() => setLoading(false));
     return () => setLoading(false);
   }, [dispatch, cursori]);
 
@@ -243,12 +243,6 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
                 <div className={style.searchBar}>
                   <Searchbar setCurrentPage={setCurrentPage} />
                 </div>
-                <Link to="/cart">
-                  <div className={style.carrito}>
-                    <h2>{FaShoppingCart()} View Cart</h2>
-                  </div>
-                </Link>
-                {/* <Order /> */}
               </div>
             </div>
             {loading ? (

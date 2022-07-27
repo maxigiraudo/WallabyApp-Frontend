@@ -9,13 +9,45 @@ export function orderByPrice(payload) {
   };
 }
 
+export function review({email,rating,username}){
+  console.log("ESTE ES EL MAIL", email)
+  console.log("ESTE ES EL RATING", rating)
+  console.log("NOMBRE:",username)
+  const body={
+    email : email,
+    rating: rating,
+    username:username
+  }
+  console.log("ESTE ES EL BODY", body)
+  return async function(dispatch){
+    let json= await axios.post(`https://henry-proyecto-nft.herokuapp.com/${email}/reviews`, body)
+    console.log("ESTO HAY EN JSON",json)
+    return dispatch({
+      type: "POST_REVIEW",
+      payload:json.data
+    })
+  }
+}
+
+export function getReview(){
+  return async function(dispatch){
+    let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/reviews")
+    console.log("ESTA ES MI DATA",json.data)
+    return dispatch({
+      type:"GET_REVIEWS",
+      payload:json.data
+    }      
+    )
+  }
+}
+
 export function getNft() {
   return async function (dispatch) {
     let json = await axios.get(
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT",
       payload: json.data,
@@ -28,7 +60,7 @@ export function getNftDelHome() {
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT_HOME",
       payload: json.data,
@@ -49,8 +81,8 @@ export function getNftAll(cursor) {
 }
 // export function getNftAll2() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca2",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL2",
@@ -60,8 +92,8 @@ export function getNftAll(cursor) {
 // }
 // export function getNftAll3() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca3",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL3",
@@ -586,9 +618,9 @@ export function singoutOk() {
   };
 }
 
-export const usersDashboard = (body) => async (dispatch) => {
+export const usersDashboard = (dataa) => async (dispatch) => {
   //reemplazar el body con el body que viene por el params para funcionamiento total
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   const config = {
     headers: { "Content-Type": "application/json" },
   };
@@ -610,7 +642,7 @@ export const usersDashboard = (body) => async (dispatch) => {
 export const updateUserToAdmin = (dataa) => async (dispatch) => {
   //reemplazar el body con "dataa" que viene por el params para funcionamiento total
   const userEmail = dataa.userEmail;
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   try {
     const { data } = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/admin/edit/${userEmail}`,
@@ -628,7 +660,7 @@ export const updateUserToAdmin = (dataa) => async (dispatch) => {
 export const updateAdminToUser = (dataa) => async (dispatch) => {
   //reemplazar el body con "dataa" que viene por el params para funcionamiento total
   const userEmail = dataa.userEmail;
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   try {
     const { data } = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/admin/edituser/${userEmail}`,
@@ -643,6 +675,41 @@ export const updateAdminToUser = (dataa) => async (dispatch) => {
   }
 };
 
+
+export const suspendAccount = (dataa) => async (dispatch) => {
+  //reemplazar el body con "dataa" que viene por el params para funcionamiento total
+  const userEmail = dataa.userEmail;
+  const body = { email: dataa.email, password: dataa.password };
+  try {
+    const { data } = await axios.put(
+      `http://localhost:4000/admin/user/${userEmail}/status`,
+      body
+    );
+    return dispatch({
+      type: "SUSPEND_OR_UNSUSPEND_ACCOUNT",
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function updatePassword(todo) {
   const email = todo.email;
   const body = { password: todo.password };
@@ -653,7 +720,7 @@ export function updatePassword(todo) {
       body
     );
     console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "PUT_UPDATE_PASSWORD",
       payload: json.data,
