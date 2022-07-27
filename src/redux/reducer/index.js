@@ -344,9 +344,12 @@ export default function reducer(state = initialState, action) {
     case "GET_PROFILE":
       let a = action.payload.roles[0]
       console.log("ESTO ES EL ADMIN",a)
-      if(a[23]  == "e"){
+      console.log("PAYLOAD",action.payload)
+      if(a !== undefined){
+        if(a[23]  == "e"){
         a = true
       }
+    }
       return {
         ...state,
         profile: [action.payload],
