@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     color: #d04bff;
+    cursor: pointer;
 }
 
 .iconAdmin{

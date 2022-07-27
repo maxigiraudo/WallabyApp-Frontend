@@ -68,8 +68,8 @@ export default function Usercard({ name, email }) {
       </div>
       <div>
       <select className={styles.user} onChange={(e) => HandleUserValueChange(e)}>
-          <option className={styles.opcion} defaultValue="Status" value="default" hidden>
-            Status
+          <option className={styles.opcion} defaultValue="User" value="default" hidden>
+            User
           </option>
           <option className={styles.opcion} value="User">User</option>
           <option className={styles.opcion} value="Admin">Admin</option>
