@@ -14,9 +14,29 @@
   padding: 6% 0 10% 0;
 }
 
+.conatinerReview{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
 
-
-
+.review{
+  margin: 1% 1%;
+  border-radius: 80px;
+  height: 100px;
+  width: 100px;
+}
+.userR{
+  margin-top: 24px;
+  list-style:none;
+  text-align: center;
+}
+.ratingR{
+  list-style:none;
+  text-align: center;
+}
 .Landingcubo{
     width: 25%;
     display: flex;

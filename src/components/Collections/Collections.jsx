@@ -13,9 +13,10 @@ export default function Collections({ image, name, address }) {
 
   const dispatch = useDispatch();
 
-  //   function buscarNftColeccion(e) {
-  //     dispatch(getNameNft(e));
-  //   }
+    function buscarNftColeccion(e) {
+      dispatch(getNameNft(e));
+    }
+
 
   return (
     <div className={style.carousel}>
@@ -23,15 +24,15 @@ export default function Collections({ image, name, address }) {
         {image ? (
           <div className={style.container23}>
             <div className={style.divIm}>
-              <Link to={`/collection/${address}`}>
+              {/* <Link to={`/collection/${address}`}> */}
                 <img
                   className={style.imageC}
                   src={image}
                   alt="*"
                   value="art"
-                  // onClick={() => buscarNftColeccion(name)}
+                  onClick={() => buscarNftColeccion(name)}
                 />
-              </Link>
+              {/* </Link> */}
             </div>
             <div className={style.divH}></div>
             <h1 className={style.nameC}>{name}</h1>

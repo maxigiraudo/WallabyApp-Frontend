@@ -9,6 +9,10 @@ export default function Star() {
   const dispatch = useDispatch()
   const email = useSelector((state)=> state.profile[0].email)
 
+  const nombre= useSelector((state)=> state.profile[0].nombre)
+
+  console.log(nombre)
+
   console.log(email)
 
   function handleClick(e){
@@ -19,7 +23,7 @@ export default function Star() {
     <div className={styles.container}>
       <form className={styles.from}>
         <p className={styles.clasificacion}>
-          <input id="radio1" type="radio" name="estrellas" value="5" onClick={()=> handleClick({email:email, rating:5})}/>
+          <input id="radio1" type="radio" name="estrellas" value="5" onClick={()=> handleClick({email:email, rating:5,username:nombre})}/>
           <label className={styles.label} for="radio1">
             ★
           </label>

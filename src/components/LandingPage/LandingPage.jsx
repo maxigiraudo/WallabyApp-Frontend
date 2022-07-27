@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./LandingPage.module.css";
 import { Link } from "react-router-dom";
 import logo from "./Imagenes/logowallaby.png";
@@ -7,6 +7,10 @@ import { IoWalletOutline, IoImageOutline, IoPricetagsOutline} from "react-icons/
 import { BsChatDots } from "react-icons/bs"
 import Chatbot from "./ChatBot/ChatBot.js";
 import { useState } from "react";
+import{useDispatch, useSelector} from 'react-redux'
+import { getReview } from "../../redux/actions";
+import { AiTwotoneStar } from "react-icons/ai";
+
 
 
 
@@ -14,12 +18,22 @@ export default function LandingPage() {
 
   const [botState, setBotState] = useState(false)
 
+  const dispatch=useDispatch()
+
   const cambiarState = () => {
       if (botState === true) {
           setBotState(false)
       }
       else { setBotState(true) }
   }
+
+  useEffect(()=>{
+    dispatch(getReview())
+  },[dispatch])
+
+  const allreview = useSelector((state)=> state.allReviews)
+
+  console.log("ESTA ES MI ALL REVIEW",allreview)
 
   return (
     <div className={styles.contenedorLanding}>
@@ -75,6 +89,15 @@ export default function LandingPage() {
             <h3>List them for sale</h3>
             <p>You choose how you want to sell your NFTs, and we help you sell them!</p>
           </div>
+        </div>
+        <h1>PODES DEJARNOS TU PUNTAJE DE LA PAGINA:</h1>
+        <div className={styles.conatinerReview}>
+        {allreview.map((e)=>(
+          <div className={styles.review} >
+            <li className={styles.userR}>{e.username}</li>
+            <li className={styles.ratingR} >{e.rating}  {AiTwotoneStar()}</li>
+          </div>
+        ))}
         </div>
 
         {botState ?
