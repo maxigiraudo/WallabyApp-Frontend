@@ -38,14 +38,17 @@ export default function About() {
                     <p>Team Wallaby Full Stack</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/matias-ballest%C3%A1-207b9915a/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/matias-ballest%C3%A1-207b9915a/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/matiasballesta">
+                    <a target="_blank" href="https://github.com/matiasballesta">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -65,14 +68,17 @@ export default function About() {
                     <p>Team Wallaby Frontend</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/matias-schmidt-48486723a/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/matias-schmidt-48486723a/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/mschmidt17">
+                    <a target="_blank" href="https://github.com/mschmidt17">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -92,14 +98,17 @@ export default function About() {
                     <p>Team Wallaby Backend</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/cristian-lair-8ab7971b8/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/cristian-lair-8ab7971b8/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/CristianLair">
+                    <a target="_blank" href="https://github.com/CristianLair">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -119,14 +128,17 @@ export default function About() {
                     <p>Team Wallaby Frontend</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/jonathan-andres-caliva-891328172/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/jonathan-andres-caliva-891328172/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/JonathanCaliva">
+                    <a target="_blank" href="https://github.com/JonathanCaliva">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -148,7 +160,10 @@ export default function About() {
                     <p>Team Wallaby Frontend</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/sol-olmos-15b166b8/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/sol-olmos-15b166b8/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
@@ -175,7 +190,10 @@ export default function About() {
                     <p>Team Wallaby Full Stack</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/ivan-koch-b32a77239/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/ivan-koch-b32a77239/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
@@ -202,14 +220,17 @@ export default function About() {
                     <p>Team Wallaby Frontend</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/maximiliano-giraudo-2a1933119/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/maximiliano-giraudo-2a1933119/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/maxigiraudo">
+                    <a target="_blank" href="https://github.com/maxigiraudo">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -229,14 +250,17 @@ export default function About() {
                     <p>Team Wallaby Full Stack</p>
                   </div>
                   <div>
-                    <a href="https://www.linkedin.com/in/floaguirre/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/floaguirre/"
+                    >
                       <img
                         className={styles.imagenLogo}
                         src={linkedin}
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/floaguirre">
+                    <a target="_blank" href="https://github.com/floaguirre">
                       <img
                         className={styles.imagenLogog}
                         src={github}

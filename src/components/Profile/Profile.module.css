@@ -7,6 +7,10 @@
   margin: 10px;
 }
 
+.white{
+  color: white;
+}
+
 .hizoReview {
   color: #d04bff;
   margin-top: 5px;
@@ -235,4 +239,10 @@
 }
 .loginInputt:focus {
   outline: none;
+}
+
+@media all and (max-width: 500px) {
+  .two {
+    padding: 0px;
+  }
 }

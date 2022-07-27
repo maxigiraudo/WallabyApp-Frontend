@@ -37,7 +37,10 @@ const initialState = {
   market: [],
   reviewComplete:false,
   allReviews:[],
-  notFoundName: false
+  notFoundName: false,
+  userGoogleTrue:false,
+  userComunTrue:false,
+  esAdministrador: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -192,6 +195,7 @@ export default function reducer(state = initialState, action) {
         cards: getInfoF,
         collection: [],
         nftPorName: [],
+        notFoundName: false,
       };
     case "GET_NFT_HOME":
       // const getInfo = action.payload
@@ -312,6 +316,7 @@ export default function reducer(state = initialState, action) {
         userIsAuthenticated: true,
         error: false,
         userData: profile,
+        userComunTrue:true
       };
     case "LOGIN_DATA":
       return {
@@ -337,9 +342,18 @@ export default function reducer(state = initialState, action) {
       };
 
     case "GET_PROFILE":
+      let a = action.payload.roles[0]
+      console.log("ESTO ES EL ADMIN",a)
+      console.log("PAYLOAD",action.payload)
+      if(a !== undefined){
+        if(a[23]  == "e"){
+        a = true
+      }
+    }
       return {
         ...state,
         profile: [action.payload],
+        esAdministrador: a
       };
     case "GET_PROFILE_GOOGLE":
       return {
@@ -375,6 +389,7 @@ export default function reducer(state = initialState, action) {
         userInfo: profileGoogle,
         loading: false,
         error: false,
+        userGoogleTrue:true
       };
     }
     case "REGISTER_USER_ERROR": {
