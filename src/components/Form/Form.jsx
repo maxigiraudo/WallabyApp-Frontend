@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import Moralis from "moralis";
 import Web3 from "web3";
-import { contractABI, nft_contract_address } from "../../contract";
+import { contractABI, nft_contract_address } from "../../contracts/contract";
 import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
