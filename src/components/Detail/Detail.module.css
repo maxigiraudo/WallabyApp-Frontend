@@ -213,8 +213,8 @@ a {
 
 @media all and (max-width: 500px) {
   .imagen {
-    height: 140px;
-    margin-right: 25px;
+    height: 200px;
+    margin-right: 0px;
   }
   .description {
     width: 100px;
@@ -228,6 +228,9 @@ a {
   .name {
     font-size: 20px;
     margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: center;
+    width: 200px;
   }
   .des {
     font-size: 11px;
@@ -235,5 +238,10 @@ a {
   .padre {
     padding: 30px;
     margin: 10px 20px 50px 20px;
+  }
+  .todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./Card.module.css";
-import { BsFillCartCheckFill, BsFillHeartFill } from "react-icons/bs";
-import { AiFillHeart } from "react-icons/ai";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
+import { BsSuitHeartFill } from "react-icons/bs";
 
 export default function Card({
   id,
@@ -84,11 +84,11 @@ export default function Card({
               onClick={() => onClickF({ id, name, image })}
               className={style.heart}
             >
-              {AiFillHeart()}{" "}
+              {BsSuitHeartFill()}{" "}
             </button>
           ) : (
             <button onClick={() => favorito()} className={style.heartFeo}>
-              {AiFillHeart()}{" "}
+              {BsSuitHeartFill()}{" "}
             </button>
           )}
         </div>

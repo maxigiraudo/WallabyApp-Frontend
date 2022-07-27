@@ -50,8 +50,7 @@
 }
 .u {
   text-align: center;
-  margin-left: 75px;
-  margin-right: 20px;
+  margin-left: 150px;
 }
 
 .chau {
@@ -117,4 +116,10 @@
   font-family: RobotoBold;
   font-size: 20px;
   margin: 0px 20px;
+}
+
+@media all and (max-width: 500px) {
+  .u {
+    margin-left: 70px;
+  }
 }

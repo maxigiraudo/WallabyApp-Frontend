@@ -236,3 +236,9 @@
 .loginInputt:focus {
   outline: none;
 }
+
+@media all and (max-width: 500px) {
+  .two {
+    padding: 0px;
+  }
+}
