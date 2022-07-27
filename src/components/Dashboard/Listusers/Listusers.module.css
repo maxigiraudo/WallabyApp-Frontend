@@ -1,7 +1,18 @@
 .container{
-    background-color: aliceblue;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 24% 0 24%;
+    justify-content: center;
 }
 
-.miau{
-    color: purple;
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    margin-top: 1%;
 }
