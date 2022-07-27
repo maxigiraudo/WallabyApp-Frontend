@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./Usercard.module.css";
+import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -31,7 +32,7 @@ export default function Usercard({ name, email }) {
 
   function HandleUserValueChange(e) {
     e.preventDefault();
-    if (e.target.value === "Suspend" || e.target.value === "Unsuspend") {
+    if (e.target.value === "Suspend") {
       dispatch(
         suspendAccount({
           userEmail: email,
@@ -39,6 +40,27 @@ export default function Usercard({ name, email }) {
           password: newUser.password,
         })
       );
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "The user status has been changed to suspended",
+        showConfirmButton: true,
+      });
+    }
+    if (e.target.value === "Unsuspend") {
+      dispatch(
+        suspendAccount({
+          userEmail: email,
+          email: newUser.email,
+          password: newUser.password,
+        })
+      );
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "The user status has been changed to Unsuspended",
+        showConfirmButton: true,
+      });
     }
     if (e.target.value === "Admin") {
       dispatch(
@@ -48,6 +70,12 @@ export default function Usercard({ name, email }) {
           password: newUser.password,
         })
       );
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "The user status has been changed to Admin",
+        showConfirmButton: true,
+      });
     }
     if (e.target.value === "User") {
       dispatch(
@@ -57,6 +85,13 @@ export default function Usercard({ name, email }) {
           password: newUser.password,
         })
       );
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "The user status has been changed to User",
+        showConfirmButton: true,
+        
+      });
     }
   }
 
@@ -68,8 +103,8 @@ export default function Usercard({ name, email }) {
       </div>
       <div>
       <select className={styles.user} onChange={(e) => HandleUserValueChange(e)}>
-          <option className={styles.opcion} defaultValue="Status" value="default" hidden>
-            Status
+          <option className={styles.opcion} defaultValue="User" value="default" hidden>
+            User
           </option>
           <option className={styles.opcion} value="User">User</option>
           <option className={styles.opcion} value="Admin">Admin</option>

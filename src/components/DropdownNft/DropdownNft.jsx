@@ -17,9 +17,6 @@ export default function DropdownNft() {
         <p className={styles.dropdownItem}>
           <Link to="/mycollections">My Collection</Link>
         </p>
-        <p className={styles.dropdownItem}>
-          <Link to="/myorders">My Orders</Link>
-        </p>
       </div>
     </div>
   );
