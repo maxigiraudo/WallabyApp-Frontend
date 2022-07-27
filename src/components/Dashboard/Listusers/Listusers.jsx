@@ -33,7 +33,7 @@ export default function Listusers() {
 
       <div className={styles.container}>
         {users.map((e, index) => (
-          <Usercard name={e.nombre} email={e.email} />
+          <Usercard name={e.nombre} email={e.email} key={index}/>
         ))}
       </div>
 
