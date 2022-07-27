@@ -9,14 +9,15 @@ export function orderByPrice(payload) {
   };
 }
 
-export function review({email,rating}){
+export function review({email,rating,username}){
   console.log("ESTE ES EL MAIL", email)
   console.log("ESTE ES EL RATING", rating)
+  console.log("NOMBRE:",username)
   const body={
     email : email,
-    rating: rating
+    rating: rating,
+    username:username
   }
-
   console.log("ESTE ES EL BODY", body)
   return async function(dispatch){
     let json= await axios.post(`https://henry-proyecto-nft.herokuapp.com/${email}/reviews`, body)
@@ -25,6 +26,18 @@ export function review({email,rating}){
       type: "POST_REVIEW",
       payload:json.data
     })
+  }
+}
+
+export function getReview(){
+  return async function(dispatch){
+    let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/reviews")
+    console.log("ESTA ES MI DATA",json.data)
+    return dispatch({
+      type:"GET_REVIEWS",
+      payload:json.data
+    }      
+    )
   }
 }
 

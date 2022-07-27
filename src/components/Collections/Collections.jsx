@@ -11,18 +11,14 @@ export default function Collections({ image, name, address }) {
   console.log("AAAAAAAAAAADREEEEEEEEEEEEEEEEES", address);
   //   const newAddress = address.map((e) => {})
 
-  const { NFTTokenIds, fetchSuccess } = useNFTTokenIds(
-    "0x61097cc82C503Ff2d95ce11eDD93e0f0CAB30c59"
-  );
+
 
   const dispatch = useDispatch();
 
-  //   function buscarNftColeccion(e) {
-  //     dispatch(getNameNft(e));
-  //   }
+    function buscarNftColeccion(e) {
+      dispatch(getNameNft(e));
+    }
 
-  console.log("ESTA ES LA COLECCION ", NFTTokenIds);
-  console.log(fetchSuccess);
 
   return (
     <div className={style.carousel}>
@@ -30,15 +26,15 @@ export default function Collections({ image, name, address }) {
         {image ? (
           <div className={style.container23}>
             <div className={style.divIm}>
-              <Link to={`/collection/${address}`}>
+              {/* <Link to={`/collection/${address}`}> */}
                 <img
                   className={style.imageC}
                   src={image}
                   alt="*"
                   value="art"
-                  // onClick={() => buscarNftColeccion(name)}
+                  onClick={() => buscarNftColeccion(name)}
                 />
-              </Link>
+              {/* </Link> */}
             </div>
             <div className={style.divH}></div>
             <h1 className={style.nameC}>{name}</h1>
