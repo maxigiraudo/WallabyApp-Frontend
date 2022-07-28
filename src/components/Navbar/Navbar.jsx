@@ -46,7 +46,26 @@ export default function Navbar() {
       </NavLink>
       <nav className={styles.navBar}>
         <ul>
-          {userrrGoogle === null && newUser ? (
+          {userrrGoogle === null && newUser ? 
+            newUser.email && newUser.email === 'usuarioadmin@gmail.com' ?
+            (
+              <div className={styles.padreDrop}>
+                <div>
+                  <div>
+                    <NavLink to="/Dashboard">
+                      <li>Admin</li>
+                    </NavLink>
+                    <NavLink to="/market">
+                      <li>Market</li>
+                    </NavLink>
+                    <NavLink to="/about">
+                      <li>About</li>
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            )
+          : (
               <div className={styles.padreDrop}>
                 <div>
                   <div>
@@ -57,15 +76,11 @@ export default function Navbar() {
                       <li>About</li>
                     </NavLink>
                   </div>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
                 </div>
               </div>
             )
            : null }
           {newUser === null && userrrGoogle? (
-            
               <div className={styles.padreDrop}>
                 <div>
                   <div>
@@ -76,9 +91,6 @@ export default function Navbar() {
                       <li>About</li>
                     </NavLink>
                   </div>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
                 </div>
               </div>
             
@@ -102,20 +114,47 @@ export default function Navbar() {
           )
           ):null}
         </ul>
-        <div>
-          <div className={styles.tooltip}>
-            <NavLink to="/cart">
-              <BsCartCheck className={styles.wallet} />
-              <span className={styles.tooltiptext}>View Cart</span>
-            </NavLink>
+        
+        {newUser === null && userrrGoogle === null? (
+          <div className={styles.dropdowns}>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
+            </div>
           </div>
-        </div>
-        <div>
-          <DropdownNft className={styles.wallet}></DropdownNft>
-        </div>
-        <div>
-          <DropDownWallet className={styles.wallet}></DropDownWallet>
-        </div>
+        ):(
+          <div className={styles.dropdowns}>
+
+            <div>
+              <Dropdown className={styles.wallet}></Dropdown>
+            </div>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
+            </div>
+          </div>
+        )}
+
         {/* <div className={styles.tooltip}>
           <BiWalletAlt
             className={styles.wallet}
