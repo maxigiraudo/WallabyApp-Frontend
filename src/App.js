@@ -32,6 +32,9 @@ function App() {
 
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
+  const [walletAddress, setWalletAddress] = useState(null);
+
+  
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -43,6 +46,8 @@ function App() {
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading)
       enableWeb3({ provider: connectorId });
   }, [isAuthenticated, isWeb3Enabled]);
+
+  
 
   let favoritoInicial = JSON.parse(localStorage.getItem("favorito"));
   if (!favoritoInicial) {
@@ -137,6 +142,8 @@ function App() {
               agregarCarrito={agregarCarrito}
               agregarFavorito={agregarFavorito}
               favorito={favorito}
+              setWalletAddress={setWalletAddress}
+              walletAddress={walletAddress}
             />
           }
         />
@@ -153,7 +160,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/market" element={<Market />} />
+        <Route path="/market" element={<Market walletAddress={walletAddress} />} />
         <Route path="/formRegister" element={<FormRegister />} />
         <Route path="/collection/:address" element={<Collection />} />
         <Route
