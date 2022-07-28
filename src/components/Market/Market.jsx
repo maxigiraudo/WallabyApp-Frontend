@@ -12,6 +12,7 @@ import { useWeb3ExecuteFunction } from "react-moralis";
 import { marketAddress } from "../../contracts/contractMarket";
 import Navbar from "../Navbar/Navbar";
 import { contractABI } from "../../contracts/contractMarket";
+import Swal from "sweetalert2";
 
 
 
@@ -66,16 +67,28 @@ export default function Market({walletAddress,
     await contractProcessor.fetch({
       params: ops,
       onSuccess: () => {
-        alert("success");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'successfully bought nft',
+          showConfirmButton: false,
+          timer: 1500
+        })
         setLoading(false);
         setVisibility(false);
         updateSoldMarketItem();
         //succPurchase();
       },
       onError: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
         setLoading(false);
         console.log('error', error)
-        alert(error)
+        
         //failPurchase();
       },
     });
