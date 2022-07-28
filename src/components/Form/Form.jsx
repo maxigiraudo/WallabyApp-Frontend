@@ -9,12 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import Moralis from "moralis";
 import Web3 from "web3";
-import { contractABI, nft_contract_address } from "../../contracts/contract";
 import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
 
-export default function Form() {
+export default function Form({ contractABI, contractNFT }) {
   const [card, setCard] = useState({ name: "", description: "" });
   const [image, setimages] = useState("");
   const { saveFile, moralisFile } = useMoralisFile();
@@ -25,13 +24,18 @@ export default function Form() {
   });
   const { authenticate, isAuthenticated, user } = useMoralis();
   const navigate = useNavigate();
+  console.log("dale que va");
 
   useEffect(() => {
     const login = async () => {
       if (!isAuthenticated) {
         await authenticate()
-          .then(function (user) {})
-          .catch(function (error) {});
+          .then(function (user) {
+            console.log(user.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     };
     login();
@@ -47,6 +51,7 @@ export default function Form() {
       errors.description = "It must contain at least 5 characters";
     }
 
+    console.log(value);
     return errors;
   }
 
@@ -60,9 +65,10 @@ export default function Form() {
     if (name === "" || description === "" || file === "") return;
     try {
       const file1 = new Moralis.File(file.name, file);
-
+      console.log("file1", file1);
       await file1.saveIPFS();
       const file1url = file1.ipfs();
+      console.log("file1url", file1url);
 
       const metadata = {
         name,
@@ -74,10 +80,11 @@ export default function Form() {
         base64: btoa(JSON.stringify(metadata)),
       });
 
+      console.log("file2", file2);
       await file2.saveIPFS();
       const metadataurl = file2.ipfs();
 
-      const contract = new web3.eth.Contract(contractABI, nft_contract_address);
+      const contract = new web3.eth.Contract(contractABI, contractNFT);
       const response = await contract.methods
         .createToken(metadataurl)
         .send({ from: user.get("ethAddress") });
@@ -86,13 +93,17 @@ export default function Form() {
       Swal.fire({
         icon: "success",
         title: "Good job!",
-        text: `NFT successfully minted. Contract address - ${nft_contract_address} and Token ID - ${tokenId}, look for it in "My Collections!"`,
+        text: `NFT successfully minted. Contract address - ${contractNFT} and Token ID - ${tokenId}, look for it in "My Collections!"`,
         showConfirmButton: true,
       });
 
       navigate("/home");
-    } catch (error) {}
+    } catch (error) {
+      console.log(`ERROR ${error}`);
+    }
   };
+
+  console.log(image);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -109,6 +120,7 @@ export default function Form() {
         [e.target.name]: e.target.value,
       })
     );
+    console.log(error);
   };
 
   const changeInput = (e) => {
@@ -164,7 +176,7 @@ export default function Form() {
     const newImgs = files.filter(function (element) {
       return element.index !== indice;
     });
-
+    console.log(newImgs);
     setFiles(newImgs);
   }
 
@@ -206,6 +218,7 @@ export default function Form() {
                 <div>
                   {files.map((imagen) => (
                     <div key={imagen.index}>
+                      {console.log(imagen)}
                       <div className={styles.divBI}>
                         <img
                           className={styles.imagen}

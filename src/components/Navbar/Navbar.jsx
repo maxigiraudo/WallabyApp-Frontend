@@ -12,13 +12,24 @@ import { getNft } from "../../redux/actions";
 import { useEffect } from "react";
 import DropdownNft from "../DropdownNft/DropdownNft";
 
-export default function Navbar() {
+export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
   // const logged = useSelector((state) => state.userIsAuthenticated);
 
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
 
+  const userComunTrue = useSelector((state) => state.userComunTrue);
+
+  const userGoogleTrue = useSelector((state) => state.userGoogleTrue);
+
   const newUser = JSON.parse(userrr);
+
+  console.log("ESTE ES EL USEE GOOGLE", userrrGoogle);
+  console.log("ESTE ES EL USER COMUN", newUser);
+
+  // useEffect(() => {
+
+  // }, [])
 
   const dispatch = useDispatch();
 
@@ -35,39 +46,41 @@ export default function Navbar() {
       </NavLink>
       <nav className={styles.navBar}>
         <ul>
-          {newUser || userrrGoogle ? (
-            newUser.email && newUser.email === "usuarioadmin@gmail.com" ? (
-              <div className={styles.padreDrop}>
+          {userrrGoogle === null && newUser ? (
+            <div className={styles.padreDrop}>
+              <div>
                 <div>
-                  <NavLink to="/Dashboard">
-                    <li>Admin</li>
-                  </NavLink>
                   <NavLink to="/market">
                     <li>Market</li>
                   </NavLink>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
+                  <NavLink to="/about">
+                    <li>About</li>
+                  </NavLink>
                 </div>
               </div>
-            ) : (
-              <div className={styles.padreDrop}>
+              <div className={styles.dropdown}>
+                <Dropdown className={styles.wallet}></Dropdown>
+              </div>
+            </div>
+          ) : null}
+          {newUser === null && userrrGoogle ? (
+            <div className={styles.padreDrop}>
+              <div>
                 <div>
-                  <div>
-                    <NavLink to="/market">
-                      <li>Market</li>
-                    </NavLink>
-                    <NavLink to="/about">
-                      <li>About</li>
-                    </NavLink>
-                  </div>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
+                  <NavLink to="/market">
+                    <li>Market</li>
+                  </NavLink>
+                  <NavLink to="/about">
+                    <li>About</li>
+                  </NavLink>
                 </div>
               </div>
-            )
-          ) : (
+              <div className={styles.dropdown}>
+                <Dropdown className={styles.wallet}></Dropdown>
+              </div>
+            </div>
+          ) : null}
+          {newUser === null && userrrGoogle === null ? (
             <div>
               <NavLink to="/market">
                 <li>Market</li>
@@ -82,7 +95,7 @@ export default function Navbar() {
                 <li>Sign Up</li>
               </NavLink>
             </div>
-          )}
+          ) : null}
         </ul>
         <div>
           <div className={styles.tooltip}>
@@ -96,7 +109,12 @@ export default function Navbar() {
           <DropdownNft className={styles.wallet}></DropdownNft>
         </div>
         <div>
-          <DropDownWallet className={styles.wallet}></DropDownWallet>
+          <DropDownWallet
+            className={styles.wallet}
+            setWalletAddress={setWalletAddress}
+            walletAddress={walletAddress}
+            setChain={setChain}
+          ></DropDownWallet>
         </div>
         {/* <div className={styles.tooltip}>
           <BiWalletAlt
