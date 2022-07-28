@@ -35,11 +35,6 @@ export default function Login() {
     error: "You must enter an mail",
   });
 
-  console.log(
-    "EN UN PRIMER MOMENTO OLVIDE MI CONTRASEÑA ES:",
-    olvideContraseña
-  );
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -69,14 +64,12 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(postLogin(formData));
-    console.log(formData);
+
     setFormData({
       email: "",
       password: "",
     });
   };
-
-  console.log("este es login", logginAut);
 
   function alHome() {
     return navigate("/home");
@@ -116,14 +109,6 @@ export default function Login() {
       showConfirmButton: true,
     });
   }
-
-  console.log(email);
-
-  console.log(
-    "EN UN SEGUNDO MOMENTO OLVIDE MI CONTRASEÑA ES:",
-    olvideContraseña
-  );
-
   // const responseGoogle = (response) => {
   //     dispatch(postLoginGoogle(response))
   //   }

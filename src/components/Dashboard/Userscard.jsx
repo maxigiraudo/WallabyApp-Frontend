@@ -8,7 +8,7 @@ import {
   suspendAccount,
   updateAdminToUser,
   usersDashboard,
-  updateUserToAdmin
+  updateUserToAdmin,
 } from "../../redux/actions";
 import { BiTargetLock } from "react-icons/bi";
 
@@ -20,7 +20,7 @@ export default function Usercard({ name, email }) {
   //localstoragegetitem="profile" para chupar la data del usuario
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const newUser = JSON.parse(userrr);
-  console.log("DATA A ROBARRR", userrr);
+
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -90,7 +90,6 @@ export default function Usercard({ name, email }) {
         icon: "success",
         title: "The user status has been changed to User",
         showConfirmButton: true,
-        
       });
     }
   }
@@ -102,14 +101,30 @@ export default function Usercard({ name, email }) {
         <p className={styles.container}> Email: {email} </p>
       </div>
       <div>
-      <select className={styles.user} onChange={(e) => HandleUserValueChange(e)}>
-          <option className={styles.opcion} defaultValue="User" value="default" hidden>
+        <select
+          className={styles.user}
+          onChange={(e) => HandleUserValueChange(e)}
+        >
+          <option
+            className={styles.opcion}
+            defaultValue="User"
+            value="default"
+            hidden
+          >
             User
           </option>
-          <option className={styles.opcion} value="User">User</option>
-          <option className={styles.opcion} value="Admin">Admin</option>
-          <option className={styles.opcion} value="Suspend">Suspend</option>
-          <option className={styles.opcion} value="Unsuspend">Unsuspend</option>
+          <option className={styles.opcion} value="User">
+            User
+          </option>
+          <option className={styles.opcion} value="Admin">
+            Admin
+          </option>
+          <option className={styles.opcion} value="Suspend">
+            Suspend
+          </option>
+          <option className={styles.opcion} value="Unsuspend">
+            Unsuspend
+          </option>
         </select>
       </div>
     </div>

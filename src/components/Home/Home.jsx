@@ -42,18 +42,24 @@ import CollectionGam from "../Collections/CollectionGam/CollectionGam";
 import CollectionMus from "../Collections/CollectionMus/CollectionMus";
 import CollectionSpo from "../Collections/CollectionSpo/CollectionSpo";
 
-export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress, walletAddress, setChain}) {
+export default function Home({ agregarCarrito, agregarFavorito }) {
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
-  const notFound = useSelector((state) => state.notFoundName)
+  const notFound = useSelector((state) => state.notFoundName);
+
   const nftName = useSelector((state) => state.nftPorName);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (allCard.length === 0 && nftName.length === 0) dispatch(getNft())
+    if (allCard.length === 0 && nftName.length === 0) dispatch(getNft());
   }, [dispatch, cursori]);
 
   const collections = useSelector((state) => state.collection);
+  // const catCol = useSelector((state) => state.collectionCol);
+  // const catPho = useSelector((state) => state.collectionPho);
+  // const catGam = useSelector((state) => state.collectionGam);
+  // const catMus = useSelector((state) => state.collectionMus);
+  // const catSpo = useSelector((state) => state.collectionSpo);
 
   const settings = {
     dots: true,
@@ -94,6 +100,21 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
   function handleFilterByCollection(e) {
     dispatch(getCollections(e));
   }
+  // function handleFilterByCategoryCol(e) {
+  //   dispatch(getCollectionCol(e));
+  // }
+  // function handleFilterByCategoryPho(e) {
+  //   dispatch(getCollectionPho(e));
+  // }
+  // function handleFilterByCategoryGam(e) {
+  //   dispatch(getCollectionGam(e));
+  // }
+  // function handleFilterByCategoryMus(e) {
+  //   dispatch(getCollectionMus(e));
+  // }
+  // function handleFilterByCategorySpo(e) {
+  //   dispatch(getCollectionSpo(e));
+  // }
 
   const [currentPage, setCurrentPage] = useState(1);
   const [nftPerPage, setNftPerPage] = useState(6);
@@ -110,16 +131,19 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
     }
   }, [currentPage, dispatch]);
 
-
+  // function handleFilterByName(e) {
+  //   dispatch(getNameNft(e));
+  // }
 
   return (
     <div className={style.containergeneral}>
       <div className={style.containerNav}>
-        <Navbar setWalletAddress={setWalletAddress} walletAddress={walletAddress} setChain={setChain}/>
+        <Navbar />
       </div>
       <div className={style.container2}>
         <h1 className={style.text}>
-        Select the category you like the most and enjoy the Wallaby experience.
+          Select the category you like the most and enjoy the Wallaby
+          experience.
         </h1>
         <div className={style.carousel}>
           <Slider {...settings}>
@@ -214,43 +238,47 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
                 </div>
               </div>
             </div>
-            {notFound === true ? <NotFound/> : currentNft.length === 0 && nftName.length === 0 ? ( <Loading/> ) : currentNft.length || nftName.length ?
-            <InfiniteScroll
-              className={style.cardHome}
-              dataLength={currentNft.length} //This is important field to render the next data
-              next={() => setCurrentPage((prevPage) => prevPage + 1)}
-              hasMore={hasMore}
-            >
-              {nftName?.map((e, index) => (
-                <Card
-                  agregarFavorito={agregarFavorito}
-                  agregarCarrito={agregarCarrito}
-                  id={e._id}
-                  key={index}
-                  price={e.price}
-                  name={e.name}
-                  image={e.image}
-                  created={e.created}
-                  token_address={e.token_address}
-                  collection={e.collection}
-                />
-              ))} 
-              {currentNft?.map((e, index) => (
-                <Card
-                  agregarFavorito={agregarFavorito}
-                  agregarCarrito={agregarCarrito}
-                  id={e._id}
-                  key={index}
-                  price={e.price}
-                  name={e.name}
-                  image={e.image}
-                  created={e.created}
-                  token_address={e.token_address}
-                  collection={e.collection}
-                /> 
-              ))}
-              </InfiniteScroll> : null }
-              
+            {notFound === true ? (
+              <NotFound />
+            ) : currentNft.length === 0 && nftName.length === 0 ? (
+              <Loading />
+            ) : currentNft.length || nftName.length ? (
+              <InfiniteScroll
+                className={style.cardHome}
+                dataLength={currentNft.length} //This is important field to render the next data
+                next={() => setCurrentPage((prevPage) => prevPage + 1)}
+                hasMore={hasMore}
+              >
+                {currentNft?.map((e, index) => (
+                  <Card
+                    agregarFavorito={agregarFavorito}
+                    agregarCarrito={agregarCarrito}
+                    id={e._id}
+                    key={index}
+                    price={e.price}
+                    name={e.name}
+                    image={e.image}
+                    created={e.created}
+                    token_address={e.token_address}
+                    collection={e.collection}
+                  />
+                ))}
+                {nftName?.map((e, index) => (
+                  <Card
+                    agregarFavorito={agregarFavorito}
+                    agregarCarrito={agregarCarrito}
+                    id={e._id}
+                    key={index}
+                    price={e.price}
+                    name={e.name}
+                    image={e.image}
+                    created={e.created}
+                    token_address={e.token_address}
+                    collection={e.collection}
+                  />
+                ))}
+              </InfiniteScroll>
+            ) : null}
           </div>
         )}
       </div>

@@ -22,20 +22,19 @@ export default function Listusers() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(usersDashboard({
-      email: newUser.email,
-      password: newUser.password,
-    }));
-    console.log(newUser)
+    dispatch(
+      usersDashboard({
+        email: newUser.email,
+        password: newUser.password,
+      })
+    );
   }, [dispatch]);
 
   return (
     <div>
       <NavBar />
       <Link to="/Dashboard" className={styles.Li}>
-        <button className={styles.botonR}>
-          Go Back
-        </button>
+        <button className={styles.botonR}>Go Back</button>
       </Link>
 
       <div className={styles.list}>
@@ -44,7 +43,7 @@ export default function Listusers() {
 
       <div className={styles.container}>
         {users.map((e, index) => (
-          <Usercard name={e.nombre} email={e.email} key={index}/>
+          <Usercard name={e.nombre} email={e.email} key={index} />
         ))}
       </div>
 
