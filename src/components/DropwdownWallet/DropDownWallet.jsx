@@ -7,11 +7,14 @@ import { singoutOk } from "../../redux/actions";
 import Swal from "sweetalert2";
 import { BiWalletAlt } from "react-icons/bi";
 
-export default function DropdownWallet({setWalletAddress, setChain}) {
+export default function Dropdown() {
   const dispatch = useDispatch();
   const {
     authenticate,
-    isAuthenticated, 
+    isAuthenticated,
+    isAuthenticating,
+    user,
+    account,
     logout,
   } = useMoralis();
 
@@ -19,23 +22,19 @@ export default function DropdownWallet({setWalletAddress, setChain}) {
     if (!isAuthenticated) {
       const connectorId = "injected";
       try {
-        await authenticate({ provider: connectorId })
-        .then(function (user) {
-          setWalletAddress(user.get('ethAddress'))
-          Swal.fire({
+        await authenticate({ provider: connectorId });
+        window.localStorage.setItem("connectorId", connectorId);
+
+        if (account) {
+          await Swal.fire({
             position: "center",
             icon: "success",
             title: "Connected Wallet",
             showConfirmButton: false,
             timer: 1500,
           });
-          
-        })
-        window.localStorage.setItem("connectorId", connectorId);
-        
-      } catch (error) {
-        console.log(error);
-      }
+        }
+      } catch (error) {}
     }
   };
 

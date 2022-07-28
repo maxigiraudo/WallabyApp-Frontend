@@ -11,7 +11,6 @@ import styles from "./Collection.module.css";
 export default function Collection() {
   const { address } = useParams();
   const { NFTTokenIds, fetchSuccess } = useNFTTokenIds(address);
-  console.log("LO QUE TRAE EL HOOK", NFTTokenIds, fetchSuccess);
 
   const back = () => {
     window.history.back();

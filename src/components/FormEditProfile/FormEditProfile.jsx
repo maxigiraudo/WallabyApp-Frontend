@@ -8,15 +8,14 @@ import styles from "./FormEditProfile.module.css";
 import { Link } from "react-router-dom";
 //import logG from "../Login/imgLogin.png";
 
-
 export default function FormEditProfile() {
   const [profile, setProfile] = useState({
-     name: "",
-     lastname: "",
-     username: "",
-     //image:"",
-     aboutyou:"",
-     });
+    name: "",
+    lastname: "",
+    username: "",
+    //image:"",
+    aboutyou: "",
+  });
   const [error, setError] = useState({
     error: "You must select a name",
   });
@@ -27,7 +26,7 @@ export default function FormEditProfile() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(updatedProfileById({  name, lastname, username, aboutyou }));
+    dispatch(updatedProfileById({ name, lastname, username, aboutyou }));
     navigate("/profile");
   };
 
@@ -64,13 +63,12 @@ export default function FormEditProfile() {
       errors.username = "It must contain at least 3 characters";
     }
 
-    if (!value.aboutyou) errors.aboutyou = "You must enter a little description about you";
+    if (!value.aboutyou)
+      errors.aboutyou = "You must enter a little description about you";
     else if (value.aboutyou.length < 150) {
       errors.lastname = "It must contain at least 150 characters";
     }
 
-   
-    console.log(value);
     return errors;
   }
 
@@ -86,7 +84,6 @@ export default function FormEditProfile() {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className={styles.two}>
               <div className={styles.nameEnviar}>
-            
                 <p htmlFor="name"> </p>
                 <input
                   name="name"
@@ -100,7 +97,7 @@ export default function FormEditProfile() {
                 {error.name ? (
                   <p style={{ color: "red" }}> {error.name} </p>
                 ) : null}
-                <br/>
+                <br />
 
                 <p htmlFor="lastname"> </p>
                 <input
@@ -112,12 +109,11 @@ export default function FormEditProfile() {
                   value={profile.lastname}
                   onChange={(e) => onChange(e)}
                 />
-                {error.lastname? (
+                {error.lastname ? (
                   <p style={{ color: "red" }}> {error.lastname} </p>
                 ) : null}
-                <br/>
+                <br />
 
-                
                 <p htmlFor="username"> </p>
                 <input
                   name="username"
@@ -128,10 +124,10 @@ export default function FormEditProfile() {
                   value={profile.username}
                   onChange={(e) => onChange(e)}
                 />
-                {error.username? (
+                {error.username ? (
                   <p style={{ color: "red" }}> {error.username} </p>
                 ) : null}
-                <br/>
+                <br />
 
                 <p htmlFor="aboutyou"> </p>
                 <input
@@ -143,15 +139,9 @@ export default function FormEditProfile() {
                   value={profile.aboutyou}
                   onChange={(e) => onChange(e)}
                 />
-                {error.aboutyou? (
+                {error.aboutyou ? (
                   <p style={{ color: "red" }}> {error.aboutyou} </p>
                 ) : null}
-
-            
-
-                
-
-               
 
                 <br />
 
@@ -164,13 +154,11 @@ export default function FormEditProfile() {
 
                 {Object.keys(error).length === 0 ? null : (
                   <p style={{ color: "red", textAlign: "center" }}>
-                    To edit your data you must fill in all the fields
-                    without errors.
+                    To edit your data you must fill in all the fields without
+                    errors.
                   </p>
                 )}
                 <br />
-                
-
               </div>
             </div>
           </form>
