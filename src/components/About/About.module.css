@@ -118,7 +118,7 @@
     margin-right: 0;
   }
   .card {
-    width: 90%;
+    width: 100%;
   }
   .imagenLogo {
     margin-left: 5px;
@@ -129,6 +129,7 @@
   }
   .fullstack {
     font-size: 10px;
+    text-align: center;
   }
   .letras {
     font-size: 10px;

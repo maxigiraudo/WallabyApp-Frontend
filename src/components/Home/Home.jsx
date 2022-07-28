@@ -42,7 +42,7 @@ import CollectionGam from "../Collections/CollectionGam/CollectionGam";
 import CollectionMus from "../Collections/CollectionMus/CollectionMus";
 import CollectionSpo from "../Collections/CollectionSpo/CollectionSpo";
 
-export default function Home({ agregarCarrito, agregarFavorito }) {
+export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress, walletAddress, setChain}) {
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
   const notFound = useSelector((state) => state.notFoundName)
@@ -115,7 +115,7 @@ export default function Home({ agregarCarrito, agregarFavorito }) {
   return (
     <div className={style.containergeneral}>
       <div className={style.containerNav}>
-        <Navbar />
+        <Navbar setWalletAddress={setWalletAddress} walletAddress={walletAddress} setChain={setChain}/>
       </div>
       <div className={style.container2}>
         <h1 className={style.text}>

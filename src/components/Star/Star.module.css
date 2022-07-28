@@ -33,8 +33,10 @@ input[type="radio"] {
 label:hover,
 label:hover ~ label {
   color: orange;
+  cursor: pointer;
 }
 
 input[type="radio"]:checked ~ label {
   color: orange;
+  cursor: pointer;
 }
