@@ -21,8 +21,8 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
   const [loading, setLoading] = useState(false);
   const contractProcessor = useWeb3ExecuteFunction();
   const contractABIJson = JSON.parse(JSON.stringify(contractABI));
-  const {Moralis} = useMoralis();
-  const queryMarketItems = useMoralisQuery("MarketItems")
+  const { Moralis } = useMoralis();
+  const queryMarketItems = useMoralisQuery("MarketItems");
 
   const fetchMarketItems = JSON.parse(
     JSON.stringify(queryMarketItems.data, [
@@ -35,7 +35,7 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
       "tokenId",
       "seller",
       "owner",
-      "confirmed"
+      "confirmed",
     ])
   );
 
@@ -47,46 +47,43 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
     const itemID = tokenDetails.itemId;
     const tokenPrice = tokenDetails.price;
     const ops = {
-      contractAddress : marketAddress,
-      functionName : purchaseItemFunction,
-      abi : contractABIJson,
-      params : {
-        nftContract :  nftToBuy.token_address,
-        itemId : itemID,
+      contractAddress: marketAddress,
+      functionName: purchaseItemFunction,
+      abi: contractABIJson,
+      params: {
+        nftContract: nftToBuy.token_address,
+        itemId: itemID,
       },
       masValue: tokenPrice,
     };
 
     await contractProcessor.fetch({
       params: ops,
-      onSuccess : () => {
+      onSuccess: () => {
         console.log("success");
         setLoading(false);
         updateSoldMarketItem();
         succPurchase();
       },
       onError: (error) => {
-        alert(error)
+        alert(error);
         setLoading(false);
         failPurchase();
-      }
+      },
     });
-
-  };
+  }
 
   const handleBuyClick = (nft) => {
     setNftToBuy(nft);
     console.log(nft.image);
-
-  }
+  };
 
   function succPurchase() {
-    
-    alert("success purchase!")
+    alert("success purchase!");
   }
 
   function failPurchase() {
-    alert('error purchase')
+    alert("error purchase");
   }
 
   async function updateSoldMarketItem() {
@@ -98,7 +95,7 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
       obj.set("sold", true);
       obj.set("owner", walletAddress);
       obj.save();
-    })
+    });
   }
 
   const getMarketItem = (nft) => {
@@ -106,16 +103,11 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
       (e) =>
         e.nftContract === nft?.token_address &&
         e.tokenId === nft?.token_id &&
-        e.sold === false && 
+        e.sold === false &&
         e.confirmed === true
-      );
-      return result
-  }
-
-
-
-  
-
+    );
+    return result;
+  };
 
   console.log(walletAddress);
 

@@ -47,7 +47,7 @@ export default function Home({
   agregarFavorito,
   setWalletAddress,
   walletAddress,
-  setChain,
+  chainChain,
 }) {
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
@@ -122,7 +122,7 @@ export default function Home({
         <Navbar
           setWalletAddress={setWalletAddress}
           walletAddress={walletAddress}
-          setChain={setChain}
+          chainChain={chainChain}
         />
       </div>
       <div className={style.container2}>

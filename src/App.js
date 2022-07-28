@@ -25,6 +25,8 @@ import Star from "./components/Star/Star";
 import Market from "./components/Market/Market";
 import Collection from "./components/Collection/Collection";
 import { mumbaiContractABI, rinkebyContractABI } from "./contracts/contract";
+import SwitchBoton from "./components/SwitchBoton/SwitchBoton";
+import { nft_contract_mumbai } from "./contracts/contract";
 
 function App() {
   useEffect(() => {
@@ -34,22 +36,22 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("rinkeby");
-  const [contractNFT, setContractNFT] = useState("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
-  const [contractABI, setContractABI] = useState(rinkebyContractABI);
- 
+  const [chain, setChain] = useState("mumbai");
+  const [contractNFT, setContractNFT] = useState(nft_contract_mumbai);
+  const [contractABI, setContractABI] = useState(mumbaiContractABI);
+  console.log("ESTO ES CHAIN", chain);
 
-  useEffect(() => {
-    if (chain !== "") return  
-      if (chain === "mumbai") {
-        setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
-        setContractABI(mumbaiContractABI);
-      } else {
-        setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
-        setContractABI(rinkebyContractABI);
-      }
-    
-  }, [chain]);
+  function chainChain(value) {
+    if (value === "mumbai") {
+      setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
+      setContractABI(mumbaiContractABI);
+      setChain("mumbai");
+    } else {
+      setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+      setContractABI(rinkebyContractABI);
+      setChain("rinkeby");
+    }
+  }
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -152,13 +154,13 @@ function App() {
           path="/home"
           element={
             <Home
+              chainChain={chainChain}
               carrito={carrito}
               agregarCarrito={agregarCarrito}
               agregarFavorito={agregarFavorito}
               favorito={favorito}
               setWalletAddress={setWalletAddress}
               walletAddress={walletAddress}
-              setChain={setChain}
             />
           }
         />
@@ -208,12 +210,13 @@ function App() {
             <Favorite eliminarFavorito={eliminarFavorito} favorito={favorito} />
           }
         />
-        <Route path="/mycollections" element={<MyCollections chain={chain} />} />
+        <Route
+          path="/mycollections"
+          element={<MyCollections chain={chain} chainChain={chainChain} />}
+        />
         <Route path="/myorders" element={<MyOrders />} />
 
         <Route path="/:email/newpassword" element={<RecoverPassword />} />
-
-        <Route path="/star" element={<Star />} />
       </Routes>
     </div>
   );

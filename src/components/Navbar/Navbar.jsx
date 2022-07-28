@@ -11,8 +11,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNft } from "../../redux/actions";
 import { useEffect } from "react";
 import DropdownNft from "../DropdownNft/DropdownNft";
+import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
-export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
+export default function Navbar({
+  setWalletAddress,
+  walletAddress,
+  setChain,
+  chainChain,
+}) {
   // const logged = useSelector((state) => state.userIsAuthenticated);
 
   const userrr = JSON.parse(localStorage.getItem("profiles"));
@@ -47,6 +53,38 @@ export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
       <nav className={styles.navBar}>
         <ul>
           {userrrGoogle === null && newUser ? (
+            newUser.email && newUser.email === "usuarioadmin@gmail.com" ? (
+              <div className={styles.padreDrop}>
+                <div>
+                  <div>
+                    <NavLink to="/Dashboard">
+                      <li>Admin</li>
+                    </NavLink>
+                    <NavLink to="/market">
+                      <li>Market</li>
+                    </NavLink>
+                    <NavLink to="/about">
+                      <li>About</li>
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.padreDrop}>
+                <div>
+                  <div>
+                    <NavLink to="/market">
+                      <li>Market</li>
+                    </NavLink>
+                    <NavLink to="/about">
+                      <li>About</li>
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            )
+          ) : null}
+          {newUser === null && userrrGoogle ? (
             <div className={styles.padreDrop}>
               <div>
                 <div>
@@ -57,9 +95,6 @@ export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
                     <li>About</li>
                   </NavLink>
                 </div>
-              </div>
-              <div className={styles.dropdown}>
-                <Dropdown className={styles.wallet}></Dropdown>
               </div>
             </div>
           ) : null}
@@ -97,25 +132,49 @@ export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
             </div>
           ) : null}
         </ul>
-        <div>
-          <div className={styles.tooltip}>
-            <NavLink to="/cart">
-              <BsCartCheck className={styles.wallet} />
-              <span className={styles.tooltiptext}>View Cart</span>
-            </NavLink>
+
+        {newUser === null && userrrGoogle === null ? (
+          <div className={styles.dropdowns}>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
+            </div>
           </div>
-        </div>
-        <div>
-          <DropdownNft className={styles.wallet}></DropdownNft>
-        </div>
-        <div>
-          <DropDownWallet
-            className={styles.wallet}
-            setWalletAddress={setWalletAddress}
-            walletAddress={walletAddress}
-            setChain={setChain}
-          ></DropDownWallet>
-        </div>
+        ) : (
+          <div className={styles.dropdowns}>
+            <div>
+              <Dropdown className={styles.wallet}></Dropdown>
+            </div>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
+            </div>
+            <div className={styles.switchboton}>
+              <SwitchBoton chainChain={chainChain} />
+            </div>
+          </div>
+        )}
+
         {/* <div className={styles.tooltip}>
           <BiWalletAlt
             className={styles.wallet}
