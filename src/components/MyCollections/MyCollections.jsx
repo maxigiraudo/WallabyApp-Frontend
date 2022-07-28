@@ -11,7 +11,7 @@ import { marketAddress, contractABI } from "../../contracts/contractMarket";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { Modal, Button } from "react-bootstrap";
 
-export default function MyCollections() {
+export default function MyCollections({ setChain }) {
   const { NFTBalance, fetchSuccess } = useNFTBalance();
   const { Moralis } = useMoralis();
   const [visible, setVisibility] = useState(false);
@@ -61,7 +61,7 @@ export default function MyCollections() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar setChain={setChain} />
       <button className={styles.botonR} onClick={back}>
         Go Back
       </button>
