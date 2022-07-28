@@ -7,16 +7,13 @@ import { getNameNft } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 export default function Collections({ image, name, address }) {
-  console.log("AAAAAAAAAAADREEEEEEEEEEEEEEEEES", address);
   //   const newAddress = address.map((e) => {})
-
 
   const dispatch = useDispatch();
 
-    function buscarNftColeccion(e) {
-      dispatch(getNameNft(e));
-    }
-
+  function buscarNftColeccion(e) {
+    dispatch(getNameNft(e));
+  }
 
   return (
     <div className={style.carousel}>
@@ -25,6 +22,7 @@ export default function Collections({ image, name, address }) {
           <div className={style.container23}>
             <div className={style.divIm}>
               {/* <Link to={`/collection/${address}`}> */}
+
                 <img                  
                   className={style.imageC}
                   src={image}
@@ -32,6 +30,7 @@ export default function Collections({ image, name, address }) {
                   value="art"
                   onClick={() => buscarNftColeccion(name)}
                 />
+
               {/* </Link> */}
             </div>
             <div className={style.divH}></div>

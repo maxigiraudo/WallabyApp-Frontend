@@ -1,0 +1,38 @@
+/* :root {
+  --color-green: #00a878;
+  --color-red: #fe5e41;
+  --color-button: #fdffff;
+  --color-black: #000;
+} */
+
+.switchbutton {
+  display: inline-block;
+}
+.switchbutton .switchbuttoncheckbox {
+  display: none;
+}
+.switchbutton .switchbuttonlabel {
+  width: 3.4rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  display: inline-block;
+  position: relative;
+  background-color: #8247e5;
+}
+.switchbutton .switchbuttonlabel:before {
+  transition: 0.2s;
+  display: block;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fdffff;
+  content: "";
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px #000;
+}
+.switchbutton .switchbuttoncheckbox:checked + .switchbuttonlabel {
+  background-color: #f6c343;
+}
+.switchbutton .switchbuttoncheckbox:checked + .switchbuttonlabel:before {
+  transform: translateX(2rem);
+}
