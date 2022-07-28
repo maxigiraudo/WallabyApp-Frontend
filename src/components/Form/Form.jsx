@@ -24,6 +24,7 @@ export default function Form({contractABI, contractNFT}) {
   });
   const { authenticate, isAuthenticated, user } = useMoralis();
   const navigate = useNavigate();
+  console.log('dale que va')
 
   useEffect(() => {
     const login = async () => {
