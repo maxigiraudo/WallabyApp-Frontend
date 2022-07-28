@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import style from "./CardMarket.module.css";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
@@ -7,17 +7,37 @@ import Swal from "sweetalert2";
 
 export default function CardMarket({
   _id,
-  price,
+  purchase,
   name,
   image,
+  price,
+  nft,
+  handleBuyClick,
   token_address,
   agregarCarrito,
   agregarFavorito,
 }) {
+
+  
+
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    handleBuyClick(nft)
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'nft successfully selected',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+
+  }
 
   let onClick = (e) => {
     agregarCarrito(e);
+    
   };
   let onClickF = (e) => {
     agregarFavorito(e);
@@ -59,6 +79,9 @@ export default function CardMarket({
             <h1 className={style.name}>{name}</h1>
           )}
         </div>
+        <div className={style.containertext}>
+          {price && <h1 className={style.price}>{price}</h1>}
+        </div>
 
         <div className={style.botones}>
           <div className={style.abajo}>
@@ -83,7 +106,10 @@ export default function CardMarket({
               )}
             </div>
             <div>
-              <button className={style.botonBuy}>BUY</button>
+                <button className={style.botonBuy} onClick={() => handleClick()}>Select</button>
+                 <button className={style.botonBuy} onClick={() => purchase()}>Buy</button>
+              
+              
             </div>
           </div>
         </div>
