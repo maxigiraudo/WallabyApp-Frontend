@@ -13,15 +13,12 @@ import styles from "./Profile.module.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
-import {
-  BsFillEyeFill,
-  BsFillEyeSlashFill,
-  BsNodePlusFill,
-} from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Star from "../Star/Star";
 import { NavLink } from "react-router-dom";
 
 export default function Profile() {
+  //console.log(props)
   const [shown, setShown] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,13 +33,13 @@ export default function Profile() {
   const [passwordd, setPassword] = React.useState("");
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
+  console.log("ESTE ES EL USEE GOOGLE", userrrGoogle);
   const newUsuario = JSON.parse(userrr);
+  console.log("ESTE ES EL USER COMUN", newUsuario);
 
   useEffect(() => {
     dispatch(getProfile(newUsuario));
-
-  }, [dispatch, newUsuario]);
-
+  }, []);
 
   useEffect(() => {
     dispatch(getProfileGoogle(userrrGoogle));
@@ -51,9 +48,7 @@ export default function Profile() {
   function validationForm(value) {
     let errors = {};
     if (
-      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
-        value.password
-      )
+      !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(value.password)
     ) {
       errors.password =
         "*It should have 8 characters, 1 capital letter, and a number";
@@ -63,11 +58,21 @@ export default function Profile() {
 
   const profile = useSelector((state) => state.profile);
   const profileGoogle = useSelector((state) => state.profileGoogle);
+  console.log(profile);
+  console.log(profileGoogle);
+
   const [estaPorPuntuar, setEstaPorPuntuar] = useState(false);
+
   const reviewTrue = useSelector((state) => state.reviewComplete);
+
   const [newPass, setNewPass] = useState("");
+
   const esAdmin = useSelector((state) => state.esAdministrador);
 
+  // const profiles = useSelector((state) => state.profile);
+  //console.log(profile)
+
+  // console.log(profiles);
   const back = () => {
     window.history.back();
   };
@@ -104,6 +109,12 @@ export default function Profile() {
       timer: 1500,
     });
   }
+
+  console.log("ESTA POR PUNTUAR", estaPorPuntuar);
+
+  console.log(newPass);
+
+  console.log("ESTO HAY EN PROFILE", profileGoogle);
 
   return (
     <div className={styles.containerPadre}>
@@ -207,7 +218,7 @@ export default function Profile() {
               ) : null}
               {esAdmin === true ? (
                 <NavLink to="/Dashboard">
-                  <li>Admin</li>
+                  <li className={styles.admin}>ACCESS TO ADMIN</li>
                 </NavLink>
               ) : null}
             </div>
