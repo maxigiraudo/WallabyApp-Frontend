@@ -227,7 +227,7 @@ export default function Profile() {
               {esAdmin === true?
               (
                 <NavLink to="/Dashboard">
-                    <li>Admin</li>
+                    <button className={styles.admin}>ACCESS TO ADMIN</button>
                   </NavLink>
               ):
               null
