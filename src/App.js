@@ -26,6 +26,7 @@ import Market from "./components/Market/Market";
 import Collection from "./components/Collection/Collection";
 import { mumbaiContractABI, rinkebyContractABI } from "./contracts/contract";
 import SwitchBoton from "./components/SwitchBoton/SwitchBoton";
+import { nft_contract_mumbai } from "./contracts/contract";
 
 function App() {
   useEffect(() => {
@@ -35,21 +36,22 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("");
-  const [contractNFT, setContractNFT] = useState("");
-  const [contractABI, setContractABI] = useState();
+  const [chain, setChain] = useState("mumbai");
+  const [contractNFT, setContractNFT] = useState(nft_contract_mumbai);
+  const [contractABI, setContractABI] = useState(mumbaiContractABI);
   console.log("ESTO ES CHAIN", chain);
-  useEffect(() => {
-    if (chain !== "") {
-      if (chain === "mumbai") {
-        setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
-        setContractABI(mumbaiContractABI);
-      } else {
-        setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
-        setContractABI(rinkebyContractABI);
-      }
+
+  function chainChain(value) {
+    if (value === "mumbai") {
+      setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
+      setContractABI(mumbaiContractABI);
+      setChain("mumbai");
+    } else {
+      setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+      setContractABI(rinkebyContractABI);
+      setChain("rinkeby");
     }
-  }, [chain]);
+  }
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -152,13 +154,13 @@ function App() {
           path="/home"
           element={
             <Home
+              chainChain={chainChain}
               carrito={carrito}
               agregarCarrito={agregarCarrito}
               agregarFavorito={agregarFavorito}
               favorito={favorito}
               setWalletAddress={setWalletAddress}
               walletAddress={walletAddress}
-              setChain={setChain}
             />
           }
         />
@@ -210,7 +212,7 @@ function App() {
         />
         <Route
           path="/mycollections"
-          element={<MyCollections setChain={setChain} />}
+          element={<MyCollections chain={chain} chainChain={chainChain} />}
         />
         <Route path="/myorders" element={<MyOrders />} />
 
