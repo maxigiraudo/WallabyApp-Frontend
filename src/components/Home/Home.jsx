@@ -46,25 +46,14 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
   const notFound = useSelector((state) => state.notFoundName)
-
   const nftName = useSelector((state) => state.nftPorName);
 
-  console.log("CURSOR DEL HOME", cursori);
   const dispatch = useDispatch();
   useEffect(() => {
     if (allCard.length === 0 && nftName.length === 0) dispatch(getNft())
   }, [dispatch, cursori]);
 
   const collections = useSelector((state) => state.collection);
-  // const catCol = useSelector((state) => state.collectionCol);
-  // const catPho = useSelector((state) => state.collectionPho);
-  // const catGam = useSelector((state) => state.collectionGam);
-  // const catMus = useSelector((state) => state.collectionMus);
-  // const catSpo = useSelector((state) => state.collectionSpo);
-
-  console.log("ESTO ME LLEGA AL HOME DE LA CATEGORIA ART", collections);
-
-  console.log(allCard);
 
   const settings = {
     dots: true,
@@ -105,28 +94,12 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
   function handleFilterByCollection(e) {
     dispatch(getCollections(e));
   }
-  // function handleFilterByCategoryCol(e) {
-  //   dispatch(getCollectionCol(e));
-  // }
-  // function handleFilterByCategoryPho(e) {
-  //   dispatch(getCollectionPho(e));
-  // }
-  // function handleFilterByCategoryGam(e) {
-  //   dispatch(getCollectionGam(e));
-  // }
-  // function handleFilterByCategoryMus(e) {
-  //   dispatch(getCollectionMus(e));
-  // }
-  // function handleFilterByCategorySpo(e) {
-  //   dispatch(getCollectionSpo(e));
-  // }
 
   const [currentPage, setCurrentPage] = useState(1);
   const [nftPerPage, setNftPerPage] = useState(6);
   const currentNft = allCard.slice(0, nftPerPage);
   const [hasMore, setHasMore] = useState(true);
 
-  console.log(currentNft);
   useEffect(() => {
     setNftPerPage((prevNft) => prevNft + 12);
     if (nftPerPage >= 1500) {
@@ -137,9 +110,7 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
     }
   }, [currentPage, dispatch]);
 
-  // function handleFilterByName(e) {
-  //   dispatch(getNameNft(e));
-  // }
+
 
   return (
     <div className={style.containergeneral}>
@@ -250,7 +221,7 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
               next={() => setCurrentPage((prevPage) => prevPage + 1)}
               hasMore={hasMore}
             >
-              {currentNft?.map((e, index) => (
+              {nftName?.map((e, index) => (
                 <Card
                   agregarFavorito={agregarFavorito}
                   agregarCarrito={agregarCarrito}
@@ -264,7 +235,7 @@ export default function Home({ agregarCarrito, agregarFavorito, setWalletAddress
                   collection={e.collection}
                 />
               ))} 
-              {nftName?.map((e, index) => (
+              {currentNft?.map((e, index) => (
                 <Card
                   agregarFavorito={agregarFavorito}
                   agregarCarrito={agregarCarrito}
