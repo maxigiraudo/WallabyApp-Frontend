@@ -121,7 +121,7 @@ function App() {
 
   const agregarCarrito = (e) => {
     const copiaCarrito = carrito;
-    const nuevoCarrito = carrito.filter((item) => item.id !== e.id);
+    const nuevoCarrito = carrito.filter((item) => item._id !== e._id);
     setCarrito([...nuevoCarrito, e]);
 
     if (copiaCarrito.length !== nuevoCarrito.length) {
@@ -183,7 +183,12 @@ function App() {
         <Route
           path="/market"
           element={
-            <Market walletAddress={walletAddress} contractNFT={contractNFT} />
+            <Market
+              agregarCarrito={agregarCarrito}
+              agregarFavorito={agregarFavorito}
+              walletAddress={walletAddress}
+              contractNFT={contractNFT}
+            />
           }
         />
         <Route path="/formRegister" element={<FormRegister />} />
