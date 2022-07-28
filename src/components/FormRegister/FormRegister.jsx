@@ -26,7 +26,6 @@ export default function FormRegister() {
   const dispatch = useDispatch();
 
   const { nombre, email, password } = user;
-  console.log(user);
 
   const userAuth = useSelector((state) => state.userRegister);
 
@@ -69,7 +68,7 @@ export default function FormRegister() {
     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value.email)) {
       errors.email = "*You must enter an email";
     }
-    console.log(value);
+
     return errors;
   }
 
@@ -89,7 +88,7 @@ export default function FormRegister() {
           </Link>
           <div className={styles.padre}>
             <div className={styles.container}>
-              <h1 className={styles.colorh1}>CREATE YOUR ACOUNT.</h1>
+              <h1 className={styles.colorh1}>CREATE YOUR ACOUNT</h1>
               <form onSubmit={(e) => onSubmit(e)}>
                 <div className={styles.two}>
                   <div className={styles.nameEnviar}>
@@ -105,7 +104,10 @@ export default function FormRegister() {
                       onChange={(e) => onChange(e)}
                     />
                     {error.nombre ? (
-                      <p style={{ color: "red" }}> {error.nombre} </p>
+                      <p style={{ color: "red", fontSize: "0.8rem" }}>
+                        {" "}
+                        {error.nombre}{" "}
+                      </p>
                     ) : null}
 
                     {/* <label className={styles.label}>Email</label> */}

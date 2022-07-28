@@ -102,10 +102,9 @@
   font-size: 23px;
   width: 25px;
   margin-left: 70px;
-  /* background-color: #6c63ff; */
+  color: #130ab862;
+  background-color: #6c63ff;
   border: none;
   cursor: pointer;
-  color: #130ab8;
-  opacity: 50%;
   background: none;
 }

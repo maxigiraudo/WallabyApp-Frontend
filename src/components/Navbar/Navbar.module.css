@@ -44,6 +44,9 @@
   color: #d04bff;
 }
 
+.dropdowns{
+  display: flex;
+}
 .navBar a {
   color: #d04bff;
   text-decoration: none;
@@ -109,9 +112,41 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+.switchboton {
+  margin-right: 20px;
+}
 
 @media all and (max-width: 500px) {
-  .buttonW {
-    display: none;
+  .container {
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .home li {
+    margin-left: 2px;
+  }
+  .logo {
+    width: 90px;
+    padding: 2px;
+  }
+  .home {
+    margin: 0 20px 0 0;
+  }
+  .navBar {
+    display: flex;
+    flex-direction: column;
+  }
+  .navBar ul li {
+    padding: 2px;
+    margin: 8px 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color:white;
+    box-shadow: none;
+    background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  }
+  .wallet {
+    font-size: 1.8rem;
+    margin: 2px 10px;
+    font-weight: bolder;
   }
 }

@@ -11,6 +11,7 @@ export const useNFTTokenIds = (addr) => {
 
   const options = {
     address: addr,
+    chain: "mumbai",
   };
 
   useEffect(() => {

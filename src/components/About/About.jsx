@@ -170,7 +170,7 @@ export default function About() {
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/sololmos">
+                    <a target="_blank" href="https://github.com/sololmos">
                       <img
                         className={styles.imagenLogog}
                         src={github}
@@ -200,7 +200,7 @@ export default function About() {
                         alt="linkedin"
                       />
                     </a>
-                    <a href="https://github.com/Krieger28">
+                    <a target="_blank" href="https://github.com/Krieger28">
                       <img
                         className={styles.imagenLogog}
                         src={github}

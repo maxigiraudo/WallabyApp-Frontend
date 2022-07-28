@@ -209,3 +209,26 @@
 .loginInputt:focus {
   outline: none;
 }
+
+@media all and (max-width: 500px) {
+  .loginInputt {
+    width: 180px;
+  }
+  .input {
+    width: 220px;
+  }
+  .container {
+    padding: 0;
+    margin: 5%;
+  }
+  .colorh1 {
+    margin-top: 5%;
+  }
+  .two {
+    margin: 2%;
+    padding: 2%;
+  }
+  .divGoogle {
+    margin-bottom: 5%;
+  }
+}

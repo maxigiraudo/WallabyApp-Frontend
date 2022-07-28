@@ -191,3 +191,25 @@
   text-align: center;
   color: red;
 }
+
+
+@media all and (max-width: 500px) {
+  .login {
+    margin-bottom: 10%;
+  }
+  .loginInput{
+    width: 220px;
+  }
+  .loginInputt{
+    width: 180px;
+  }
+  .button {
+    width: 240px;
+  }
+  .formErrors {
+    font-size: 0.8rem;
+  }
+  .botonForgot {
+    margin-bottom: 2%;
+  }
+}

@@ -2,7 +2,6 @@
 .adminContainer{
     align-items: center;
     justify-content: center;
-    min-height: 35rem;
 }
 
 
@@ -12,22 +11,18 @@
     align-items: center;
     justify-content: center;
     color: #d04bff;
-  
 }
 
 .iconAdmin{
-    font-size: 40px;
-    margin: 40px 10px; 
+    font-size: 2.5rem;
+    margin: 3% 1%; 
 }
 
 .iconAdmin1, .iconAdmin2, .iconAdmin3, .iconAdmin4{
-    font-size: 40px;
+    font-size: 2.5rem;
     padding-bottom: 2%;
     color: white;
-
-
 }
-
 
 .featuresCont {
     display: flex;
@@ -35,8 +30,8 @@
     justify-content: center;
     padding: 6%;
     margin-bottom: 5%;
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .featuresBox{
@@ -60,12 +55,32 @@
     transform: scale(1.1);
 }
 
-
 .titleAdmin{
     color: white;
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 .titleAdmin:hover {
     letter-spacing: 2px;
+}
+
+@media all and (max-width: 500px) {
+    .featuresBox{
+        width: 22rem;
+        height: 8rem;
+    }
+    .featuresCont {
+        padding: 6%;
+        margin-bottom: 15%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .arriba{
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .container1{
+        margin: 30% 0;
+    }
 }

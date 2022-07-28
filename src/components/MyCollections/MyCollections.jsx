@@ -11,8 +11,10 @@ import { marketAddress, contractABI } from "../../contracts/contractMarket";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { Modal, Button } from "react-bootstrap";
 
-export default function MyCollections() {
-  const { NFTBalance, fetchSuccess } = useNFTBalance();
+
+export default function MyCollections({ chainChain, chain }) {
+
+  const { NFTBalance, fetchSuccess } = useNFTBalance(chain);
   const { Moralis } = useMoralis();
   const [visible, setVisibility] = useState(false);
   const [input, setInput] = useState(false);
@@ -24,7 +26,7 @@ export default function MyCollections() {
 
   async function list(nft, currentPrice) {
     const p = currentPrice * ("1e" + 18);
-    
+
     const ops = {
       contractAddress: marketAddress,
       functionName: listItemFunction,
@@ -33,7 +35,6 @@ export default function MyCollections() {
         nftContract: nft.token_address,
         tokenId: nft._id,
         price: String(p),
-        
       },
     };
 
@@ -52,10 +53,7 @@ export default function MyCollections() {
     setNftToSell(nft);
     setVisibility(true);
     setInput(nft);
-    console.log(nft);
   };
-
-  console.log(NFTBalance);
 
   const back = () => {
     window.history.back();
@@ -65,7 +63,7 @@ export default function MyCollections() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar chainChain={chainChain} />
       <button className={styles.botonR} onClick={back}>
         Go Back
       </button>
