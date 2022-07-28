@@ -9,12 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import Moralis from "moralis";
 import Web3 from "web3";
-import { contractABI, nft_contract_address } from "../../contracts/contract";
 import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
 
-export default function Form() {
+export default function Form({contractABI, contractNFT}) {
   const [card, setCard] = useState({ name: "", description: "" });
   const [image, setimages] = useState("");
   const { saveFile, moralisFile } = useMoralisFile();
@@ -64,7 +63,6 @@ export default function Form() {
 
     if (name === "" || description === "" || file === "") return;
     try {
-      console.log("ADENTRO TRYYYYYY");
       const file1 = new Moralis.File(file.name, file);
       console.log("file1", file1);
       await file1.saveIPFS();
@@ -85,7 +83,7 @@ export default function Form() {
       await file2.saveIPFS();
       const metadataurl = file2.ipfs();
 
-      const contract = new web3.eth.Contract(contractABI, nft_contract_address);
+      const contract = new web3.eth.Contract(contractABI, contractNFT);
       const response = await contract.methods
         .createToken(metadataurl)
         .send({ from: user.get("ethAddress") });
@@ -94,7 +92,7 @@ export default function Form() {
       Swal.fire({
         icon: "success",
         title: "Good job!",
-        text: `NFT successfully minted. Contract address - ${nft_contract_address} and Token ID - ${tokenId}, look for it in "My Collections!"`,
+        text: `NFT successfully minted. Contract address - ${contractNFT} and Token ID - ${tokenId}, look for it in "My Collections!"`,
         showConfirmButton: true,
       });
 

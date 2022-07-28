@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from "react";
 import {useMoralis, useMoralisQuery, useNewMoralisObject, useWeb3ExecuteFunction} from 'react-moralis';
 import { nft_contract_address} from "../../contracts/contract";
-import { marketAddress, contractABI } from "../../contracts/contractMarket";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Market.module.css";
 import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 
-export default function Market({walletAddress}) {
+export default function Market({walletAddress, contractNFT}) {
   //   const market = useSelector((state) => state.market);
   const back = () => {
     window.history.back();
   };
-  const {NFTTokenIds, fetchSuccess} = useNFTTokenIds(nft_contract_address)
+  const {NFTTokenIds, fetchSuccess} = useNFTTokenIds(contractNFT)
   const [nftToBuy, setNftToBuy] = useState(null);
   const [loading, setLoading] = useState(false);
   const contractProcessor = useWeb3ExecuteFunction();

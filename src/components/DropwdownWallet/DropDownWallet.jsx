@@ -7,7 +7,7 @@ import { singoutOk } from "../../redux/actions";
 import Swal from "sweetalert2";
 import { BiWalletAlt } from "react-icons/bi";
 
-export default function DropdownWallet({setWalletAddress}) {
+export default function DropdownWallet({setWalletAddress, setChain}) {
   const dispatch = useDispatch();
   const {
     authenticate,
