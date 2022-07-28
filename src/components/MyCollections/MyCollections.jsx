@@ -11,8 +11,8 @@ import { marketAddress, contractABI } from "../../contracts/contractMarket";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { Modal, Button } from "react-bootstrap";
 
-export default function MyCollections() {
-  const { NFTBalance, fetchSuccess } = useNFTBalance();
+export default function MyCollections({chain}) {
+  const { NFTBalance, fetchSuccess } = useNFTBalance(chain);
   const { Moralis } = useMoralis();
   const [visible, setVisibility] = useState(false);
   const [input, setInput] = useState(false);

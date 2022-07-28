@@ -34,12 +34,13 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("");
-  const [contractNFT, setContractNFT] = useState("");
-  const [contractABI, setContractABI] = useState();
+  const [chain, setChain] = useState("rinkeby");
+  const [contractNFT, setContractNFT] = useState("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+  const [contractABI, setContractABI] = useState(rinkebyContractABI);
+ 
 
   useEffect(() => {
-    if (chain !== "") {
+    if (chain !== "") return  
       if (chain === "mumbai") {
         setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
         setContractABI(mumbaiContractABI);
@@ -47,7 +48,7 @@ function App() {
         setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
         setContractABI(rinkebyContractABI);
       }
-    }
+    
   }, [chain]);
 
   useEffect(() => {
@@ -207,7 +208,7 @@ function App() {
             <Favorite eliminarFavorito={eliminarFavorito} favorito={favorito} />
           }
         />
-        <Route path="/mycollections" element={<MyCollections />} />
+        <Route path="/mycollections" element={<MyCollections chain={chain} />} />
         <Route path="/myorders" element={<MyOrders />} />
 
         <Route path="/:email/newpassword" element={<RecoverPassword />} />
