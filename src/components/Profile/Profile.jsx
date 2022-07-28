@@ -48,7 +48,9 @@ export default function Profile() {
   function validationForm(value) {
     let errors = {};
     if (
-      !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(value.password)
+      !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(
+        value.password
+      )
     ) {
       errors.password =
         "*It should have 8 characters, 1 capital letter, and a number";
@@ -67,7 +69,11 @@ export default function Profile() {
 
   const [newPass, setNewPass] = useState("");
 
-  const esAdmin = useSelector((state) => state.esAdministrador);
+  const esAdmin = useSelector((state)=> state.esAdministrador)
+
+  
+
+  
 
   // const profiles = useSelector((state) => state.profile);
   //console.log(profile)
@@ -216,11 +222,15 @@ export default function Profile() {
                   You already rated the app, thank you!
                 </p>
               ) : null}
-              {esAdmin === true ? (
+              {esAdmin === true?
+              (
                 <NavLink to="/Dashboard">
-                  <li className={styles.admin}>ACCESS TO ADMIN</li>
-                </NavLink>
-              ) : null}
+                    <li className={styles.admin}>ACCESS TO ADMIN</li>
+                  </NavLink>
+              ):
+              null
+              }
+                 
             </div>
           </div>
         </div>
