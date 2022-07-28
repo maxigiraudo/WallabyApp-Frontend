@@ -40,9 +40,11 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(getProfile(newUsuario));
-
+<<<<<<< HEAD
   }, []);
-
+=======
+  }, [dispatch, newUsuario]);
+>>>>>>> cd374ad3445acdb29ae810e8be6afa64d59845cb
 
   useEffect(() => {
     dispatch(getProfileGoogle(userrrGoogle));
