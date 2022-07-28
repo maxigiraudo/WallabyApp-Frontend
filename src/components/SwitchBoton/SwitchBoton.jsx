@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styles from "./SwitchBoton.module.css";
 
-export default function SwitchBoton({ setChain }) {
+export default function SwitchBoton({ chainChain }) {
   const [value, setValue] = useState(false);
 
   const valueButton = () => {
     setValue(!value);
     console.log("ESTE ES EL VALOR", value);
     if (value === false) {
-      setChain("mumbai");
+      chainChain("mumbai");
     } else {
-      setChain("rinkeby");
+      chainChain("rinkeby");
     }
   };
 
