@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNft } from "../../redux/actions";
 import { useEffect } from "react";
 import DropdownNft from "../DropdownNft/DropdownNft";
+import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
 export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
   // const logged = useSelector((state) => state.userIsAuthenticated);
@@ -128,6 +129,7 @@ export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
             </div>
           ) : null}
         </ul>
+
         
         {newUser === null && userrrGoogle === null? (
           <div className={styles.dropdowns}>
@@ -166,8 +168,12 @@ export default function Navbar({ setWalletAddress, walletAddress, setChain }) {
             <div>
               <DropDownWallet className={styles.wallet}></DropDownWallet>
             </div>
+              <div className={styles.switchboton}>
+          <SwitchBoton setChain={setChain} />
+        </div>
           </div>
         )}
+
 
         {/* <div className={styles.tooltip}>
           <BiWalletAlt

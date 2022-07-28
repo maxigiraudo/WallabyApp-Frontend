@@ -25,6 +25,7 @@ import Star from "./components/Star/Star";
 import Market from "./components/Market/Market";
 import Collection from "./components/Collection/Collection";
 import { mumbaiContractABI, rinkebyContractABI } from "./contracts/contract";
+import SwitchBoton from "./components/SwitchBoton/SwitchBoton";
 
 function App() {
   useEffect(() => {
@@ -37,7 +38,7 @@ function App() {
   const [chain, setChain] = useState("");
   const [contractNFT, setContractNFT] = useState("");
   const [contractABI, setContractABI] = useState();
-
+  console.log("ESTO ES CHAIN", chain);
   useEffect(() => {
     if (chain !== "") {
       if (chain === "mumbai") {
@@ -207,12 +208,13 @@ function App() {
             <Favorite eliminarFavorito={eliminarFavorito} favorito={favorito} />
           }
         />
-        <Route path="/mycollections" element={<MyCollections />} />
+        <Route
+          path="/mycollections"
+          element={<MyCollections setChain={setChain} />}
+        />
         <Route path="/myorders" element={<MyOrders />} />
 
         <Route path="/:email/newpassword" element={<RecoverPassword />} />
-
-        <Route path="/star" element={<Star />} />
       </Routes>
     </div>
   );
