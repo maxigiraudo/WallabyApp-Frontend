@@ -1,32 +1,37 @@
 import React, { useState } from "react";
+import { useSelector , useDispatch} from "react-redux";
+import { botonMaximiliano } from "../../redux/actions";
 import styles from "./SwitchBoton.module.css";
 
 export default function SwitchBoton({ chainChain }) {
-  const [value, setValue] = useState(false);
+  // const [value, setValue] = useState(false);
+  const dispatch= useDispatch()
+  const value= useSelector((state)=> state.botonMaxi)
 
-  const valueButton = () => {
-    setValue(!value);
-    console.log("ESTE ES EL VALOR", value);
-    if (value === false) {
-      chainChain("mumbai");
-    } else {
-      chainChain("rinkeby");
-    }
-  };
+  const valueE = localStorage.getItem("botonMaxi")
 
+  console.log("BELEN LAIR MI AMOR ",localStorage.getItem("botonMaxi"))
+
+  console.log("ESTO ES VALUE EN UN 1ER MOMENTO",value)
+  
+ function handleClickM(){
+  chainChain("mumbai")
+ }
+
+ function handleClickR(){
+  chainChain("rinkeby")
+ }
+
+  console.log("ESTO ES VALUE EN 2DO MOMENTO", value)
   return (
     <div className={styles.container}>
       <div className={styles.switchbutton}>
-        <input
-          value={value}
-          type="checkbox"
-          name="switch-button"
-          id="switch-label"
-          className={styles.switchbuttoncheckbox}
-          onChange={() => valueButton()}
-        />
-
-        <label for="switch-label" className={styles.switchbuttonlabel}></label>
+        <button                 
+          onClick={()=>handleClickM()}
+        >MUMBAI</button>
+        <button         
+          onClick={()=>handleClickR()}
+        >RIKEBY</button>      
       </div>
     </div>
   );

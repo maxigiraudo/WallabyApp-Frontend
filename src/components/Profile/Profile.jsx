@@ -13,15 +13,12 @@ import styles from "./Profile.module.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
-import {
-  BsFillEyeFill,
-  BsFillEyeSlashFill,
-  BsNodePlusFill,
-} from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Star from "../Star/Star";
 import { NavLink } from "react-router-dom";
 
 export default function Profile() {
+  //console.log(props)
   const [shown, setShown] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,15 +33,13 @@ export default function Profile() {
   const [passwordd, setPassword] = React.useState("");
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
+  console.log("ESTE ES EL USEE GOOGLE", userrrGoogle);
   const newUsuario = JSON.parse(userrr);
+  console.log("ESTE ES EL USER COMUN", newUsuario);
 
   useEffect(() => {
     dispatch(getProfile(newUsuario));
-<<<<<<< HEAD
   }, []);
-=======
-  }, [dispatch, newUsuario]);
->>>>>>> cd374ad3445acdb29ae810e8be6afa64d59845cb
 
   useEffect(() => {
     dispatch(getProfileGoogle(userrrGoogle));
@@ -65,11 +60,25 @@ export default function Profile() {
 
   const profile = useSelector((state) => state.profile);
   const profileGoogle = useSelector((state) => state.profileGoogle);
-  const [estaPorPuntuar, setEstaPorPuntuar] = useState(false);
-  const reviewTrue = useSelector((state) => state.reviewComplete);
-  const [newPass, setNewPass] = useState("");
-  const esAdmin = useSelector((state) => state.esAdministrador);
+  console.log(profile);
+  console.log(profileGoogle);
 
+  const [estaPorPuntuar, setEstaPorPuntuar] = useState(false);
+
+  const reviewTrue = useSelector((state) => state.reviewComplete);
+
+  const [newPass, setNewPass] = useState("");
+
+  const esAdmin = useSelector((state)=> state.esAdministrador)
+
+  
+
+  
+
+  // const profiles = useSelector((state) => state.profile);
+  //console.log(profile)
+
+  // console.log(profiles);
   const back = () => {
     window.history.back();
   };
@@ -106,6 +115,12 @@ export default function Profile() {
       timer: 1500,
     });
   }
+
+  console.log("ESTA POR PUNTUAR", estaPorPuntuar);
+
+  console.log(newPass);
+
+  console.log("ESTO HAY EN PROFILE", profileGoogle);
 
   return (
     <div className={styles.containerPadre}>
@@ -207,11 +222,15 @@ export default function Profile() {
                   You already rated the app, thank you!
                 </p>
               ) : null}
-              {esAdmin === true ? (
+              {esAdmin === true?
+              (
                 <NavLink to="/Dashboard">
-                  <li>Admin</li>
-                </NavLink>
-              ) : null}
+                    <li className={styles.admin}>ACCESS TO ADMIN</li>
+                  </NavLink>
+              ):
+              null
+              }
+                 
             </div>
           </div>
         </div>

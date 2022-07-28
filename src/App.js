@@ -36,12 +36,13 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("mumbai");
-  const [contractNFT, setContractNFT] = useState(nft_contract_mumbai);
-  const [contractABI, setContractABI] = useState(mumbaiContractABI);
+  const [chain, setChain] = useState("rinkeby");
+  const [contractNFT, setContractNFT] = useState("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+  const [contractABI, setContractABI] = useState(rinkebyContractABI);
   console.log("ESTO ES CHAIN", chain);
 
   function chainChain(value) {
+    console.log("ESTE ES EL VALUE QUE ME LLEGA DEL BOTON",value)
     if (value === "mumbai") {
       setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
       setContractABI(mumbaiContractABI);
@@ -52,6 +53,8 @@ function App() {
       setChain("rinkeby");
     }
   }
+
+  console.log("NUEVO ESTADO",chain)
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -149,7 +152,9 @@ function App() {
   return (
     <div className="generalApp">
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/" element={<LandingPage
+        chainChain={chainChain}
+         />} />
         <Route
           path="/home"
           element={

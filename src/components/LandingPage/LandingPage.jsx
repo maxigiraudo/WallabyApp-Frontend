@@ -14,9 +14,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReview } from "../../redux/actions";
 import { AiTwotoneStar } from "react-icons/ai";
+import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
-export default function LandingPage() {
+export default function LandingPage({chainChain}) {
   const [botState, setBotState] = useState(false);
+
+  const red = useSelector((state)=> state.botonMaxi)
+
+  localStorage.setItem("botonMaxi",toString(red))
+
+  console.log("BELEN BEBOTA", localStorage.setItem("botonMaxi",red.toString()))
 
   const dispatch = useDispatch();
 
@@ -131,6 +138,9 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
+        <div className={styles.switchboton}>
+              <SwitchBoton chainChain={chainChain} />
+            </div>
       </div>
     </div>
   );

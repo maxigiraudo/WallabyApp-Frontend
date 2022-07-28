@@ -22,20 +22,6 @@ export default function Collections({ image, name, address }) {
           <div className={style.container23}>
             <div className={style.divIm}>
               {/* <Link to={`/collection/${address}`}> */}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 2aab3763691144d187ab77ae31f1ece68ce9c15f
-                <img                  
-                  className={style.imageC}
-                  src={image}
-                  alt="*"
-                  value="art"
-                  onClick={() => buscarNftColeccion(name)}
-                />
-<<<<<<< HEAD
-=======
               <img
                 className={style.imageC}
                 src={image}
@@ -43,10 +29,7 @@ export default function Collections({ image, name, address }) {
                 value="art"
                 onClick={() => buscarNftColeccion(name)}
               />
->>>>>>> cd374ad3445acdb29ae810e8be6afa64d59845cb
-=======
 
->>>>>>> 2aab3763691144d187ab77ae31f1ece68ce9c15f
               {/* </Link> */}
             </div>
             <div className={style.divH}></div>
