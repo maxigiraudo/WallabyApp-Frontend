@@ -34,8 +34,6 @@ export default function LandingPage() {
 
   const allreview = useSelector((state) => state.allReviews);
 
-  console.log("ESTA ES MI ALL REVIEW", allreview);
-
   const newReview = allreview.slice(allreview.length - 5);
 
   return (

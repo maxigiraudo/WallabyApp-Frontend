@@ -36,8 +36,6 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
 
   const card = useSelector((state) => state.detail);
 
-  console.log(card);
-
   const navigate = useNavigate();
 
   let onClick = (e) => {

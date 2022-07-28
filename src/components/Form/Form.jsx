@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
 
-export default function Form({contractABI, contractNFT}) {
+export default function Form({ contractABI, contractNFT }) {
   const [card, setCard] = useState({ name: "", description: "" });
   const [image, setimages] = useState("");
   const { saveFile, moralisFile } = useMoralisFile();
@@ -24,6 +24,7 @@ export default function Form({contractABI, contractNFT}) {
   });
   const { authenticate, isAuthenticated, user } = useMoralis();
   const navigate = useNavigate();
+  console.log("dale que va");
 
   useEffect(() => {
     const login = async () => {

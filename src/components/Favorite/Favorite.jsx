@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 
 export default function Favorite({ eliminarFavorito, favorito }) {
   // const favorites = useSelector((state) => state.favorite);
-  console.log(favorito);
 
   const dispatch = useDispatch();
 
