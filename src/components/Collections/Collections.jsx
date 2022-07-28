@@ -22,13 +22,15 @@ export default function Collections({ image, name, address }) {
           <div className={style.container23}>
             <div className={style.divIm}>
               {/* <Link to={`/collection/${address}`}> */}
-              <img
-                className={style.imageC}
-                src={image}
-                alt="*"
-                value="art"
-                onClick={() => buscarNftColeccion(name)}
-              />
+
+                <img                  
+                  className={style.imageC}
+                  src={image}
+                  alt="*"
+                  value="art"
+                  onClick={() => buscarNftColeccion(name)}
+                />
+
               {/* </Link> */}
             </div>
             <div className={style.divH}></div>
