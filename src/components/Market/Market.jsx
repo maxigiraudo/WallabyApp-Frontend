@@ -10,8 +10,15 @@ import Navbar from "../Navbar/Navbar";
 import styles from "./Market.module.css";
 import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 import { marketAddress } from "../../contracts/contractMarket";
+import CardMarket from "../CardMarket/CardMarket";
 
-export default function Market({ walletAddress, contractNFT, contractABI }) {
+export default function Market({
+  walletAddress,
+  contractNFT,
+  contractABI,
+  agregarCarrito,
+  agregarFavorito,
+}) {
   //   const market = useSelector((state) => state.market);
   const back = () => {
     window.history.back();
@@ -20,7 +27,7 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
   const [nftToBuy, setNftToBuy] = useState(null);
   const [loading, setLoading] = useState(false);
   const contractProcessor = useWeb3ExecuteFunction();
-  const contractABIJson = JSON.parse(JSON.stringify(contractABI));
+  const contractABIJson = contractABI;
   const { Moralis } = useMoralis();
   const queryMarketItems = useMoralisQuery("MarketItems");
 
@@ -111,7 +118,16 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
 
   console.log(walletAddress);
 
+  const newObject = Object.values(NFTTokenIds);
+
+  console.log("ESTE ES EL NEW OBJECT", newObject);
+
   console.log("ACCCA", NFTTokenIds, fetchSuccess);
+  // let nfts;
+  // if (fetchSuccess) {
+  //   NFTTokenIds.length === 0 ? alert("problema") : (nfts = NFTTokenIds.results);
+  // }
+
   return (
     <div>
       <Navbar />
@@ -119,6 +135,19 @@ export default function Market({ walletAddress, contractNFT, contractABI }) {
         Go Back
       </button>
       <div className={styles.tt}>Market</div>
+      <div className={styles.container}>
+        {newObject[0]?.map((e) => (
+          <CardMarket
+            _id={e._id}
+            price={e.price}
+            name={e.name}
+            image={e.image}
+            token_address={e.token_address}
+            agregarCarrito={agregarCarrito}
+            agregarFavorito={agregarFavorito}
+          />
+        ))}
+      </div>
     </div>
   );
 }
