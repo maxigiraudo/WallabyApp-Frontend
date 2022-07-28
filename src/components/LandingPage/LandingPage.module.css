@@ -59,6 +59,10 @@
 .logoLanding {
   width: 90%;
 }
+.switchboton {
+  margin-top: 150px;
+  color: white;
+}
 
 .textLanding {
   color: #d04bff;
@@ -230,12 +234,12 @@
   color: white;
   width: fit-content;
   border-radius: 20px;
-  margin-top: 250px;
+  margin-top: 150px;
   margin-bottom: 100px;
   padding: 20px;
   background: linear-gradient(#6b63ff88 0%, #cf4bff5e 100%);
   font-weight: bolder;
-  box-shadow: 1px 1px 50px 20px #6c63ff;
+  box-shadow: 1px 1px 30px 10px #6c63ff;
 }
 
 /* RESPONSIVE------------------------------- */

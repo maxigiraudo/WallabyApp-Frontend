@@ -7,10 +7,21 @@
   margin: 10px;
 }
 
-.white{
+.white {
   color: white;
 }
-
+.admin {
+  background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  border-radius: 5px;
+  color: white;
+  width: fit-content;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 15px;
+  font-family: inherit;
+  margin-top: 30px;
+}
 .hizoReview {
   color: #d04bff;
   margin-top: 5px;
@@ -240,7 +251,7 @@
 .loginInputt:focus {
   outline: none;
 }
-.admin{
+.admin {
   background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
   border-radius: 5px;
   color: white;

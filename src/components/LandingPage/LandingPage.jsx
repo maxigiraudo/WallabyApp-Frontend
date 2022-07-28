@@ -14,8 +14,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReview } from "../../redux/actions";
 import { AiTwotoneStar } from "react-icons/ai";
+import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
-export default function LandingPage() {
+export default function LandingPage({ chainChain }) {
   const [botState, setBotState] = useState(false);
 
   const dispatch = useDispatch();
@@ -118,6 +119,9 @@ export default function LandingPage() {
             Need Help? <BsChatDots className={styles.icon} />{" "}
           </div>
         )}
+      </div>
+      <div className={styles.switchboton}>
+        <SwitchBoton chainChain={chainChain} />
       </div>
       <div className={styles.rates}>
         <h1 className={styles.our}>THE LAST FIVE SCORES OF OUR USERS:</h1>

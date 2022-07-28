@@ -1,38 +1,30 @@
-/* :root {
-  --color-green: #00a878;
-  --color-red: #fe5e41;
-  --color-button: #fdffff;
-  --color-black: #000;
-} */
-
 .switchbutton {
-  display: inline-block;
+  margin-top: 20px;
 }
-.switchbutton .switchbuttoncheckbox {
-  display: none;
+.botonLanding {
+  border-radius: 10px;
+  font-weight: bolder;
+  background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+  padding: 10px;
+  width: 10rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px 5px #cf4bff65;
+  border: none;
+  font-family: "Bebas Neue", cursive;
+  font-size: x-large;
+  letter-spacing: 1px;
+  margin: 10px;
 }
-.switchbutton .switchbuttonlabel {
-  width: 3.4rem;
-  height: 1.5rem;
-  border-radius: 1rem;
-  display: inline-block;
-  position: relative;
-  background-color: #8247e5;
+
+.botonLanding:hover {
+  transform: scale(1.1);
+  letter-spacing: 1.5px;
 }
-.switchbutton .switchbuttonlabel:before {
-  transition: 0.2s;
-  display: block;
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: #fdffff;
-  content: "";
-  border-radius: 50%;
-  box-shadow: inset 0px 0px 0px 1px #000;
+.texto {
+  text-align: center;
 }
-.switchbutton .switchbuttoncheckbox:checked + .switchbuttonlabel {
-  background-color: #f6c343;
-}
-.switchbutton .switchbuttoncheckbox:checked + .switchbuttonlabel:before {
-  transform: translateX(2rem);
+.padre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
