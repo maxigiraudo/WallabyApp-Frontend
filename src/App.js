@@ -58,6 +58,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log('dale')
     const connectorId = window.localStorage.getItem("connectorId");
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading)
       enableWeb3({ provider: connectorId });
