@@ -25,7 +25,7 @@ export default function Collections({ image, name, address }) {
           <div className={style.container23}>
             <div className={style.divIm}>
               {/* <Link to={`/collection/${address}`}> */}
-                <img
+                <img                  
                   className={style.imageC}
                   src={image}
                   alt="*"

@@ -41,11 +41,11 @@ export default function Profile() {
   
   useEffect(() => {
     dispatch(getProfile(newUsuario));
-  }, [dispatch,newUsuario]);
+  }, []);
 
   useEffect(() => {
     dispatch(getProfileGoogle(userrrGoogle));
-  }, [dispatch]);
+  }, []);
 
   function validationForm(value) {
     let errors = {};

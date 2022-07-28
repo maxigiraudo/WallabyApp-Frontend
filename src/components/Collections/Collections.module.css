@@ -51,8 +51,8 @@
   height: 400px;
   width: 400px;
   border-radius: 10px;
-  background-image: url("https://lh3.googleusercontent.com/wagZQjBQU0NZnTjlHHdBjDCgE0AvP1K4WGNYsCSTTj2Gib2N0LbE4uWC76w510bbyXFtqWTqj_1rlK_ZZ0KfZvGYuEBA5NivGuBnIw=h400");
-  background-size: cover;
+  background-image: url("https://wallabyapp.vercel.app/static/media/logo.fc40243e.png");
+  background-size: 100%;
 }
 
 .container23 {
