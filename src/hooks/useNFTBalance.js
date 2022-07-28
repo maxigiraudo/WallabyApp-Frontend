@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useMoralisWeb3Api } from "react-moralis";
 import { useIPFS } from "./useIPFS";
 
-export const useNFTBalance = () => {
+export const useNFTBalance = (chain) => {
   const { resolveLink } = useIPFS();
   const {account} = useMoralisWeb3Api()
 
@@ -18,7 +18,7 @@ export const useNFTBalance = () => {
     function fetchData() {
       Web3Api.account
         .getNFTs({
-            chain : "mumbai"
+            chain : chain
         })
         .then((data) => {
             const NFTs = data.result;

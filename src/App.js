@@ -24,6 +24,7 @@ import RecoverPassword from "./components/recoverPassword/RecoverPassword";
 import Star from "./components/Star/Star";
 import Market from "./components/Market/Market";
 import Collection from "./components/Collection/Collection";
+import {mumbaiContractABI, rinkebyContractABI} from './contracts/contract'
 
 function App() {
   useEffect(() => {
@@ -33,7 +34,22 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
+  const [chain, setChain] = useState('');
+  const [contractNFT, setContractNFT] = useState('');
+  const [contractABI, setContractABI] = useState()
 
+  useEffect(() => {
+    if(chain !== ''){
+      if (chain === 'mumbai'){
+        setContractNFT('0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75')
+        setContractABI(mumbaiContractABI)
+      }else{
+        setContractNFT('0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6')
+        setContractABI(rinkebyContractABI)
+      }
+    }
+
+  },[chain])
   
 
   useEffect(() => {
@@ -144,6 +160,7 @@ function App() {
               favorito={favorito}
               setWalletAddress={setWalletAddress}
               walletAddress={walletAddress}
+              setChain={setChain}
             />
           }
         />
@@ -156,11 +173,11 @@ function App() {
             />
           }
         />
-        <Route path="/form" element={<Form />} />
+        <Route path="/form" element={<Form contractNFT={contractNFT} contractABI={contractABI}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/market" element={<Market walletAddress={walletAddress} />} />
+        <Route path="/market" element={<Market walletAddress={walletAddress} contractNFT={contractNFT} />} />
         <Route path="/formRegister" element={<FormRegister />} />
         <Route path="/collection/:address" element={<Collection />} />
         <Route
