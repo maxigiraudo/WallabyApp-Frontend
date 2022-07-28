@@ -147,7 +147,7 @@ export default function Navbar({
               <DropdownNft className={styles.wallet}></DropdownNft>
             </div>
             <div>
-              <DropDownWallet className={styles.wallet}></DropDownWallet>
+              <DropDownWallet className={styles.wallet} setWalletAddress={setWalletAddress}></DropDownWallet>
             </div>
           </div>
         ) : (
@@ -167,7 +167,7 @@ export default function Navbar({
               <DropdownNft className={styles.wallet}></DropdownNft>
             </div>
             <div>
-              <DropDownWallet className={styles.wallet}></DropDownWallet>
+              <DropDownWallet className={styles.wallet} setWalletAddress={setWalletAddress}></DropDownWallet>
             </div>
             <div className={styles.switchboton}>
               <SwitchBoton chainChain={chainChain} />

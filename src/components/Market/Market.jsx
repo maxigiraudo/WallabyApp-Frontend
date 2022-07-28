@@ -11,6 +11,7 @@ import styles from "./Market.module.css";
 import { useNFTTokenIds } from "../../hooks/useNFTTokenIds";
 import { marketAddress } from "../../contracts/contractMarket";
 import CardMarket from "../CardMarket/CardMarket";
+import Swal from "sweetalert2";
 
 export default function Market({
   walletAddress,
@@ -29,7 +30,7 @@ export default function Market({
   const contractProcessor = useWeb3ExecuteFunction();
   const contractABIJson = contractABI;
   const { Moralis } = useMoralis();
-  const queryMarketItems = useMoralisQuery("MarketItems");
+  const queryMarketItems = useMoralisQuery("CreatedNFTMarket");
 
   const fetchMarketItems = JSON.parse(
     JSON.stringify(queryMarketItems.data, [
@@ -47,9 +48,11 @@ export default function Market({
   );
 
   const purchaseItemFunction = "createMarketSale";
+  console.log('NFTTOBUY', nftToBuy)
 
   async function purchase() {
     setLoading(true);
+    //const tokenDetails = getMarketItem(nftToBuy);
     const tokenDetails = getMarketItem(nftToBuy);
     const itemID = tokenDetails.itemId;
     const tokenPrice = tokenDetails.price;
@@ -59,7 +62,7 @@ export default function Market({
       abi: contractABIJson,
       params: {
         nftContract: nftToBuy.token_address,
-        itemId: itemID,
+        itemId: itemID
       },
       masValue: tokenPrice,
     };
@@ -80,10 +83,23 @@ export default function Market({
     });
   }
 
-  const handleBuyClick = (nft) => {
-    setNftToBuy(nft);
-    console.log(nft.image);
-  };
+  const handleBuyClick =  async (nft) => {
+    setNftToBuy(nft)
+    
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "Are you sure to complete this purchase?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: 'green',
+      cancelButtonColor: 'red',
+      confirmButtonText: 'Yes!!!'
+    });
+      if (result.isConfirmed) {
+        await purchase()
+      }
+    }
+  
 
   function succPurchase() {
     alert("success purchase!");
@@ -109,9 +125,10 @@ export default function Market({
     const result = fetchMarketItems?.find(
       (e) =>
         e.nftContract === nft?.token_address &&
-        e.tokenId === nft?.token_id &&
+        e.tokenId === nft?._id &&
         e.sold === false &&
-        e.confirmed === true
+        e.confirmed === true 
+        
     );
     return result;
   };
@@ -123,10 +140,17 @@ export default function Market({
   console.log("ESTE ES EL NEW OBJECT", newObject);
 
   console.log("ACCCA", NFTTokenIds, fetchSuccess);
-  // let nfts;
-  // if (fetchSuccess) {
-  //   NFTTokenIds.length === 0 ? alert("problema") : (nfts = NFTTokenIds.results);
-  // }
+  
+//  const data = newObject[0]?.filter( e => getMarketItem(e)).map( e => ({
+//   _id : e._id,
+//   name: e.name,
+//   image: e.image,
+//   token_address : e.token_address,
+//   db : getMarketItem(e)
+//  }))
+ //const nfts = data?.filter( e => e.db.seller !== walletAddress)
+
+
 
   return (
     <div>
@@ -136,16 +160,22 @@ export default function Market({
       </button>
       <div className={styles.tt}>Market</div>
       <div className={styles.container}>
-        {newObject[0]?.map((e) => (
+        {newObject[0]?.map((nft) => (
+          
+          getMarketItem(nft) &&
+          <>
           <CardMarket
-            _id={e._id}
-            price={e.price}
-            name={e.name}
-            image={e.image}
-            token_address={e.token_address}
+            _id={nft._id}
+            name={nft.name}
+            image={nft.image}
+            token_address={nft.token_address}
             agregarCarrito={agregarCarrito}
             agregarFavorito={agregarFavorito}
+            
           />
+          <button onClick={() => handleBuyClick(nft)}>Buy</button>
+          </>
+          
         ))}
       </div>
     </div>
