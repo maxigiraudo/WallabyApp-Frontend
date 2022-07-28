@@ -25,6 +25,7 @@ export default function Form() {
   });
   const { authenticate, isAuthenticated, user } = useMoralis();
   const navigate = useNavigate();
+  console.log('dale que va')
 
   useEffect(() => {
     const login = async () => {
