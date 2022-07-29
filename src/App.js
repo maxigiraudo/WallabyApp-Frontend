@@ -153,9 +153,11 @@ function App() {
     <div className="generalApp">
       <Routes>
 
-        <Route exact path="/" element={<LandingPage
-        chainChain={chainChain}
-         />} />
+        <Route
+          exact
+          path="/"
+          element={<LandingPage chainChain={chainChain} />}
+        />
 
         <Route
           path="/home"

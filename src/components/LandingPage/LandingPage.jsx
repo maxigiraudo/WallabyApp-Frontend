@@ -16,8 +16,7 @@ import { getReview } from "../../redux/actions";
 import { AiTwotoneStar } from "react-icons/ai";
 import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
-export default function LandingPage({chainChain}) {
-
+export default function LandingPage({ chainChain }) {
 
   const [botState, setBotState] = useState(false);
 

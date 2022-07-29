@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+
 import { botonMaximiliano } from "../../redux/actions";
 import styles from "./SwitchBoton.module.css";
 import Swal from "sweetalert2";
 
 export default function SwitchBoton({ chainChain }) {
   // const [value, setValue] = useState(false);
+
 
   const valueE = localStorage.getItem("botonMaxi");
 
@@ -23,6 +25,22 @@ export default function SwitchBoton({ chainChain }) {
   }
 
 
+
+  console.log("BELEN LAIR MI AMOR ", localStorage.getItem("botonMaxi"));
+
+  console.log("ESTO ES VALUE EN UN 1ER MOMENTO", value);
+
+  function handleClickM() {
+    chainChain("mumbai");
+    Swal.fire("Connected with Mumbai", "", "success");
+  }
+
+  function handleClickR() {
+    chainChain("rinkeby");
+    Swal.fire("Connected with Rinkeby", "", "success");
+  }
+
+  console.log("ESTO ES VALUE EN 2DO MOMENTO", value);
   return (
     <div className={styles.container}>
       <div className={styles.padre}>

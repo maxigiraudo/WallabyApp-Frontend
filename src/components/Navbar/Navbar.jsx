@@ -12,7 +12,9 @@ import { getNft } from "../../redux/actions";
 import { useEffect } from "react";
 import DropdownNft from "../DropdownNft/DropdownNft";
 
-export default function Navbar(setWalletAddress) {
+
+export default function Navbar({setWalletAddress}) {
+
   // const logged = useSelector((state) => state.userIsAuthenticated);
 
   const userrr = JSON.parse(localStorage.getItem("profiles"));
@@ -115,7 +117,8 @@ export default function Navbar(setWalletAddress) {
           <DropdownNft className={styles.wallet}></DropdownNft>
         </div>
         <div>
-        <DropDownWallet className={styles.wallet} setWalletAddress={setWalletAddress}></DropDownWallet>
+
+          <DropDownWallet className={styles.wallet} setWalletAddress={setWalletAddress}></DropDownWallet>
         </div>
 
         {/* <div className={styles.tooltip}>
