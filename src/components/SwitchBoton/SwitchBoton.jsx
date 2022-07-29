@@ -28,7 +28,6 @@ export default function SwitchBoton({ chainChain }) {
 
   console.log("BELEN LAIR MI AMOR ", localStorage.getItem("botonMaxi"));
 
-  console.log("ESTO ES VALUE EN UN 1ER MOMENTO", value);
 
   function handleClickM() {
     chainChain("mumbai");
@@ -40,7 +39,6 @@ export default function SwitchBoton({ chainChain }) {
     Swal.fire("Connected with Rinkeby", "", "success");
   }
 
-  console.log("ESTO ES VALUE EN 2DO MOMENTO", value);
   return (
     <div className={styles.container}>
       <div className={styles.padre}>
