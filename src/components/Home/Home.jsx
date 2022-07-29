@@ -48,6 +48,7 @@ export default function Home({
   setWalletAddress,
   walletAddress,
   chainChain,
+  chain,
 }) {
   const allCard = useSelector((state) => state.cards);
   const cursori = useSelector((state) => state.cursor);
@@ -120,6 +121,7 @@ export default function Home({
     <div className={style.containergeneral}>
       <div className={style.containerNav}>
         <Navbar
+          chain={chain}
           setWalletAddress={setWalletAddress}
           walletAddress={walletAddress}
           chainChain={chainChain}
