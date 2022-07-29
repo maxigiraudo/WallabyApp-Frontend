@@ -10,10 +10,9 @@ import { publishMarket } from "../../redux/actions";
 import { marketAddress, contractABI } from "../../contracts/contractMarket";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import { Modal, Button } from "react-bootstrap";
-
+import Swal from "sweetalert2";
 
 export default function MyCollections({ chainChain, chain }) {
-
   const { NFTBalance, fetchSuccess } = useNFTBalance(chain);
   const { Moralis } = useMoralis();
   const [visible, setVisibility] = useState(false);
@@ -41,10 +40,18 @@ export default function MyCollections({ chainChain, chain }) {
     await contractProcessor.fetch({
       params: ops,
       onSuccess: () => {
-        alert("item bougth");
+        Swal.fire({
+          icon: "success",
+          title: "NFT listed",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       },
-      onError: (e) => {
-        alert(e);
+      onError: () => {
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+        });
       },
     });
   }

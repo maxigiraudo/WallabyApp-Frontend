@@ -17,6 +17,8 @@ import { AiTwotoneStar } from "react-icons/ai";
 import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
 export default function LandingPage({chainChain}) {
+
+
   const [botState, setBotState] = useState(false);
 
   const red = useSelector((state)=> state.botonMaxi)
@@ -126,6 +128,9 @@ export default function LandingPage({chainChain}) {
           </div>
         )}
       </div>
+      <div className={styles.switchboton}>
+        <SwitchBoton chainChain={chainChain} />
+      </div>
       <div className={styles.rates}>
         <h1 className={styles.our}>THE LAST FIVE SCORES OF OUR USERS:</h1>
         <div className={styles.conatinerReview}>
@@ -138,9 +143,6 @@ export default function LandingPage({chainChain}) {
             </div>
           ))}
         </div>
-        <div className={styles.switchboton}>
-              <SwitchBoton chainChain={chainChain} />
-            </div>
       </div>
     </div>
   );

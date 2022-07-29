@@ -16,6 +16,7 @@ const web3 = new Web3(Web3.givenProvider);
 export default function Form({ contractABI, contractNFT }) {
   const [card, setCard] = useState({ name: "", description: "" });
   const [image, setimages] = useState("");
+  const [aviso, setAviso] = useState(false);
   const { saveFile, moralisFile } = useMoralisFile();
   const [file, setFile] = useState("");
   const [files, setFiles] = useState([]);
@@ -101,6 +102,7 @@ export default function Form({ contractABI, contractNFT }) {
     } catch (error) {
       console.log(`ERROR ${error}`);
     }
+    setAviso(true);
   };
 
   console.log(image);
@@ -284,6 +286,12 @@ export default function Form({ contractABI, contractNFT }) {
                     errors.
                   </p>
                 )}
+                {aviso ? (
+                  <p style={{ color: "white", textAlign: "center" }}>
+                    After signing the contract in Metamask, it may take a few
+                    minutes for the NFT to be created.
+                  </p>
+                ) : null}
               </div>
             </div>
           </form>
