@@ -1,15 +1,30 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+
 import { botonMaximiliano } from "../../redux/actions";
 import styles from "./SwitchBoton.module.css";
 import Swal from "sweetalert2";
 
 export default function SwitchBoton({ chainChain }) {
   // const [value, setValue] = useState(false);
-  const dispatch = useDispatch();
-  const value = useSelector((state) => state.botonMaxi);
+
 
   const valueE = localStorage.getItem("botonMaxi");
+
+  console.log("BELEN LAIR MI AMOR ", localStorage.getItem("botonMaxi"));
+
+
+
+  function handleClickM() {
+    chainChain("mumbai");
+    Swal.fire("Connected with Mumbai", "", "success");
+  }
+
+  function handleClickR() {
+    chainChain("rinkeby");
+    Swal.fire("Connected with Rinkeby", "", "success");
+  }
+
+
 
   console.log("BELEN LAIR MI AMOR ", localStorage.getItem("botonMaxi"));
 
