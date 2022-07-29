@@ -75,7 +75,6 @@ export default function Navbar({ setWalletAddress, chain }) {
             <div className={styles.padreDrop}>
               <div>
                 <div>
-                  <li>{}</li>
                   <NavLink to="/market">
                     <li>Market</li>
                   </NavLink>

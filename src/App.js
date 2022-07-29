@@ -36,7 +36,7 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("");
+  const [chain, setChain] = useState("mumbai");
   const [contractNFT, setContractNFT] = useState(
     "0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6"
   );

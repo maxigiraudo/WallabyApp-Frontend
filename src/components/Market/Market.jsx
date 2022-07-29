@@ -127,7 +127,7 @@ export default function Market({
       token_address: e.token_address,
       price: getMarketItem(e).price / ("1e" + 18),
     }));
-
+  console.log(newObject);
   const back = () => {
     window.history.back();
   };
