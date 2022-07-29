@@ -97,26 +97,22 @@ export default function Navbar() {
             </div>
           ) : null}
         </ul>
-        <div>
-          <div className={styles.tooltip}>
-            <NavLink to="/cart">
-              <BsCartCheck className={styles.wallet} />
-              <span className={styles.tooltiptext}>View Cart</span>
-            </NavLink>
+        <div className={styles.divdrop}>
+          <div>
+            <div className={styles.tooltip}>
+              <NavLink to="/cart">
+                <BsCartCheck className={styles.wallet} />
+                <span className={styles.tooltiptext}>View Cart</span>
+              </NavLink>
+            </div>
+          </div>
+          <div>
+            <DropdownNft className={styles.wallet}></DropdownNft>
+          </div>
+          <div>
+            <DropDownWallet className={styles.wallet}></DropDownWallet>
           </div>
         </div>
-        <div>
-          <DropdownNft className={styles.wallet}></DropdownNft>
-        </div>
-        <div>
-          <DropDownWallet className={styles.wallet}></DropDownWallet>
-        </div>
-        {/* <div className={styles.tooltip}>
-          <BiWalletAlt
-            className={styles.wallet}
-          />
-          <span className={styles.tooltiptext}>Wallet</span>
-        </div> */}
       </nav>
     </header>
   );

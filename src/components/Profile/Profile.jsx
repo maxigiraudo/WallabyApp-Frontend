@@ -48,7 +48,9 @@ export default function Profile() {
   function validationForm(value) {
     let errors = {};
     if (
-      !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(value.password)
+      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
+        value.password
+      )
     ) {
       errors.password =
         "*It should have 8 characters, 1 capital letter, and a number";
@@ -159,7 +161,7 @@ export default function Profile() {
                   <div>
                     <input
                       className={styles.loginInputt}
-                      // value={newPass}
+                      value={newPass}
                       name="password"
                       type={shown ? "text" : "password"}
                       onChange={(e) => handleInput(e)}
