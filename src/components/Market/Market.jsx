@@ -9,7 +9,7 @@ import Navbar from "../Navbar/Navbar";
 import { contractABI } from "../../contracts/contractMarket";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
-import Order from "../Order/Order";
+import { Link } from "react-router-dom";
 
 export default function Market({
   walletAddress,
@@ -138,29 +138,39 @@ export default function Market({
       <button className={styles.botonR} onClick={back}>
         Go Back
       </button>
-      <div className={styles.tt}>Wallaby Market</div>
-
-      <div className={styles.container}>
-        {nfts?.map((nft, index) => (
+      <div className={styles.padre}>
+        <div className={styles.tt}>Wallaby Market</div>
+        <div className={styles.frase}>
           <div>
-            <CardMarket
-              name={nft.name}
-              image={nft.image}
-              key={index}
-              _id={nft._id}
-              price={nft.price}
-              token_address={nft.token_address}
-              agregarCarrito={agregarCarrito}
-              agregarFavorito={agregarFavorito}
-              purchase={purchase}
-              getMarketItem={getMarketItem}
-              handleBuyClick={handleBuyClick}
-              nft={nft.nft}
-            />
-
-            {/* <button className={styles.botonR} onClick={() => handleBuyClick(nft.nft)}>Select</button> */}
+            If you don't see nft on the market choose "mumbai" blockchain
+            network on the
           </div>
-        ))}
+          <Link to="/">
+            <div className={styles.landing}>Landing Page</div>
+          </Link>
+        </div>
+        <div className={styles.container}>
+          {nfts?.map((nft, index) => (
+            <div>
+              <CardMarket
+                name={nft.name}
+                image={nft.image}
+                key={index}
+                _id={nft._id}
+                price={nft.price}
+                token_address={nft.token_address}
+                agregarCarrito={agregarCarrito}
+                agregarFavorito={agregarFavorito}
+                purchase={purchase}
+                getMarketItem={getMarketItem}
+                handleBuyClick={handleBuyClick}
+                nft={nft.nft}
+              />
+
+              {/* <button className={styles.botonR} onClick={() => handleBuyClick(nft.nft)}>Select</button> */}
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
