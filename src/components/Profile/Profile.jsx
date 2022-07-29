@@ -49,7 +49,7 @@ export default function Profile() {
     let errors = {};
     if (
 
-      !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(
+      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
         value.password
       )
 
@@ -168,7 +168,7 @@ export default function Profile() {
                   <div>
                     <input
                       className={styles.loginInputt}
-                      // value={newPass}
+                      value={newPass}
                       name="password"
                       type={shown ? "text" : "password"}
                       onChange={(e) => handleInput(e)}
