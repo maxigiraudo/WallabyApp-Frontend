@@ -41,6 +41,7 @@ const initialState = {
   userGoogleTrue: false,
   userComunTrue: false,
   esAdministrador: false,
+  botonMaxi:false
 };
 
 export default function reducer(state = initialState, action) {
@@ -360,6 +361,17 @@ export default function reducer(state = initialState, action) {
         ...state,
         profile: action.payload,
       };
+    case "BOTON_MAXI":
+      let value = state.botonMaxi
+      if(value ===true){
+        value =false
+      }else{
+        value = true
+      }
+      return{
+        ...state,
+        botonMaxi:value
+      }
 
     case "REGISTER_USER_REQUEST": {
       return {

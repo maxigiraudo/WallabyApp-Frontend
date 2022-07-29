@@ -86,7 +86,6 @@ export default function Login() {
     }
     return errors;
   }
-
   function handleInput(e) {
     e.preventDefault();
     setEmail(e.target.value);

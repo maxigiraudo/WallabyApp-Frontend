@@ -48,9 +48,11 @@ export default function Profile() {
   function validationForm(value) {
     let errors = {};
     if (
+
       !/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$/.test(
         value.password
       )
+
     ) {
       errors.password =
         "*It should have 8 characters, 1 capital letter, and a number";
@@ -69,11 +71,10 @@ export default function Profile() {
 
   const [newPass, setNewPass] = useState("");
 
+
   const esAdmin = useSelector((state)=> state.esAdministrador)
 
-  
 
-  
 
   // const profiles = useSelector((state) => state.profile);
   //console.log(profile)
@@ -101,6 +102,8 @@ export default function Profile() {
       })
     );
   }
+
+  console.log("password", newPass)
 
   function handleClick() {
     dispatch(updatePassword({ password: newPass, email: userrr.email }));
@@ -206,12 +209,18 @@ export default function Profile() {
                   Go to my collection!
                 </button>
               </Link>
+              {profileGoogle.length === 0?
+              <div>
               <button
                 className={styles.changePassword}
                 onClick={() => porPuntuar()}
               >
                 <a>Rate your experience in Wallaby.</a>
               </button>
+              <button
+                className={styles.changePassword}
+                onClick={() => porPuntuar()}
+              ></button>
               {estaPorPuntuar === true &&
               reviewTrue === false &&
               profile[0].reviews.length === 0 ? (
@@ -222,6 +231,7 @@ export default function Profile() {
                   You already rated the app, thank you!
                 </p>
               ) : null}
+              </div>:null}
               {esAdmin === true?
               (
                 <NavLink to="/Dashboard">
@@ -231,6 +241,7 @@ export default function Profile() {
               null
               }
                  
+
             </div>
           </div>
         </div>

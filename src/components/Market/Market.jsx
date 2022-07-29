@@ -12,7 +12,9 @@ import { useWeb3ExecuteFunction } from "react-moralis";
 import { marketAddress } from "../../contracts/contractMarket";
 import Navbar from "../Navbar/Navbar";
 import { contractABI } from "../../contracts/contractMarket";
+
 import Swal from "sweetalert2";
+
 
 
 
@@ -67,6 +69,7 @@ export default function Market({walletAddress,
     await contractProcessor.fetch({
       params: ops,
       onSuccess: () => {
+
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -74,12 +77,14 @@ export default function Market({walletAddress,
           showConfirmButton: false,
           timer: 1500
         })
+
         setLoading(false);
         setVisibility(false);
         updateSoldMarketItem();
         //succPurchase();
       },
       onError: (error) => {
+
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -89,6 +94,7 @@ export default function Market({walletAddress,
         setLoading(false);
         console.log('error', error)
         
+
         //failPurchase();
       },
     });

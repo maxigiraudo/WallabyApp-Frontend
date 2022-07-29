@@ -367,6 +367,14 @@ export function contador(contador) {
     payload: contador,
   };
 }
+
+export function botonMaximiliano(){
+  return function(dispatch){
+    return dispatch({
+      type:"BOTON_MAXI"
+    })
+  }
+}
 export function postLogin(payload) {
   return async function (dispatch) {
     dispatch({

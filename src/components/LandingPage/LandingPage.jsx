@@ -17,7 +17,14 @@ import { AiTwotoneStar } from "react-icons/ai";
 import SwitchBoton from "../SwitchBoton/SwitchBoton";
 
 export default function LandingPage({ chainChain }) {
+
   const [botState, setBotState] = useState(false);
+
+  const red = useSelector((state)=> state.botonMaxi)
+
+  localStorage.setItem("botonMaxi",toString(red))
+
+  console.log("BELEN BEBOTA", localStorage.setItem("botonMaxi",red.toString()))
 
   const dispatch = useDispatch();
 
