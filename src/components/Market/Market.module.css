@@ -1,13 +1,16 @@
 .tt {
   color: white;
   text-align: center;
-  font-size: 20px;
+  font-size: 35px;
+  margin-bottom: 20px;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .botonR {
   color: #d04bff;

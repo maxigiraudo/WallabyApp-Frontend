@@ -12,17 +12,15 @@ import { getNft } from "../../redux/actions";
 import { useEffect } from "react";
 import DropdownNft from "../DropdownNft/DropdownNft";
 
-
-export default function Navbar({setWalletAddress}) {
-
+export default function Navbar({ setWalletAddress, chain }) {
   // const logged = useSelector((state) => state.userIsAuthenticated);
 
   const userrr = JSON.parse(localStorage.getItem("profiles"));
   const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
 
-  const userComunTrue = useSelector((state)=> state.userComunTrue)
+  const userComunTrue = useSelector((state) => state.userComunTrue);
 
-  const userGoogleTrue = useSelector((state)=> state.userGoogleTrue)
+  const userGoogleTrue = useSelector((state) => state.userGoogleTrue);
 
   const newUser = JSON.parse(userrr);
 
@@ -46,47 +44,52 @@ export default function Navbar({setWalletAddress}) {
           <img className={styles.logo} src={Logo} alt="" />
         </button>
       </NavLink>
+
       <nav className={styles.navBar}>
+        <p className={styles.divRed}>
+          {chain === "mumbai" ? (
+            <p className={styles.mumbai}>Red: Mumbai</p>
+          ) : chain === "rinkeby" ? (
+            <p className={styles.rinkeby}>Red: Rinkeby</p>
+          ) : null}
+        </p>
         <ul>
           {userrrGoogle === null && newUser ? (
-              <div className={styles.padreDrop}>
+            <div className={styles.padreDrop}>
+              <div>
                 <div>
-                  <div>
-                    <NavLink to="/market">
-                      <li>Market</li>
-                    </NavLink>
-                    <NavLink to="/about">
-                      <li>About</li>
-                    </NavLink>
-                  </div>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
+                  <NavLink to="/market">
+                    <li>Market</li>
+                  </NavLink>
+                  <NavLink to="/about">
+                    <li>About</li>
+                  </NavLink>
                 </div>
               </div>
-            )
-           : null }
-          {newUser === null && userrrGoogle? (
-            
-              <div className={styles.padreDrop}>
-                <div>
-                  <div>
-                    <NavLink to="/market">
-                      <li>Market</li>
-                    </NavLink>
-                    <NavLink to="/about">
-                      <li>About</li>
-                    </NavLink>
-                  </div>
-                </div>
-                <div className={styles.dropdown}>
-                  <Dropdown className={styles.wallet}></Dropdown>
-                </div>
+              <div className={styles.dropdown}>
+                <Dropdown className={styles.wallet}></Dropdown>
               </div>
-            
+            </div>
           ) : null}
-          {newUser === null && userrrGoogle === null? (
-            (
+          {newUser === null && userrrGoogle ? (
+            <div className={styles.padreDrop}>
+              <div>
+                <div>
+                  <li>{}</li>
+                  <NavLink to="/market">
+                    <li>Market</li>
+                  </NavLink>
+                  <NavLink to="/about">
+                    <li>About</li>
+                  </NavLink>
+                </div>
+              </div>
+              <div className={styles.dropdown}>
+                <Dropdown className={styles.wallet}></Dropdown>
+              </div>
+            </div>
+          ) : null}
+          {newUser === null && userrrGoogle === null ? (
             <div>
               <NavLink to="/market">
                 <li>Market</li>
@@ -101,8 +104,7 @@ export default function Navbar({setWalletAddress}) {
                 <li>Sign Up</li>
               </NavLink>
             </div>
-          )
-          ):null}
+          ) : null}
         </ul>
 
         <div className={styles.divdrop}>
@@ -121,7 +123,6 @@ export default function Navbar({setWalletAddress}) {
             <DropDownWallet className={styles.wallet}></DropDownWallet>
           </div>
         </div>
-
       </nav>
     </header>
   );

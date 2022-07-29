@@ -36,13 +36,15 @@ function App() {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
   const [walletAddress, setWalletAddress] = useState(null);
-  const [chain, setChain] = useState("rinkeby");
-  const [contractNFT, setContractNFT] = useState("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+  const [chain, setChain] = useState("");
+  const [contractNFT, setContractNFT] = useState(
+    "0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6"
+  );
   const [contractABI, setContractABI] = useState(rinkebyContractABI);
   console.log("ESTO ES CHAIN", chain);
 
   function chainChain(value) {
-    console.log("ESTE ES EL VALUE QUE ME LLEGA DEL BOTON",value)
+    console.log("ESTE ES EL VALUE QUE ME LLEGA DEL BOTON", value);
     if (value === "mumbai") {
       setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
       setContractABI(mumbaiContractABI);
@@ -54,7 +56,7 @@ function App() {
     }
   }
 
-  console.log("NUEVO ESTADO",chain)
+  console.log("NUEVO ESTADO", chain);
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -148,11 +150,10 @@ function App() {
   const limpiarCarrito = () => {
     setCarrito([]);
   };
-
+  console.log("CHAIN", chain);
   return (
     <div className="generalApp">
       <Routes>
-
         <Route
           exact
           path="/"
@@ -163,6 +164,7 @@ function App() {
           path="/home"
           element={
             <Home
+              chain={chain}
               chainChain={chainChain}
               carrito={carrito}
               agregarCarrito={agregarCarrito}
