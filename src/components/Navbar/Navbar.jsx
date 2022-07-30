@@ -46,13 +46,13 @@ export default function Navbar({ setWalletAddress, chain }) {
       </NavLink>
 
       <nav className={styles.navBar}>
-        <p className={styles.divRed}>
+        <div className={styles.divRed}>
           {chain === "mumbai" ? (
             <p className={styles.mumbai}>Red: Mumbai</p>
           ) : chain === "rinkeby" ? (
             <p className={styles.rinkeby}>Red: Rinkeby</p>
           ) : null}
-        </p>
+        </div>
         <ul>
           {userrrGoogle === null && newUser ? (
             <div className={styles.padreDrop}>
@@ -65,9 +65,6 @@ export default function Navbar({ setWalletAddress, chain }) {
                     <li>About</li>
                   </NavLink>
                 </div>
-              </div>
-              <div className={styles.dropdown}>
-                <Dropdown className={styles.wallet}></Dropdown>
               </div>
             </div>
           ) : null}
@@ -82,9 +79,6 @@ export default function Navbar({ setWalletAddress, chain }) {
                     <li>About</li>
                   </NavLink>
                 </div>
-              </div>
-              <div className={styles.dropdown}>
-                <Dropdown className={styles.wallet}></Dropdown>
               </div>
             </div>
           ) : null}
@@ -106,22 +100,44 @@ export default function Navbar({ setWalletAddress, chain }) {
           ) : null}
         </ul>
 
-        <div className={styles.divdrop}>
-          <div>
-            <div className={styles.tooltip}>
-              <NavLink to="/cart">
-                <BsCartCheck className={styles.wallet} />
-                <span className={styles.tooltiptext}>View Cart</span>
-              </NavLink>
+          {newUser || userrrGoogle?
+          (<div className={styles.divdrop}>
+            <div>
+              <Dropdown className={styles.wallet}></Dropdown>
+            </div>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
             </div>
           </div>
-          <div>
-            <DropdownNft className={styles.wallet}></DropdownNft>
+          ):(
+          <div className={styles.divdrop}>
+            <div>
+              <div className={styles.tooltip}>
+                <NavLink to="/cart">
+                  <BsCartCheck className={styles.wallet} />
+                  <span className={styles.tooltiptext}>View Cart</span>
+                </NavLink>
+              </div>
+            </div>
+            <div>
+              <DropdownNft className={styles.wallet}></DropdownNft>
+            </div>
+            <div>
+              <DropDownWallet className={styles.wallet}></DropDownWallet>
+            </div>
           </div>
-          <div>
-            <DropDownWallet className={styles.wallet}></DropDownWallet>
-          </div>
-        </div>
+          )}
       </nav>
     </header>
   );

@@ -31,6 +31,7 @@
   align-items: center;
   padding-left: 101px;
   padding-right: 101px;
+  min-height: 435px;
 }
 
 .gallery {
@@ -130,4 +131,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media all and (max-width: 500px) {
+  .tt {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
 }

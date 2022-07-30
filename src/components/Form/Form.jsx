@@ -281,13 +281,13 @@ export default function Form({ contractABI, contractNFT }) {
                 />
                 <br />
                 {Object.keys(error).length === 0 ? null : (
-                  <p style={{ color: "red", textAlign: "center" }}>
+                  <p style={{ color: "red", textAlign: "center", fontSize: "smaller" }}>
                     To create your NFT you must fill in all the fields without
                     errors.
                   </p>
                 )}
                 {aviso ? (
-                  <p style={{ color: "white", textAlign: "center" }}>
+                  <p style={{ color: "white", textAlign: "center", fontSize: "smaller" }}>
                     After signing the contract in Metamask, it may take a few
                     minutes for the NFT to be created.
                   </p>

@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
   justify-content: space-between;
   border: 3px solid #d04bff;
   border-radius: 20px;
@@ -26,9 +25,8 @@
 
 .nft {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 900px;
-  margin: 20px;
   background: -webkit-linear-gradient(#d04bff, #6c63ff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,14 +34,12 @@
   border-bottom: 3px solid #d04bff;
   padding: 10px;
   align-items: center;
-  width: 1200px;
   font-weight: bold;
 }
 .nftA {
   display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  margin: 20px;
+  justify-content: space-evenly;
+  width: 900px;
   background: -webkit-linear-gradient(#d04bff, #6c63ff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,7 +52,7 @@
   height: 100px;
   width: 25%;
   object-fit: contain;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .imgA {
@@ -73,7 +69,7 @@
   text-align: center;
 }
 .price {
-  width: 8%;
+  width: 10%;
 }
 .priceA {
   width: 10%;
@@ -210,4 +206,85 @@
   width: 300px;
   font-weight: bold;
   color: black;
+}
+
+@media all and (max-width: 500px) {
+  .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 10px 5px;
+    margin: 1% 0 5% 0;
+    width: fit-content;
+  }
+
+  .img {
+    height: 50px;
+    margin-right: 0px;
+  }
+
+  .imgA {
+    margin-right: 0px;
+  }
+
+  .nftA {
+    width: 300px;
+    margin: 0%;
+    font-weight: bolder;
+    font-size: 0.8rem;
+  }
+
+  .nft {
+    width: 300px;
+    margin: 0%;
+    font-weight: bolder;
+    padding: 10px 0;
+  }
+
+  .boton {
+    width: 5.7%;
+    height: 18px;
+    margin-right: 0px;
+    font-size: 15px;
+  }
+
+  .totalobich {
+    margin-right: 0px;
+    padding: 20px;
+  }
+
+  .cero {
+    padding: 20px;
+  }
+
+  .botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botonAbajo {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 5%;
+  }
+
+  .charges {
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttonBuy {
+    margin: 0px;
+    margin-left: 0px;
+  }
 }

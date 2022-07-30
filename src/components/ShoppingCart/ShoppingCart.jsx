@@ -62,7 +62,7 @@ export default function ShoppingCart({
       <button onClick={back} className={styles.botonR}>
         Go Back
       </button>
-
+      <div  className={styles.contenedor}>
       <div className={styles.container}>
         <h1 className={styles.titulo}>{FaShoppingCart()} Shopping Cart</h1>
 
@@ -72,12 +72,12 @@ export default function ShoppingCart({
               <h2 className={styles.imgA}>Image</h2>
               <h2 className={styles.nameA}>Name</h2>
               <h2 className={styles.priceA}>Price</h2>
-              <h2 className={styles.botonA}>Dellete</h2>
+              <h2 className={styles.botonA}></h2>
             </div>
             {carrito.map((e, index) => {
               return (
-                <div>
-                  <div key={index} className={styles.nft}>
+                <div key={index}>
+                  <div  className={styles.nft}>
                     <img className={styles.img} src={e.image} alt="image" />
                     <div className={styles.name}>{e.name}</div>
                     <div className={styles.price}>$0</div>
@@ -95,7 +95,7 @@ export default function ShoppingCart({
               <h1 className={styles.totalobich}>Total</h1>
               <h1 className={styles.cero}>$0</h1>
             </div>
-            <div>
+            <div className={styles.botones}>
               <button className={styles.botonAbajo} onClick={onClickClean}>
                 Clean Cart
               </button>
@@ -119,6 +119,7 @@ export default function ShoppingCart({
         ) : (
           <p className={styles.viewe}>You dont have any NFT in the cart.</p>
         )}
+      </div>
       </div>
       <Footer />
     </div>

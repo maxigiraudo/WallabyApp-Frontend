@@ -43,7 +43,7 @@ export default function SwitchBoton({ chainChain }) {
     <div className={styles.container}>
       <div className={styles.padre}>
         <div>
-          <h3 className={styles.texto}>Select the blockchain network.</h3>
+          <h2 className={styles.texto}>Select the blockchain network</h2>
         </div>
         <div>
           <h3 className={styles.texto}>
@@ -63,7 +63,7 @@ export default function SwitchBoton({ chainChain }) {
             className={styles.botonLanding}
             onClick={() => handleClickR()}
           >
-            RIKEBY
+            RINKEBY
           </button>
         </div>
       </div>
