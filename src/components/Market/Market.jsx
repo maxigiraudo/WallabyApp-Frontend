@@ -141,7 +141,7 @@ export default function Market({
       <div className={styles.padre}>
         <div className={styles.tt}>Wallaby Market</div>
         <div className={styles.frase}>
-          <div>
+          <div className={styles.fraso}>
             If you don't see nft on the market choose "mumbai" blockchain
             network on the
           </div>

@@ -133,8 +133,8 @@ export default function LandingPage({ chainChain }) {
       <div className={styles.rates}>
         <h1 className={styles.our}>THE LAST FIVE SCORES OF OUR USERS:</h1>
         <div className={styles.conatinerReview}>
-          {newReview.map((e) => (
-            <div className={styles.review}>
+          {newReview.map((e, index) => (
+            <div className={styles.review}  key={index}>
               <li className={styles.userR}>{e.username}</li>
               <li className={styles.ratingR}>
                 {e.rating} {AiTwotoneStar()}

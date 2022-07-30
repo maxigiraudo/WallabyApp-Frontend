@@ -10,7 +10,7 @@
 
 .Landingtop {
   display: flex;
-  padding: 6% 0 10% 0;
+  padding: 6% 0 20% 0;
 }
 
 .conatinerReview {
@@ -300,8 +300,39 @@
     margin-top: 10px;
     position: fixed;
     width: 150px;
-    bottom: 10px;
+    bottom: 20px;
     display: flex;
     justify-content: center;
+    border: 2px solid #cf4bff;
+  }
+
+  .rates {
+    margin-top: 12% 2% 10% 2%;
+    padding: 5%;
+  }
+
+  .our{
+    font-size:medium;
+  }
+
+  .conatinerReview {
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  .review {
+    margin: 1% 1%;
+    border-radius: 80px;
+    width: 70px;
+  }
+  .userR {
+    margin-top: 40%;
+  }
+
+  .chatbotLanding {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    z-index: 50;
   }
 }

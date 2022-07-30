@@ -40,3 +40,15 @@
     color: black;
     cursor: pointer;
   }
+
+  @media all and (max-width: 500px) {
+    .div{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+  
+      
+
+  }
