@@ -17,7 +17,7 @@ export default function Card({
 }) {
   let dispatch = useDispatch();
   // let [cont, setContador] = useState(1);
-
+  console.log("front");
   const navigate = useNavigate();
 
   let onClick = (e) => {
