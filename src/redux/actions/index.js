@@ -9,13 +9,46 @@ export function orderByPrice(payload) {
   };
 }
 
+export function review({ email, rating, username }) {
+  const body = {
+    email: email,
+    rating: rating,
+    username: username,
+  };
+
+  return async function (dispatch) {
+    let json = await axios.post(
+      `https://henry-proyecto-nft.herokuapp.com/${email}/reviews`,
+      body
+    );
+
+    return dispatch({
+      type: "POST_REVIEW",
+      payload: json.data,
+    });
+  };
+}
+
+export function getReview() {
+  return async function (dispatch) {
+    let json = await axios.get(
+      "https://henry-proyecto-nft.herokuapp.com/reviews"
+    );
+
+    return dispatch({
+      type: "GET_REVIEWS",
+      payload: json.data,
+    });
+  };
+}
+
 export function getNft() {
   return async function (dispatch) {
     let json = await axios.get(
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
-    console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT",
       payload: json.data,
@@ -27,8 +60,8 @@ export function getNftDelHome() {
     let json = await axios.get(
       "https://henry-proyecto-nft.herokuapp.com/api/tests"
     );
-    console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "GET_NFT_HOME",
       payload: json.data,
@@ -40,7 +73,7 @@ export function getNftAll(cursor) {
     let json = await axios.get(
       `https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=${cursor}`
     );
-    console.log("QUE ME TRAE CON EL CURSOR", json);
+
     return dispatch({
       type: "GET_NFT_ALL20",
       payload: json.data,
@@ -49,8 +82,8 @@ export function getNftAll(cursor) {
 }
 // export function getNftAll2() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Mywib2Zmc2V0IjowLCJrZXkiOiJmZmE1MDJhNzg2ZTc2YTA1MDAxMWE2YjdkYTIyYzEyYSIsInRvdGFsIjoyMjIyMDksImlhdCI6MTY1NzYzODk2OH0.dbLZGhrkLXVZklTpmAHFyHzZ26BWDUESmjkuztMvtfs");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca2",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL2",
@@ -60,8 +93,8 @@ export function getNftAll(cursor) {
 // }
 // export function getNftAll3() {
 //   return async function (dispatch) {
-//     let json = await axios.get("http://localhost:4000/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
-//     let jsonB = await axios.get("http://localhost:4000/api/tests?cursor=" + json.data[0].cursor)
+//     let json = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJxIjoiY2F0IiwiZGVzY3JpcHRpb24iOmZhbHNlLCJhdHRyaWJ1dGVzIjpmYWxzZSwibmFtZSI6ZmFsc2UsImdsb2JhbCI6dHJ1ZSwibGltaXQiOiIxMDAiLCJ0b2tlbl9hZGRyZXNzZXMiOm51bGwsIndoZXJlIjp7fSwicGFnZSI6Miwib2Zmc2V0IjowLCJrZXkiOiJmZmM3MjdmYjI0YTdmNGZiZTlkNWYzZmVjYmQzOWNiYSIsInRvdGFsIjoyMjIyOTAsImlhdCI6MTY1NzYzODk2OH0.SRdQbnHRnUpO8LULD2JUUNYL9djwGE6PM_IYFjI_OAM");
+//     let jsonB = await axios.get("https://henry-proyecto-nft.herokuapp.com/api/tests?cursor=" + json.data[0].cursor)
 //     console.log("que hay aca3",jsonB.data)
 //     return dispatch({
 //       type: "GET_NFT_ALL3",
@@ -76,7 +109,7 @@ export function getDetail(_id, token_adress) {
       let json = await axios.get(
         `https://henry-proyecto-nft.herokuapp.com/api/nftid?id=${_id}&token_address=${token_adress}`
       );
-      console.log("ES EL DETALLE", json);
+
       return dispatch({
         type: "GET_DETAILS",
         payload: json.data,
@@ -119,7 +152,6 @@ export function createNft({ name, description, file }) {
       payload: true,
     });
     try {
-      console.log("ESTO ES FILE", file);
       const image = await uploadFile(file);
       const body = {
         image,
@@ -130,7 +162,7 @@ export function createNft({ name, description, file }) {
         "https://henry-proyecto-nft.herokuapp.com/api/nft",
         body
       );
-      console.log(json.data);
+
       dispatch({
         type: "CREATE_NFT_SUCCESS",
         payload: json.data,
@@ -160,7 +192,7 @@ export function createAcount({ nombre, email, password }) {
         "https://henry-proyecto-nft.herokuapp.com/api/registro",
         body
       );
-      console.log("ESTA ES LA ACCION DE LA CRACION DEL USUARIO", json.data);
+
       dispatch({
         type: "CREATE_ACOUNT_SUCCESS",
         payload: json.data,
@@ -178,7 +210,7 @@ export function createAcount({ nombre, email, password }) {
         text: "Email existent",
         showConfirmButton: true,
       });
-      console.log("ESTE ES EL ERROR", error);
+      console.log(error);
     }
   };
 }
@@ -197,7 +229,7 @@ export function getCollections(value) {
     );
     const sinCursor = json.data.filter((e) => e.name);
     const type = sinCursor.filter((e) => e.category === value);
-    console.log("ESTO ES MI COLECCION", type);
+
     return dispatch({
       type: "GET_COLLECTIONS",
       payload: type,
@@ -309,7 +341,6 @@ export function resState() {
 }
 
 export function addToCart(product) {
-  console.log(product);
   return {
     type: "ADD_TO_CART",
     payload: product,
@@ -317,7 +348,6 @@ export function addToCart(product) {
 }
 
 export function removeOneFromCart(product) {
-  console.log(product);
   return {
     type: "REMOVE_ONE_FROM_CART",
     payload: product,
@@ -337,8 +367,15 @@ export function contador(contador) {
     payload: contador,
   };
 }
+
+export function botonMaximiliano(){
+  return function(dispatch){
+    return dispatch({
+      type:"BOTON_MAXI"
+    })
+  }
+}
 export function postLogin(payload) {
-  console.log(payload);
   return async function (dispatch) {
     dispatch({
       type: "LOGIN_DATA",
@@ -351,7 +388,7 @@ export function postLogin(payload) {
           type: "LOGIN_SUCCESS",
           payload: response,
         });
-        console.log("ESTE ES EL PAYLOAD", response);
+
         Swal.fire({
           position: "center",
           icon: "success",
@@ -359,9 +396,6 @@ export function postLogin(payload) {
           showConfirmButton: false,
           timer: 1500,
         });
-
-        // window.location.href = "http://localhost:3000/home";
-        console.log("logueado");
       })
       .catch((err) => {
         if (err.response.status === 400) {
@@ -388,7 +422,6 @@ export const removeFavorite = (id) => {
   };
 };
 export const addFavorite = (info) => {
-  console.log(info);
   return {
     type: "ADD_FAVORITE",
     payload: info,
@@ -399,12 +432,11 @@ export const addFavorite = (info) => {
 export function getProfile(email) {
   return async function (dispatch) {
     try {
-      console.log("ESTE ES EL TOKEN QUE ME LLEGO", email);
       const emailDos = email.email;
       const json = await axios.get(
         `https://henry-proyecto-nft.herokuapp.com/profile/` + emailDos
       );
-      console.log("ESTA ES LA ACCION DEL ", json);
+
       return dispatch({
         type: "GET_PROFILE",
         payload: json.data,
@@ -417,12 +449,11 @@ export function getProfile(email) {
 export function getProfileGoogle(email) {
   return async function (dispatch) {
     try {
-      console.log("ESTE ES EL TOKEN QUE ME LLEGO", email);
       const email1 = email.user.email;
       const json = await axios.get(
         `https://henry-proyecto-nft.herokuapp.com/profile/` + email1
       );
-      console.log("ESTA ES LA ACCION DEL ", json);
+
       return dispatch({
         type: "GET_PROFILE_GOOGLE",
         payload: json.data,
@@ -439,7 +470,7 @@ export function updatedProfileById() {
       const json = await axios.put(
         `https://henry-proyecto-nft.herokuapp.com/profile/:token`
       );
-      console.log("ESTE ES EL ACTION DEL PUT", json);
+
       return dispatch({
         type: "UPDATED_PROFILE_BY_ID",
         payload: json.data,
@@ -454,7 +485,7 @@ export function updatedProfileById() {
 export const register = (body) => async (dispatch) => {
   // try {
   const newbody = { email: body.email, password: body.password };
-  console.log("este es el bodyyyyy", body);
+
   dispatch({
     type: "REGISTER_USER_REQUEST",
   });
@@ -479,11 +510,10 @@ export const register = (body) => async (dispatch) => {
       timer: 1500,
     });
   } catch (err) {
-    const errorString = String(err).slice(0, 10);
-    if (errorString === "AxiosError") {
-      console.log("VAMOOOOOOOOOOOOO");
+    const errorString = String(err).slice(0, 5);
+    if (errorString === "Error") {
       body = newbody;
-      console.log("nuevo bodyyy", body);
+
       const { data } = await axios.post(
         "https://henry-proyecto-nft.herokuapp.com/auth/api/signin",
         body,
@@ -503,9 +533,10 @@ export const register = (body) => async (dispatch) => {
 
       const profileGoogle = data;
       if (profileGoogle) {
+        console.log(profileGoogle);
         localStorage.setItem("profileGoogle", JSON.stringify(profileGoogle));
       }
-      console.log("LOGUEADO TITANN", data);
+
       Swal("Registro Exitoso", { icon: "success" });
       // window.location.href = "/home";
     } else {
@@ -544,7 +575,7 @@ export const login =
           // password,
         }
       );
-      console.log("choclochoclo", data.request);
+
       switch (data.request.status) {
         case 200:
           dispatch({
@@ -586,9 +617,9 @@ export function singoutOk() {
   };
 }
 
-export const usersDashboard = (body) => async (dispatch) => {
+export const usersDashboard = (dataa) => async (dispatch) => {
   //reemplazar el body con el body que viene por el params para funcionamiento total
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   const config = {
     headers: { "Content-Type": "application/json" },
   };
@@ -597,7 +628,7 @@ export const usersDashboard = (body) => async (dispatch) => {
       "https://henry-proyecto-nft.herokuapp.com/admin/users",
       body
     );
-    console.log(data);
+
     return dispatch({
       type: "GET_USERS_DASHBOARD",
       payload: data,
@@ -610,7 +641,7 @@ export const usersDashboard = (body) => async (dispatch) => {
 export const updateUserToAdmin = (dataa) => async (dispatch) => {
   //reemplazar el body con "dataa" que viene por el params para funcionamiento total
   const userEmail = dataa.userEmail;
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   try {
     const { data } = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/admin/edit/${userEmail}`,
@@ -628,7 +659,7 @@ export const updateUserToAdmin = (dataa) => async (dispatch) => {
 export const updateAdminToUser = (dataa) => async (dispatch) => {
   //reemplazar el body con "dataa" que viene por el params para funcionamiento total
   const userEmail = dataa.userEmail;
-  const body = { email: "miaumiau@gmail.com", password: "Miau1234" };
+  const body = { email: dataa.email, password: dataa.password };
   try {
     const { data } = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/admin/edituser/${userEmail}`,
@@ -643,17 +674,35 @@ export const updateAdminToUser = (dataa) => async (dispatch) => {
   }
 };
 
+export const suspendAccount = (dataa) => async (dispatch) => {
+  //reemplazar el body con "dataa" que viene por el params para funcionamiento total
+  const userEmail = dataa.userEmail;
+  const body = { email: dataa.email, password: dataa.password };
+  try {
+    const { data } = await axios.put(
+      `https://henry-proyecto-nft.herokuapp.com/admin/user/${userEmail}/status`,
+      body
+    );
+    return dispatch({
+      type: "SUSPEND_OR_UNSUSPEND_ACCOUNT",
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export function updatePassword(todo) {
   const email = todo.email;
   const body = { password: todo.password };
-  console.log("ESTO ES MI EMAIL", email, "ESTO ES MI PASSWORD", body);
+
   return async function (dispatch) {
     let json = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/${email}/updatePassword`,
       body
     );
-    console.log(json);
-    // let jsonB = await axios.get ("http://localhost:4000/api/tests/" + json.data.cursor)
+
+    // let jsonB = await axios.get ("https://henry-proyecto-nft.herokuapp.com/api/tests/" + json.data.cursor)
     return dispatch({
       type: "PUT_UPDATE_PASSWORD",
       payload: json.data,
@@ -683,14 +732,11 @@ export function estaPorCambiarContraseña(email) {
 }
 
 export function estaSeraLaContraseña(todo) {
-  console.log("ESTO ES LO PRIMERO QUE ME LLEGA A LA ACTION", todo);
   const email = todo.email;
   const body = {
     password: todo.password,
     confirmPassword: todo.passwordConfir,
   };
-  console.log("ESTE ES EL EMIAL DE LA ACTION", email);
-  console.log("ESTA ES LA PASSWORD DE LA ACTION", body);
   return async function (dispatch) {
     let json = await axios.put(
       `https://henry-proyecto-nft.herokuapp.com/${email}/newpassword`,

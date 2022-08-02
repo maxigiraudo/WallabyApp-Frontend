@@ -14,6 +14,8 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Swal from "sweetalert2";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import Star from "../Star/Star";
+import { NavLink } from "react-router-dom";
 
 export default function Profile() {
   //console.log(props)
@@ -46,9 +48,11 @@ export default function Profile() {
   function validationForm(value) {
     let errors = {};
     if (
+
       !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
         value.password
       )
+
     ) {
       errors.password =
         "*It should have 8 characters, 1 capital letter, and a number";
@@ -61,7 +65,16 @@ export default function Profile() {
   console.log(profile);
   console.log(profileGoogle);
 
+  const [estaPorPuntuar, setEstaPorPuntuar] = useState(false);
+
+  const reviewTrue = useSelector((state) => state.reviewComplete);
+
   const [newPass, setNewPass] = useState("");
+
+
+  const esAdmin = useSelector((state)=> state.esAdministrador)
+
+
 
   // const profiles = useSelector((state) => state.profile);
   //console.log(profile)
@@ -75,6 +88,10 @@ export default function Profile() {
     dispatch(recoverPassword());
   }
 
+  function porPuntuar() {
+    setEstaPorPuntuar(true);
+  }
+
   function handleInput(e) {
     e.preventDefault();
     setPassword(e.value);
@@ -86,11 +103,13 @@ export default function Profile() {
     );
   }
 
+  console.log("password", newPass)
+
   function handleClick() {
     dispatch(updatePassword({ password: newPass, email: userrr.email }));
     JSON.parse(localStorage.getItem("profiles"));
     localStorage.removeItem("profiles");
-    window.location.href = "https://wallaby-neon.vercel.app/home";
+    window.location.href = "https://wallabyapp.vercel.app/home";
     Swal.fire({
       position: "center",
       icon: "success",
@@ -99,6 +118,8 @@ export default function Profile() {
       timer: 1500,
     });
   }
+
+  console.log("ESTA POR PUNTUAR", estaPorPuntuar);
 
   console.log(newPass);
 
@@ -147,7 +168,7 @@ export default function Profile() {
                   <div>
                     <input
                       className={styles.loginInputt}
-                      // value={newPass}
+                      value={newPass}
                       name="password"
                       type={shown ? "text" : "password"}
                       onChange={(e) => handleInput(e)}
@@ -188,6 +209,39 @@ export default function Profile() {
                   Go to my collection!
                 </button>
               </Link>
+              {profileGoogle.length === 0?
+              <div>
+              <button
+                className={styles.changePassword}
+                onClick={() => porPuntuar()}
+              >
+                <a>Rate your experience in Wallaby.</a>
+              </button>
+              <button
+                className={styles.changePassword}
+                onClick={() => porPuntuar()}
+              ></button>
+              {estaPorPuntuar === true &&
+              reviewTrue === false &&
+              profile[0].reviews.length === 0 ? (
+                <Star />
+              ) : estaPorPuntuar === true &&
+                (reviewTrue === true || profile[0].reviews.length > 0) ? (
+                <p className={styles.hizoReview}>
+                  You already rated the app, thank you!
+                </p>
+              ) : null}
+              </div>:null}
+              {esAdmin === true?
+              (
+                <NavLink to="/Dashboard">
+                    <li className={styles.admin}>ACCESS TO ADMIN</li>
+                  </NavLink>
+              ):
+              null
+              }
+                 
+
             </div>
           </div>
         </div>

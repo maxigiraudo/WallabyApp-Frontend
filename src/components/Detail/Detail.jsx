@@ -13,8 +13,13 @@ import { AiFillHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 export default function Detail({ agregarCarrito, agregarFavorito }) {
-  const logged = useSelector((state) => state.userIsAuthenticated);
+  // const logged = useSelector((state) => state.userIsAuthenticated);
   const nft = useSelector((state) => state.detail);
+
+  const userrr = JSON.parse(localStorage.getItem("profiles"));
+  const userrrGoogle = JSON.parse(localStorage.getItem("profileGoogle"));
+
+  const newUser = JSON.parse(userrr);
 
   let { id, token_address } = useParams();
 
@@ -30,8 +35,6 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
   };
 
   const card = useSelector((state) => state.detail);
-
-  console.log(card);
 
   const navigate = useNavigate();
 
@@ -55,11 +58,10 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
         <div className={styles.containerPadre}>
           <div className={styles.navbar}>
             <Navbar />
-           
+
             <button onClick={() => handleClean()} className={styles.botonR}>
               Go Back
             </button>
-            
           </div>
           <div className={styles.padre}>
             <div className={styles.todos}>
@@ -80,21 +82,22 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
                 <h3 className={styles.name}>{card.name}</h3>
                 <h5 className={styles.des}>Collection: {card.collection}</h5>
                 <div className={styles.abajo}>
-                  <button
+                  {/* <button
                     onClick={() =>
                       onClick({ name: nft.name, image: nft.image })
                     }
                     className={styles.car}
                   >
                     {BsFillCartCheckFill()}{" "}
-                  </button>
-                  {logged ? (
+                  </button> */}
+                  {newUser || userrrGoogle ? (
                     <button
                       onClick={() =>
                         onClickF({ name: nft.name, image: nft.image })
                       }
                       className={styles.heart}
                     >
+                      <p className={styles.addto}>Add to Favorite</p>
                       {AiFillHeart()}{" "}
                     </button>
                   ) : (
@@ -102,6 +105,7 @@ export default function Detail({ agregarCarrito, agregarFavorito }) {
                       onClick={() => favorito()}
                       className={styles.heartFeo}
                     >
+                      <p className={styles.addto}>Add to Favorite</p>
                       {AiFillHeart()}{" "}
                     </button>
                   )}

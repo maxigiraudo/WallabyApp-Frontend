@@ -2,11 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { usersDashboard } from "../../../redux/actions/index";
+import { Link } from "react-router-dom";
 
 import Usercard from "../Userscard.jsx";
 import NavBar from "../../Navbar/Navbar.jsx";
 import Footer from "../../Footer/Footer.jsx";
 import styles from "../Listusers/Listusers.module.css";
+import Swal from "sweetalert2";
 
 //const [ usersDashboard, setusersDashboard] = useState([])
 //const [ userDashboard, setuserDashboard] = useState()
@@ -15,20 +17,33 @@ import styles from "../Listusers/Listusers.module.css";
 export default function Listusers() {
   const users = useSelector((state) => state.usersDashboard);
   const user = useSelector((state) => state.userDashboard);
-
+  const userrr = JSON.parse(localStorage.getItem("profiles"));
+  const newUser = JSON.parse(userrr);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(usersDashboard());
+    dispatch(
+      usersDashboard({
+        email: newUser.email,
+        password: newUser.password,
+      })
+    );
   }, [dispatch]);
 
   return (
     <div>
       <NavBar />
+      <Link to="/Dashboard" className={styles.Li}>
+        <button className={styles.botonR}>Go Back</button>
+      </Link>
+
+      <div className={styles.list}>
+        <h1> Users List </h1>
+      </div>
 
       <div className={styles.container}>
         {users.map((e, index) => (
-          <Usercard name={e.nombre} email={e.email} />
+          <Usercard name={e.nombre} email={e.email} key={index} />
         ))}
       </div>
 

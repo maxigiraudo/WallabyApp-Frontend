@@ -71,10 +71,6 @@ export default function RecoverPassword() {
     );
   };
 
-  console.log("ESTE ES EL EMAIL", email);
-  console.log("ESTA ES LA NUEVA CONTRASEÑA", password);
-  console.log("ESTA ES LA CONFIRMACION DE LA CONTRASEÑA", passwordConfir);
-
   function handleClick() {
     dispatch(
       estaSeraLaContraseña({

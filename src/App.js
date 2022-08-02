@@ -24,6 +24,9 @@ import RecoverPassword from "./components/recoverPassword/RecoverPassword";
 import Star from "./components/Star/Star";
 import Market from "./components/Market/Market";
 import Collection from "./components/Collection/Collection";
+import { mumbaiContractABI, rinkebyContractABI } from "./contracts/contract";
+import SwitchBoton from "./components/SwitchBoton/SwitchBoton";
+import { nft_contract_mumbai } from "./contracts/contract";
 
 function App() {
   useEffect(() => {
@@ -32,6 +35,28 @@ function App() {
 
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
+  const [walletAddress, setWalletAddress] = useState(null);
+  const [chain, setChain] = useState("mumbai");
+  const [contractNFT, setContractNFT] = useState(
+    "0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6"
+  );
+  const [contractABI, setContractABI] = useState(rinkebyContractABI);
+  console.log("ESTO ES CHAIN", chain);
+
+  function chainChain(value) {
+    console.log("ESTE ES EL VALUE QUE ME LLEGA DEL BOTON", value);
+    if (value === "mumbai") {
+      setContractNFT("0x9d0FE661f4A940be4c1fda9569e7AEFaF9Eafb75");
+      setContractABI(mumbaiContractABI);
+      setChain("mumbai");
+    } else {
+      setContractNFT("0x360c34B4724b6eDEB276c7BAa3a55BA220Bd1ec6");
+      setContractABI(rinkebyContractABI);
+      setChain("rinkeby");
+    }
+  }
+
+  console.log("NUEVO ESTADO", chain);
 
   useEffect(() => {
     window.localStorage.getItem("profiles");
@@ -39,6 +64,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log("dale");
     const connectorId = window.localStorage.getItem("connectorId");
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading)
       enableWeb3({ provider: connectorId });
@@ -100,7 +126,7 @@ function App() {
 
   const agregarCarrito = (e) => {
     const copiaCarrito = carrito;
-    const nuevoCarrito = carrito.filter((item) => item.id !== e.id);
+    const nuevoCarrito = carrito.filter((item) => item._id !== e._id);
     setCarrito([...nuevoCarrito, e]);
 
     if (copiaCarrito.length !== nuevoCarrito.length) {
@@ -124,19 +150,28 @@ function App() {
   const limpiarCarrito = () => {
     setCarrito([]);
   };
-
+  console.log("CHAIN", chain);
   return (
     <div className="generalApp">
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route
+          exact
+          path="/"
+          element={<LandingPage chainChain={chainChain} />}
+        />
+
         <Route
           path="/home"
           element={
             <Home
+              chain={chain}
+              chainChain={chainChain}
               carrito={carrito}
               agregarCarrito={agregarCarrito}
               agregarFavorito={agregarFavorito}
               favorito={favorito}
+              setWalletAddress={setWalletAddress}
+              walletAddress={walletAddress}
             />
           }
         />
@@ -149,11 +184,24 @@ function App() {
             />
           }
         />
-        <Route path="/form" element={<Form />} />
+        <Route
+          path="/form"
+          element={<Form contractNFT={contractNFT} contractABI={contractABI} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/market" element={<Market />} />
+        <Route
+          path="/market"
+          element={
+            <Market
+              agregarCarrito={agregarCarrito}
+              agregarFavorito={agregarFavorito}
+              walletAddress={walletAddress}
+              contractNFT={contractNFT}
+            />
+          }
+        />
         <Route path="/formRegister" element={<FormRegister />} />
         <Route path="/collection/:address" element={<Collection />} />
         <Route
@@ -178,12 +226,13 @@ function App() {
             <Favorite eliminarFavorito={eliminarFavorito} favorito={favorito} />
           }
         />
-        <Route path="/mycollections" element={<MyCollections />} />
+        <Route
+          path="/mycollections"
+          element={<MyCollections chain={chain} chainChain={chainChain} />}
+        />
         <Route path="/myorders" element={<MyOrders />} />
 
         <Route path="/:email/newpassword" element={<RecoverPassword />} />
-
-        <Route path="/star" element={<Star />} />
       </Routes>
     </div>
   );

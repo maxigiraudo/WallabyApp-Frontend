@@ -9,14 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import Moralis from "moralis";
 import Web3 from "web3";
-import { contractABI, nft_contract_address } from "../../contract";
 import Swal from "sweetalert2";
 
 const web3 = new Web3(Web3.givenProvider);
 
-export default function Form() {
+export default function Form({ contractABI, contractNFT }) {
   const [card, setCard] = useState({ name: "", description: "" });
   const [image, setimages] = useState("");
+  const [aviso, setAviso] = useState(false);
   const { saveFile, moralisFile } = useMoralisFile();
   const [file, setFile] = useState("");
   const [files, setFiles] = useState([]);
@@ -25,6 +25,7 @@ export default function Form() {
   });
   const { authenticate, isAuthenticated, user } = useMoralis();
   const navigate = useNavigate();
+  console.log("dale que va");
 
   useEffect(() => {
     const login = async () => {
@@ -47,8 +48,8 @@ export default function Form() {
     else if (value.name.length < 4) {
       errors.name = "It must contain at least 4 characters";
     }
-    if (value.description.length < 20) {
-      errors.description = "It must contain at least 20 characters";
+    if (value.description.length < 5) {
+      errors.description = "It must contain at least 5 characters";
     }
 
     console.log(value);
@@ -64,7 +65,6 @@ export default function Form() {
 
     if (name === "" || description === "" || file === "") return;
     try {
-      console.log("ADENTRO TRYYYYYY");
       const file1 = new Moralis.File(file.name, file);
       console.log("file1", file1);
       await file1.saveIPFS();
@@ -85,16 +85,16 @@ export default function Form() {
       await file2.saveIPFS();
       const metadataurl = file2.ipfs();
 
-      const contract = new web3.eth.Contract(contractABI, nft_contract_address);
+      const contract = new web3.eth.Contract(contractABI, contractNFT);
       const response = await contract.methods
-        .mint(metadataurl)
+        .createToken(metadataurl)
         .send({ from: user.get("ethAddress") });
       const tokenId = response.events.Transfer.returnValues.tokenId;
 
       Swal.fire({
         icon: "success",
         title: "Good job!",
-        text: `NFT successfully minted. Contract address - ${nft_contract_address} and Token ID - ${tokenId}, look for it in "My Collections!"`,
+        text: `NFT successfully minted. Contract address - ${contractNFT} and Token ID - ${tokenId}, look for it in "My Collections!"`,
         showConfirmButton: true,
       });
 
@@ -102,6 +102,7 @@ export default function Form() {
     } catch (error) {
       console.log(`ERROR ${error}`);
     }
+    setAviso(true);
   };
 
   console.log(image);
@@ -280,11 +281,17 @@ export default function Form() {
                 />
                 <br />
                 {Object.keys(error).length === 0 ? null : (
-                  <p style={{ color: "red", textAlign: "center" }}>
+                  <p style={{ color: "red", textAlign: "center", fontSize: "smaller" }}>
                     To create your NFT you must fill in all the fields without
                     errors.
                   </p>
                 )}
+                {aviso ? (
+                  <p style={{ color: "white", textAlign: "center", fontSize: "smaller" }}>
+                    After signing the contract in Metamask, it may take a few
+                    minutes for the NFT to be created.
+                  </p>
+                ) : null}
               </div>
             </div>
           </form>

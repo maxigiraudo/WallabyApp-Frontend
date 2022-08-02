@@ -1,7 +1,60 @@
 .container{
-    background-color: aliceblue;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 24% 0 24%;
+    justify-content: center;
 }
 
-.miau{
-    color: purple;
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    margin-top: 0;
+}
+
+.list{
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 1%;
+    font-size: 25px;
+    background-color: black;
+}
+
+.botonR {
+    color: #d04bff;
+    background-color: black;
+    padding: 5px 10px 5px 10px;
+    list-style: none;
+    display: inline-block;
+    margin: 30px 30px 0 30px;
+    border-radius: 8px;
+    border: 3px solid #d04bff;
+    border-style: groove;
+    box-shadow: inset 5px 5px 10px #6c63ff, inset -5px -5px 10px #d04bff;
+  }
+
+  .botonR:hover {
+    background-color: #d04bff;
+    color: black;
+    cursor: pointer;
+  }
+
+  .Li{
+    background-color: black;
+  }
+
+@media all and (max-width: 500px) {
+  .container{
+    padding: 4%;
+  }
+  .list{
+    font-size: 1.2rem;
+}
 }

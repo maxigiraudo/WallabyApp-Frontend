@@ -6,9 +6,22 @@
 }
 .dosColumnas {
   display: flex;
+  padding: 1%;
+  margin-bottom: 5%;
 }
 .columnaUno {
   margin-right: 20px;
+}
+
+.imageTitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: -webkit-linear-gradient(#d04bff, #6c63ff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  font-weight: bolder;
 }
 
 .card {
@@ -27,8 +40,8 @@
   align-items: center;
 }
 .title {
-  margin: 10px;
   margin-bottom: 20px;
+  margin-top: 0;
   text-align: center;
   background: -webkit-linear-gradient(#d04bff, #6c63ff);
   background-clip: text;
@@ -82,7 +95,7 @@
   padding: 5px 10px 5px 10px;
   list-style: none;
   display: inline-block;
-  margin: 30px 30px;
+  margin: 30px 30px 0 30px;
   border-radius: 8px;
   border: 3px solid #d04bff;
   border-style: groove;
@@ -93,4 +106,36 @@
   background-color: #d04bff;
   color: black;
   cursor: pointer;
+}
+
+@media all and (max-width: 500px) {
+  .dosColumnas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .columnaUno {
+    margin-right: 0;
+  }
+  .card {
+    width: 100%;
+  }
+  .imagenLogo {
+    margin-left: 5px;
+    height: 30px;
+  }
+  .imagenLogog {
+    height: 30px;
+  }
+  .fullstack {
+    font-size: 10px;
+    text-align: center;
+  }
+  .letras {
+    font-size: 10px;
+    text-align: center;
+  }
+  .imagen {
+    height: 50px;
+  }
 }

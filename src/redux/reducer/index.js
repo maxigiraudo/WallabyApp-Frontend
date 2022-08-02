@@ -35,25 +35,51 @@ const initialState = {
   recuperoLaContraseña: false,
   nftPorName: [],
   market: [],
+  reviewComplete: false,
+  allReviews: [],
+  notFoundName: false,
+  userGoogleTrue: false,
+  userComunTrue: false,
+  esAdministrador: false,
+  botonMaxi:false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "GET_NAME_NFT":
       const sinC = action.payload;
+      let notFound = action.payload;
+      if (notFound.length <= 1) {
+        notFound = true;
+      } else {
+        notFound = false;
+      }
       const sinCurs = sinC.filter((e) => e.name);
       return {
         ...state,
         nftPorName: sinCurs,
         cards: [],
         allCards: [],
-        collection:[]
+        collection: [],
+        notFoundName: notFound,
       };
     case "PUT_UPDATE_PASSWORD":
       return {
         ...state,
         passwordUpdate: action.payload,
         recoverPassword: false,
+      };
+
+    case "GET_REVIEWS":
+      return {
+        ...state,
+        allReviews: action.payload,
+      };
+
+    case "POST_REVIEW":
+      return {
+        ...state,
+        reviewComplete: true,
       };
 
     case "NEW_PASSWORD":
@@ -170,6 +196,7 @@ export default function reducer(state = initialState, action) {
         cards: getInfoF,
         collection: [],
         nftPorName: [],
+        notFoundName: false,
       };
     case "GET_NFT_HOME":
       // const getInfo = action.payload
@@ -179,7 +206,7 @@ export default function reducer(state = initialState, action) {
       const getInfo1 = action.payload;
       const cursor1 = getInfo1[0].cursor;
       const getInfoF1 = getInfo1.filter((e) => e.name);
-      console.log("ESTE ES EL CURSOR 1:", cursor1);
+
       return {
         ...state,
         cursor: cursor1,
@@ -196,7 +223,7 @@ export default function reducer(state = initialState, action) {
       const getInfo2 = action.payload;
       const cursor2 = getInfo2[0].cursor;
       const getInfoFinal = getInfo2.filter((e) => !e.cursor);
-      console.log("ESTE ES EL CURSOR 2:", cursor2);
+
       return {
         ...state,
         cursor: cursor2,
@@ -217,10 +244,6 @@ export default function reducer(state = initialState, action) {
         error: false,
       };
     case "CREATE_ACOUNT_SUCCESS":
-      console.log(
-        "ESTO ES LO QUE ME LLEGA DE PAYLOAD DE LA CREACION DEL USUARIO",
-        action.payload
-      );
       return {
         ...state,
         user: [action.payload, ...state.user],
@@ -258,7 +281,6 @@ export default function reducer(state = initialState, action) {
         detail: [],
       };
     case "ADD_TO_CART":
-      console.log(action.payload);
       return {
         ...state,
         cartProducts: action.payload,
@@ -284,12 +306,13 @@ export default function reducer(state = initialState, action) {
       if (profile) {
         localStorage.setItem("profiles", JSON.stringify(profile));
       }
-      console.log("ACTION PAYLOAD DE SUCCESS", profile);
+
       return {
         ...state,
         userIsAuthenticated: true,
         error: false,
         userData: profile,
+        userComunTrue: true,
       };
     case "LOGIN_DATA":
       return {
@@ -315,9 +338,17 @@ export default function reducer(state = initialState, action) {
       };
 
     case "GET_PROFILE":
+      let a = action.payload.roles[0];
+
+      if (a !== undefined) {
+        if (a[23] == "e") {
+          a = true;
+        }
+      }
       return {
         ...state,
         profile: [action.payload],
+        esAdministrador: a,
       };
     case "GET_PROFILE_GOOGLE":
       return {
@@ -330,6 +361,17 @@ export default function reducer(state = initialState, action) {
         ...state,
         profile: action.payload,
       };
+    case "BOTON_MAXI":
+      let value = state.botonMaxi
+      if(value ===true){
+        value =false
+      }else{
+        value = true
+      }
+      return{
+        ...state,
+        botonMaxi:value
+      }
 
     case "REGISTER_USER_REQUEST": {
       return {
@@ -343,7 +385,7 @@ export default function reducer(state = initialState, action) {
     }
     case "REGISTER_USER_SUCCESS": {
       const profileGoogle = action.payload;
-      console.log("ESTE ES EL REGISTER_USER_SUCCES", profileGoogle);
+
       if (profileGoogle) {
         localStorage.setItem("profileGoogle", JSON.stringify(profileGoogle));
       }
@@ -353,6 +395,7 @@ export default function reducer(state = initialState, action) {
         userInfo: profileGoogle,
         loading: false,
         error: false,
+        userGoogleTrue: true,
       };
     }
     case "REGISTER_USER_ERROR": {
@@ -388,6 +431,12 @@ export default function reducer(state = initialState, action) {
         // usersDashboard: [...state.usersDashboard],
         // userDashboard: [...state.userDashboard],
       };
+    // case "SUSPEND_OR_UNSUSPEND_ACCOUNT":
+    //   return {
+    //     ...state,
+    //     stateforsuspendedaccounts???: action.payload,
+
+    //   };
 
     case "PUBLISH_MARKET":
       return {

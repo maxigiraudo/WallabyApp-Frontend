@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./Card.module.css";
-import { BsFillCartCheckFill, BsFillHeartFill } from "react-icons/bs";
-import { AiFillHeart } from "react-icons/ai";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
+import { BsSuitHeartFill } from "react-icons/bs";
 
 export default function Card({
   id,
@@ -12,7 +12,6 @@ export default function Card({
   name,
   image,
   token_address,
-  agregarCarrito,
   agregarFavorito,
 }) {
   let dispatch = useDispatch();
@@ -21,8 +20,14 @@ export default function Card({
   console.log("front2");
   const navigate = useNavigate();
 
-  let onClick = (e) => {
-    agregarCarrito(e);
+  let onClick = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Not available for sale at Wallaby.",
+      text: "To buy NFT check the market.",
+      showConfirmButton: true,
+    });
+    navigate("/market");
   };
   let onClickF = (e) => {
     agregarFavorito(e);
@@ -80,11 +85,11 @@ export default function Card({
               onClick={() => onClickF({ id, name, image })}
               className={style.heart}
             >
-              {AiFillHeart()}{" "}
+              {BsSuitHeartFill()}{" "}
             </button>
           ) : (
             <button onClick={() => favorito()} className={style.heartFeo}>
-              {AiFillHeart()}{" "}
+              {BsSuitHeartFill()}{" "}
             </button>
           )}
         </div>

@@ -9,7 +9,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { MoralisProvider } from "react-moralis";
 
-axios.defaults.baseURL = process.env.REACT_APP || "http://localhost:4000";
+axios.defaults.baseURL =
+  process.env.REACT_APP || "https://henry-proyecto-nft.herokuapp.com";
 
 ReactDOM.render(
   <React.StrictMode>

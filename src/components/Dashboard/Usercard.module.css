@@ -1,0 +1,52 @@
+.general{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #cf4bffc5;
+    border-radius: 8px;
+    margin: 1rem 0;
+    padding: 1%;
+}
+
+.hijo{
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    font-size: 1.5rem;
+}
+
+.user{
+    padding: 8px;
+    background: linear-gradient(90deg, #cf4bffc5 0%, #6c63ff 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.opcion{
+    background-color: #cf4bffbe;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+
+}
+
+@media all and (max-width: 500px) {
+    .general{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .container{
+        font-size: 1.1rem;
+        padding: 1% 0;
+    }
+    .user{
+        width: 5rem;
+    }
+}

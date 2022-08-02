@@ -8,7 +8,6 @@ const LinkList = (props) => {
     <li key={link.id} className={styles.item}>
         <a
             href={link.url}
-            target="_blank"
             rel="noopener noreferrer"
             className={styles.url}
         > {link.text} </a>
